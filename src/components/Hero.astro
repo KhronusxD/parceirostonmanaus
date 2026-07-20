@@ -20,6 +20,12 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
     <!-- OVERLAY: gradiente branco esquerda → transparente. Esconde as bordas do vídeo à esquerda e cria fundo pro texto -->
     <div class="hero-overlay absolute inset-0 pointer-events-none" aria-hidden="true"></div>
 
+    <!-- Indicador discreto de carregamento do vídeo (some quando canplaythrough) -->
+    <div class="hero-video-loader absolute top-24 right-6 z-40 flex items-center gap-2 rounded-full bg-paper-pure/85 backdrop-blur border border-line px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-ink-500 opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden="true">
+      <span class="h-1.5 w-1.5 rounded-full bg-ton animate-pulse"></span>
+      Carregando vídeo
+    </div>
+
     <!-- CONTEÚDO: texto do hero à esquerda -->
     <div class="relative h-full container-x flex items-center">
       <div class="max-w-2xl lg:max-w-xl xl:max-w-2xl">
@@ -130,7 +136,17 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
     if (video) {
       video.addEventListener('error', () => { video.style.display = 'none'; });
 
+      const loader = section.querySelector('.hero-video-loader') as HTMLElement | null;
+      const showLoader = () => { if (loader) loader.style.opacity = '1'; };
+      const hideLoader = () => { if (loader) loader.style.opacity = '0'; };
+      // Mostra o loader se ainda não tem dados suficientes após 400ms
+      const loaderTimer = window.setTimeout(() => {
+        if (video.readyState < 4) showLoader();
+      }, 400);
+
       const startAnimation = () => {
+        window.clearTimeout(loaderTimer);
+        hideLoader();
         video.pause();
         const dur = video.duration;
         if (!isFinite(dur) || dur <= 0) return;
@@ -143,7 +159,7 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
             trigger: section,
             start: 'top top',
             end: 'bottom bottom',
-            scrub: 0.4,
+            scrub: 0.6,
             invalidateOnRefresh: true
           },
           onUpdate: () => {
@@ -154,8 +170,29 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
         });
       };
 
-      if (video.readyState >= 1) startAnimation();
-      else video.addEventListener('loadedmetadata', startAnimation, { once: true });
+      // Aguarda o vídeo estar TOTALMENTE bufferizado antes de habilitar o scrub —
+      // evita travadas nas primeiras rolagens enquanto os frames ainda estão chegando.
+      const isFullyBuffered = () => {
+        if (video.readyState >= 4) return true;
+        if (video.buffered.length && isFinite(video.duration)) {
+          return video.buffered.end(video.buffered.length - 1) >= video.duration - 0.25;
+        }
+        return false;
+      };
+
+      const armWhenReady = () => {
+        if (isFullyBuffered()) { startAnimation(); return; }
+        video.addEventListener('canplaythrough', startAnimation, { once: true });
+        // fallback: se em 15s ainda não bufferizou tudo, engata assim mesmo
+        const fallback = window.setTimeout(() => {
+          video.removeEventListener('canplaythrough', startAnimation);
+          startAnimation();
+        }, 15000);
+        video.addEventListener('canplaythrough', () => window.clearTimeout(fallback), { once: true });
+      };
+
+      if (video.readyState >= 1) armWhenReady();
+      else video.addEventListener('loadedmetadata', armWhenReady, { once: true });
     }
   }
 </script>

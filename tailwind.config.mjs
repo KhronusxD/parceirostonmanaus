@@ -23,9 +23,9 @@ export default {
           soft: '#EEF0EC'
         },
         ton: {
-          DEFAULT: '#00A868',
-          deep: '#006D44',
-          soft: '#E6F5EE'
+          DEFAULT: '#00CC2C',
+          deep: '#00A324',
+          soft: '#E6F9EC'
         }
       },
       fontFamily: {

@@ -7,7 +7,7 @@
   body {
     @apply bg-paper text-ink-950 font-body antialiased;
   }
-  ::selection { background: rgba(0,168,104,0.20); color: #0A0F0D; }
+  ::selection { background: rgba(0,204,44,0.22); color: #0A0F0D; }
   h1,h2,h3,h4 { @apply font-display tracking-tight; }
   img { @apply select-none; -webkit-user-drag: none; }
 }
