@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+const {
+  title = 'Parceiro Autorizado Ton em Manaus | Pronta Entrega — Loja no Centro',
+  description = 'Maquininha Ton em Manaus com retirada no mesmo dia. Loja física do Parceiro Autorizado Ton no Centro. T1, T2, T3 e TapTon com atendimento humano. Fale no WhatsApp.',
+  path = '/'
+} = Astro.props;
+
+const canonical = new URL(path, Astro.site ?? 'https://parceirostonmanaus.com.br').toString();
+const ogImage = new URL('/img/og-cover.jpg', Astro.site ?? 'https://parceirostonmanaus.com.br').toString();
+
+// Google Ads / GA4 — substituir pelos IDs reais antes de publicar
+const GTAG_ID = ''; // ex: 'AW-XXXXXXXXX' ou 'G-XXXXXXX'
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#FAFAF7" />
+    <meta name="robots" content="index,follow" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Parceiro Autorizado Ton Manaus" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+
+    { GTAG_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`}></script>
+        <script is:inline set:html={`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GTAG_ID}');
+        `}></script>
+      </>
+    )}
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Loja Parceira Ton Manaus",
+      "description": description,
+      "image": ogImage,
+      "url": canonical,
+      "telephone": "+5592984603260",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Eduardo Ribeiro, 520 — Sala 02, Ed. Manaus Shopping Center",
+        "addressLocality": "Manaus",
+        "addressRegion": "AM",
+        "postalCode": "69010-000",
+        "addressCountry": "BR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": -3.130192, "longitude": -60.023093 },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "09:00", "closes": "18:00"
+      }],
+      "sameAs": ["https://wa.me/lojatonmanaus"]
+    })}></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

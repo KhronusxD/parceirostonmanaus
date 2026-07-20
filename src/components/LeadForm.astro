@@ -1,0 +1,146 @@
+---
+const waNumber = '5592984603260';
+---
+<section id="lead" class="relative py-24 md:py-32">
+  <div class="container-x">
+    <div class="mx-auto max-w-3xl">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="eyebrow">05 · Simulação</span>
+        <h2 class="mt-3 text-3xl md:text-5xl font-bold text-ink-950">
+          Vamos achar a maquininha certa pra você.
+        </h2>
+        <p class="mt-4 text-ink-500 text-base md:text-lg">
+          Preenche rapidinho — em até 10 minutos a gente chama você no WhatsApp com a simulação personalizada.
+        </p>
+      </div>
+
+      <form id="lead-form" class="mt-12 card p-6 md:p-10" novalidate>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <label class="block md:col-span-2">
+            <span class="text-xs uppercase tracking-widest text-ink-500">Nome</span>
+            <input required name="nome" type="text" autocomplete="name" placeholder="Como você quer que a gente te chame"
+              class="mt-2 w-full rounded-xl bg-paper border border-line px-4 py-3.5 text-ink-950 placeholder-ink-300 focus:border-ton focus:ring-2 focus:ring-ton/20 focus:outline-none transition" />
+          </label>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-widest text-ink-500">WhatsApp</span>
+            <input required name="whatsapp" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(92) 9 0000-0000"
+              class="mt-2 w-full rounded-xl bg-paper border border-line px-4 py-3.5 text-ink-950 placeholder-ink-300 focus:border-ton focus:ring-2 focus:ring-ton/20 focus:outline-none transition" />
+          </label>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-widest text-ink-500">Tipo de negócio</span>
+            <select required name="negocio"
+              class="mt-2 w-full rounded-xl bg-paper border border-line px-4 py-3.5 text-ink-950 focus:border-ton focus:ring-2 focus:ring-ton/20 focus:outline-none transition appearance-none">
+              <option value="">Escolha uma opção</option>
+              <option>MEI / Autônomo</option>
+              <option>Loja / Comércio</option>
+              <option>Restaurante / Delivery</option>
+              <option>Salão / Estética</option>
+              <option>Saúde / Consultório</option>
+              <option>Outro</option>
+            </select>
+          </label>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-widest text-ink-500">Modelo de interesse</span>
+            <select name="modelo"
+              class="mt-2 w-full rounded-xl bg-paper border border-line px-4 py-3.5 text-ink-950 focus:border-ton focus:ring-2 focus:ring-ton/20 focus:outline-none transition appearance-none">
+              <option value="">Ainda não sei</option>
+              <option>TapTon</option>
+              <option>T1</option>
+              <option>T2</option>
+              <option>T3</option>
+              <option>T3 Smart</option>
+            </select>
+          </label>
+
+          <label class="block">
+            <span class="text-xs uppercase tracking-widest text-ink-500">Faturamento mensal</span>
+            <select name="faturamento"
+              class="mt-2 w-full rounded-xl bg-paper border border-line px-4 py-3.5 text-ink-950 focus:border-ton focus:ring-2 focus:ring-ton/20 focus:outline-none transition appearance-none">
+              <option value="">Prefiro não dizer agora</option>
+              <option>Até R$ 5 mil</option>
+              <option>R$ 5 mil a R$ 20 mil</option>
+              <option>R$ 20 mil a R$ 50 mil</option>
+              <option>Acima de R$ 50 mil</option>
+            </select>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-wa w-full md:w-auto mt-8">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/></svg>
+          Quero minha simulação
+        </button>
+
+        <p class="mt-5 text-xs text-ink-500 leading-relaxed">
+          Ao enviar, você concorda em receber contato pelo WhatsApp. A gente não manda spam, palavra.
+          Seus dados são tratados de acordo com a LGPD. Você abre a conversa direto com nosso consultor.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script is:inline define:vars={{ waNumber }}>
+(function () {
+  const form = document.getElementById('lead-form');
+  if (!form) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const gclid = params.get('gclid') || params.get('gbraid') || params.get('wbraid') || '';
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const nome = (fd.get('nome') || '').toString().trim();
+    const wpp  = (fd.get('whatsapp') || '').toString().trim();
+    const neg  = (fd.get('negocio') || '').toString();
+    const mod  = (fd.get('modelo') || 'a definir').toString();
+    const fat  = (fd.get('faturamento') || 'não informado').toString();
+
+    if (!nome || !wpp || !neg) {
+      alert('Preenche nome, WhatsApp e tipo de negócio, por favor.');
+      return;
+    }
+
+    const msg = [
+      'Olá! Vim pelo site (Parceiro Ton Manaus).',
+      '',
+      '*Nome:* ' + nome,
+      '*WhatsApp:* ' + wpp,
+      '*Negócio:* ' + neg,
+      '*Modelo de interesse:* ' + mod,
+      '*Faturamento:* ' + fat,
+      gclid ? '\n_ref: ' + gclid + '_' : ''
+    ].filter(Boolean).join('\n');
+
+    if (typeof window.gtag === 'function') {
+      try {
+        window.gtag('event', 'lead_form_submit', { method: 'whatsapp', modelo: mod, negocio: neg });
+      } catch (_) {}
+    }
+
+    const url = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(msg);
+    window.location.href = url;
+  });
+
+  const tel = form.querySelector('input[name="whatsapp"]');
+  tel?.addEventListener('input', function (e) {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 10) v = v.replace(/(\d{2})(\d{5})(\d{0,4}).*/, '($1) $2-$3');
+    else if (v.length > 6) v = v.replace(/(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+    else if (v.length > 2) v = v.replace(/(\d{2})(\d{0,5}).*/, '($1) $2');
+    else if (v.length > 0) v = v.replace(/(\d{0,2}).*/, '($1');
+    e.target.value = v;
+  });
+
+  document.querySelectorAll('[data-cta]').forEach((el) => {
+    el.addEventListener('click', function () {
+      if (typeof window.gtag === 'function') {
+        try { window.gtag('event', 'whatsapp_click', { cta: el.getAttribute('data-cta') }); } catch (_) {}
+      }
+    });
+  });
+})();
+</script>

@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "loja-ton-manaus",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "/Users/edrodrigues/Documents/ANTIGRAVITY/loja-ton-manaus",
+      "port": 4321
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+---
+const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim pelo site e quero uma simulação de maquininha Ton.');
+---
+<section class="hero-scroll relative" data-hero-video>
+  <div class="hero-pin sticky top-0 h-screen w-full overflow-hidden">
+
+    <!-- VÍDEO em background: proporção natural, meio ancorado em 75% da viewport (centro do quadrante direito) -->
+    <video
+      class="hero-video absolute top-0 h-full w-auto max-w-none"
+      style="left: 75%; transform: translateX(-50%);"
+      src="/video-animation.mp4"
+      poster="/t3-smart-showcase-new.webp"
+      muted
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    ></video>
+
+    <!-- OVERLAY: gradiente branco esquerda → transparente. Esconde as bordas do vídeo à esquerda e cria fundo pro texto -->
+    <div class="hero-overlay absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- CONTEÚDO: texto do hero à esquerda -->
+    <div class="relative h-full container-x flex items-center">
+      <div class="max-w-2xl lg:max-w-xl xl:max-w-2xl">
+        <span class="chip bg-paper-pure">
+          <span class="h-1.5 w-1.5 rounded-full bg-ton animate-pulse"></span>
+          Parceiro Autorizado Ton • Loja física no Centro de Manaus
+        </span>
+
+        <h1 class="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-ink-950">
+          Sua maquininha Ton em Manaus,
+          <span class="italic font-normal text-ton-deep"> na sua mão hoje.</span>
+        </h1>
+
+        <p class="mt-6 max-w-xl text-base md:text-lg lg:text-xl text-ink-700 leading-relaxed">
+          T1, T2, T3, T3 Smart e TapTon em <strong class="text-ink-950">pronta entrega</strong> no Centro de Manaus.
+          Sem esperar Correios, com consultor de verdade pra te ajudar a escolher o modelo certo.
+        </p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href={wa} target="_blank" rel="noopener" class="btn btn-wa" data-cta="hero-wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/></svg>
+            Falar no WhatsApp agora
+          </a>
+          <a href="#lead" class="btn btn-ghost bg-paper-pure/70 backdrop-blur">
+            Quero uma simulação
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-ink-700">
+          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Atendimento humano</span>
+          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Retirada no mesmo dia</span>
+          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Loja física no Centro</span>
+          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Sem mensalidade</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- selo flutuante bottom-right (visível sobre o vídeo em desktop) -->
+    <div class="absolute bottom-8 right-8 card px-4 py-3 max-w-[220px] hidden lg:block">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-full bg-ton-soft flex items-center justify-center text-ton-deep">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+        </div>
+        <div class="text-xs">
+          <div class="font-semibold text-ink-950">Pronta entrega</div>
+          <div class="text-ink-500">retira hoje no Centro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- área extra de scroll: aqui o pin acima segura enquanto o vídeo scruba -->
+  <div class="hero-scrub-space h-[180vh] lg:h-[220vh]" aria-hidden="true"></div>
+</section>
+
+<style>
+  /* Vídeo: enhance visual — realce sutil pra disfarçar artefatos de compressão sem borrar */
+  .hero-video {
+    image-rendering: high-quality;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    filter: contrast(1.04) saturate(1.06);
+  }
+
+  /* Desktop: branco 100% opaco até bem passado do meio (esconde a borda esquerda do vídeo em ~35-40%), transição suave até transparente */
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      #FAFAF7 0%,
+      #FAFAF7 48%,
+      rgba(250, 250, 247, 0.95) 56%,
+      rgba(250, 250, 247, 0.6) 64%,
+      rgba(250, 250, 247, 0.2) 74%,
+      rgba(250, 250, 247, 0) 84%
+    );
+  }
+  /* Mobile: vídeo full-viewport, gradiente vertical branco no rodapé pra texto ler bem */
+  @media (max-width: 1023px) {
+    .hero-video {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      object-position: center 30%;
+    }
+    .hero-overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(250, 250, 247, 0.15) 0%,
+        rgba(250, 250, 247, 0.35) 25%,
+        rgba(250, 250, 247, 0.75) 45%,
+        #FAFAF7 62%,
+        #FAFAF7 100%
+      );
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  const section = document.querySelector('[data-hero-video]');
+  if (section) {
+    const video = section.querySelector('.hero-video') as HTMLVideoElement | null;
+    if (video) {
+      video.addEventListener('error', () => { video.style.display = 'none'; });
+
+      const startAnimation = () => {
+        video.pause();
+        const dur = video.duration;
+        if (!isFinite(dur) || dur <= 0) return;
+
+        const anim = { t: 0 };
+        gsap.to(anim, {
+          t: dur,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: 0.4,
+            invalidateOnRefresh: true
+          },
+          onUpdate: () => {
+            if (Math.abs(video.currentTime - anim.t) > 0.02) {
+              video.currentTime = anim.t;
+            }
+          }
+        });
+      };
+
+      if (video.readyState >= 1) startAnimation();
+      else video.addEventListener('loadedmetadata', startAnimation, { once: true });
+    }
+  }
+</script>
