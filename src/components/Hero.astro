@@ -78,8 +78,10 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
     </div>
   </div>
 
-  <!-- área extra de scroll: aqui o pin acima segura enquanto o vídeo scruba -->
-  <div class="hero-scrub-space h-[180vh] lg:h-[220vh]" aria-hidden="true"></div>
+  <!-- Área extra de scroll: começa com altura 0 (hero se comporta como seção normal de 100vh
+       enquanto o vídeo ainda tá carregando). O JS expande pra 180vh/220vh só depois que o vídeo
+       está totalmente bufferizado — assim a primeira visita nunca "trava" o scroll. -->
+  <div class="hero-scrub-space" style="height: 0" aria-hidden="true"></div>
 </section>
 
 <style>
@@ -144,6 +146,8 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
         if (video.readyState < 4) showLoader();
       }, 400);
 
+      const scrubSpace = section.querySelector('.hero-scrub-space') as HTMLElement | null;
+
       const startAnimation = () => {
         window.clearTimeout(loaderTimer);
         hideLoader();
@@ -151,22 +155,32 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
         const dur = video.duration;
         if (!isFinite(dur) || dur <= 0) return;
 
-        const anim = { t: 0 };
-        gsap.to(anim, {
-          t: dur,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: section,
-            start: 'top top',
-            end: 'bottom bottom',
-            scrub: 0.6,
-            invalidateOnRefresh: true
-          },
-          onUpdate: () => {
-            if (Math.abs(video.currentTime - anim.t) > 0.02) {
-              video.currentTime = anim.t;
+        // Só agora expande a área de scroll — antes disso o hero é 100vh normal,
+        // então o usuário não fica "preso" com um vídeo que ainda não responde.
+        if (scrubSpace) {
+          scrubSpace.style.height = window.innerWidth >= 1024 ? '220vh' : '180vh';
+        }
+
+        // Aguarda o layout aplicar antes de criar o ScrollTrigger, pra o cálculo start/end pegar a nova altura.
+        requestAnimationFrame(() => {
+          const anim = { t: 0 };
+          gsap.to(anim, {
+            t: dur,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: section,
+              start: 'top top',
+              end: 'bottom bottom',
+              scrub: 0.6,
+              invalidateOnRefresh: true
+            },
+            onUpdate: () => {
+              if (Math.abs(video.currentTime - anim.t) > 0.02) {
+                video.currentTime = anim.t;
+              }
             }
-          }
+          });
+          ScrollTrigger.refresh();
         });
       };
 
