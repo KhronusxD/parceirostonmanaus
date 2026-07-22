@@ -1,0 +1,50 @@
+---
+const wa = 'https://wa.me/5592981074692?text=' + encodeURIComponent(
+  'Olá! Vim pela LP Ton Black. Quero a análise gratuita da minha taxa atual.'
+);
+
+const passos = [
+  {
+    n: '01',
+    title: 'Análise gratuita da sua taxa atual',
+    text: 'Você manda um extrato pelo WhatsApp. A gente mostra em números quanto você está pagando a mais hoje, comparado ao que pagaria no Black.'
+  },
+  {
+    n: '02',
+    title: 'Proposta Black personalizada',
+    text: 'Não é taxa de tabela. É condição negociada pela sua faixa de faturamento, com número na mão e sem letra miúda.'
+  },
+  {
+    n: '03',
+    title: 'Migração assistida e pronto',
+    text: 'A gente faz a troca da sua maquininha sem você parar de vender. Você continua igual, pagando menos.'
+  }
+];
+---
+<section class="relative py-24 md:py-32 bg-paper-soft">
+  <div class="container-x">
+    <div class="max-w-3xl">
+      <span class="eyebrow">05 · Como funciona</span>
+      <h2 class="mt-3 text-3xl md:text-5xl font-bold text-ink-950 leading-[1.05]">
+        Sua condição Black em 3 passos.
+      </h2>
+    </div>
+
+    <ol class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+      {passos.map((p) => (
+        <li class="card p-8 flex flex-col relative">
+          <span class="font-mono text-4xl font-bold text-ton mb-6">{p.n}</span>
+          <h3 class="font-display text-xl font-semibold text-ink-950 leading-snug">{p.title}</h3>
+          <p class="mt-4 text-sm text-ink-500 leading-relaxed flex-1">{p.text}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-14 text-center">
+      <a href={wa} target="_blank" rel="noopener" class="btn btn-wa" data-cta="como-funciona-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/></svg>
+        Quero a análise gratuita
+      </a>
+    </div>
+  </div>
+</section>

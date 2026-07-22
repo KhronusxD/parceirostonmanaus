@@ -1,0 +1,61 @@
+---
+const items = [
+  {
+    q: 'Já tenho maquininha. Trocar não vai dar trabalho?',
+    a: 'Não. A migração é assistida por nós. A gente cuida da troca da sua maquininha atual e da ativação da Ton sem você parar de vender um dia sequer. Você segue com a antiga enquanto a nova é preparada.'
+  },
+  {
+    q: 'Como sei que a taxa vai mesmo ser menor?',
+    a: 'Fazemos análise gratuita do seu extrato antes de qualquer coisa. Você recebe um comparativo por escrito, com a taxa que você paga hoje versus a proposta Black pela sua faixa. Nada de "confie na gente". Número na mão.'
+  },
+  {
+    q: 'Vou receber em 30 dias e ficar sem giro?',
+    a: 'Não. O Ton Black tem recebimento em 1 dia útil ou na hora, dependendo da modalidade. Pix cai na hora, 0% de taxa. Seu capital de giro fica com você, não no banco.'
+  },
+  {
+    q: 'Ton é confiável?',
+    a: 'Ton é do grupo Stone, uma das maiores adquirentes do Brasil. E aqui você ainda tem o suporte local presencial em Manaus, coisa que quem contrata direto pelo app não tem.'
+  },
+  {
+    q: 'Por que fechar por vocês e não pelo app do Ton?',
+    a: 'Você pode fechar pelo app. Vai funcionar. Mas aí sua condição é a de balcão, seu suporte é 0800 e sua revisão de taxa depende de você abrir chamado. Com a gente, você tem gente daqui, presencial, negociando pela sua faixa e revisando quando o volume cresce.'
+  },
+  {
+    q: 'Meu faturamento varia. E se eu cair de faixa num mês fraco?',
+    a: 'A condição negociada não muda a cada mês. E se seu volume cresce, a gente revisa pra cima. Se cai por um período específico, conversamos. A ideia é que a taxa acompanhe o negócio, não te penalize.'
+  },
+  {
+    q: 'Tem mensalidade, aluguel ou fidelidade?',
+    a: 'Sem mensalidade, sem aluguel. Você paga só as taxas por transação. Sobre fidelidade e valor de adesão da máquina, tratamos junto na análise. Depende do modelo e da condição negociada. Nada é cobrado sem você saber antes.'
+  }
+];
+---
+<section id="faq" class="relative py-24 md:py-32">
+  <div class="container-x">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-4">
+        <span class="eyebrow">06 · Perguntas</span>
+        <h2 class="mt-3 text-3xl md:text-5xl font-bold text-ink-950 leading-[1.05]">
+          As dúvidas de quem já vende bastante.
+        </h2>
+        <p class="mt-5 text-ink-500">
+          Ficou faltando alguma? Manda no WhatsApp que a gente responde.
+        </p>
+      </div>
+
+      <div class="lg:col-span-8 space-y-3">
+        {items.map((it) => (
+          <details class="card group px-6 py-5 open:border-ton/40 transition">
+            <summary class="flex items-center justify-between cursor-pointer list-none">
+              <span class="font-display text-base md:text-lg font-semibold text-ink-950 pr-6">{it.q}</span>
+              <span class="shrink-0 h-8 w-8 rounded-full border border-line flex items-center justify-center text-ton-deep group-open:rotate-45 transition-transform">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+              </span>
+            </summary>
+            <p class="mt-4 text-sm md:text-base text-ink-500 leading-relaxed">{it.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

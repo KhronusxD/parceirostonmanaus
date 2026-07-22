@@ -40,6 +40,10 @@
   }
 }
 
+/* Utility: esconder scrollbar (usado no carrossel mobile dos modelos) */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }

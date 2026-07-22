@@ -1,0 +1,71 @@
+---
+export interface Props {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  variant?: 'light' | 'dark';
+}
+
+const {
+  eyebrow = 'Nossa equipe',
+  title = 'Quem vai te atender.',
+  subtitle = 'Gente daqui de Manaus. Você conversa direto, sem 0800, sem chatbot.',
+  variant = 'light'
+} = Astro.props;
+
+const team = [
+  { img: '/team-1.webp', name: '[ Nome do consultor ]', role: 'Consultor' },
+  { img: '/team-2.webp', name: '[ Nome da consultora ]', role: 'Consultora' },
+  { img: '/team-3.webp', name: '[ Nome do consultor ]', role: 'Consultor' },
+];
+
+const isDark = variant === 'dark';
+---
+<section class:list={[
+  'relative py-20 md:py-28',
+  isDark ? 'bg-ink-950 text-paper' : ''
+]}>
+  <div class="container-x">
+    <div class="max-w-2xl mx-auto text-center">
+      <span class:list={['eyebrow', isDark ? 'text-ton' : '']}>{eyebrow}</span>
+      <h2 class:list={[
+        'mt-3 text-3xl md:text-5xl font-bold leading-[1.05]',
+        isDark ? 'text-paper' : 'text-ink-950'
+      ]}>{title}</h2>
+      <p class:list={[
+        'mt-5 text-base md:text-lg leading-relaxed',
+        isDark ? 'text-ink-200/85' : 'text-ink-500'
+      ]}>{subtitle}</p>
+    </div>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 max-w-4xl mx-auto">
+      {team.map((p) => (
+        <div class="flex flex-col items-center text-center group">
+          <div class="relative">
+            <!-- Ring decorativo verde -->
+            <div class:list={[
+              'absolute -inset-1.5 rounded-full transition-opacity duration-300',
+              isDark ? 'bg-ton/25 group-hover:bg-ton/40' : 'bg-ton-soft group-hover:bg-ton/25'
+            ]} aria-hidden="true"></div>
+            <div class:list={[
+              'relative aspect-square w-40 md:w-44 lg:w-48 rounded-full overflow-hidden border-2',
+              isDark ? 'border-ink-950' : 'border-paper-pure'
+            ]}>
+              <img src={p.img} alt={p.name} loading="lazy" class="h-full w-full object-cover" />
+            </div>
+          </div>
+          <div class="mt-6">
+            <div class:list={[
+              'font-display text-lg font-semibold',
+              isDark ? 'text-paper' : 'text-ink-950'
+            ]}>{p.name}</div>
+            <div class:list={[
+              'mt-1 text-xs font-mono uppercase tracking-widest',
+              isDark ? 'text-ton' : 'text-ton-deep'
+            ]}>{p.role}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

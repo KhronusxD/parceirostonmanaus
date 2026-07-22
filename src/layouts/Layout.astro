@@ -1,16 +1,19 @@
 ---
 import '../styles/global.css';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
 
 export interface Props {
   title?: string;
   description?: string;
   path?: string;
+  videoPreloadUrl?: string;
 }
 
 const {
-  title = 'Parceiro Autorizado Ton em Manaus | Pronta Entrega — Loja no Centro',
+  title = 'Parceiro Autorizado Ton em Manaus | Pronta Entrega, Loja no Centro',
   description = 'Maquininha Ton em Manaus com retirada no mesmo dia. Loja física do Parceiro Autorizado Ton no Centro. T1, T2, T3 e TapTon com atendimento humano. Fale no WhatsApp.',
-  path = '/'
+  path = '/',
+  videoPreloadUrl = ''
 } = Astro.props;
 
 const canonical = new URL(path, Astro.site ?? 'https://parceirostonmanaus.com.br').toString();
@@ -40,12 +43,16 @@ const GTAG_ID = ''; // ex: 'AW-XXXXXXXXX' ou 'G-XXXXXXX'
     <meta property="og:locale" content="pt_BR" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Pré-download do vídeo hero para reduzir "travada" na primeira visita -->
-    <link rel="preload" href="https://pub-61b5d969a4e24870b3632f3f16c5a801.r2.dev/video-animation.mp4" as="video" type="video/mp4" crossorigin="anonymous" fetchpriority="high" />
-    <link rel="preconnect" href="https://pub-61b5d969a4e24870b3632f3f16c5a801.r2.dev" crossorigin />
+    { videoPreloadUrl && (
+      <>
+        <link rel="preload" href={videoPreloadUrl} as="video" type="video/mp4" crossorigin="anonymous" fetchpriority="high" />
+        <link rel="preconnect" href={new URL(videoPreloadUrl).origin} crossorigin />
+      </>
+    )}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -76,7 +83,7 @@ const GTAG_ID = ''; // ex: 'AW-XXXXXXXXX' ou 'G-XXXXXXX'
       "telephone": "+5592984603260",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Av. Eduardo Ribeiro, 520 — Sala 02, Ed. Manaus Shopping Center",
+        "streetAddress": "Av. Eduardo Ribeiro, 520, Sala 02, Ed. Manaus Shopping Center",
         "addressLocality": "Manaus",
         "addressRegion": "AM",
         "postalCode": "69010-000",
@@ -85,13 +92,59 @@ const GTAG_ID = ''; // ex: 'AW-XXXXXXXXX' ou 'G-XXXXXXX'
       "geo": { "@type": "GeoCoordinates", "latitude": -3.130192, "longitude": -60.023093 },
       "openingHoursSpecification": [{
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-        "opens": "09:00", "closes": "18:00"
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00", "closes": "17:00"
       }],
       "sameAs": ["https://wa.me/lojatonmanaus"]
     })}></script>
   </head>
   <body>
     <slot />
+    <FloatingWhatsApp />
+
+    <script is:inline>
+      // Store status — atualiza [data-store-status] com "Loja aberta agora" / "Loja fechada agora"
+      // e [data-store-dot] com bg-ton (verde) / bg-red-500 (vermelho).
+      // Fuso horário de Manaus (America/Manaus, UTC-4, sem horário de verão).
+      // Horário comercial: Segunda a sexta, 9h às 17h.
+      (function () {
+        function isStoreOpen() {
+          try {
+            var now = new Date();
+            var fmt = new Intl.DateTimeFormat('en-US', {
+              timeZone: 'America/Manaus',
+              weekday: 'short',
+              hour: '2-digit',
+              hour12: false
+            });
+            var parts = fmt.formatToParts(now);
+            var wd = parts.find(function (p) { return p.type === 'weekday'; }).value; // Sun, Mon, ...
+            var hour = parseInt(parts.find(function (p) { return p.type === 'hour'; }).value, 10);
+            if (wd === 'Sat' || wd === 'Sun') return false;
+            return hour >= 9 && hour < 17;
+          } catch (e) { return null; }
+        }
+        function apply() {
+          var open = isStoreOpen();
+          if (open === null) return;
+          document.querySelectorAll('[data-store-status]').forEach(function (el) {
+            el.textContent = open ? 'Loja aberta agora' : 'Loja fechada agora';
+          });
+          document.querySelectorAll('[data-store-dot]').forEach(function (el) {
+            if (open) {
+              el.classList.remove('bg-red-500');
+              el.classList.add('bg-ton');
+              el.classList.add('animate-pulse');
+            } else {
+              el.classList.remove('bg-ton');
+              el.classList.remove('animate-pulse');
+              el.classList.add('bg-red-500');
+            }
+          });
+        }
+        apply();
+        setInterval(apply, 60000);
+      })();
+    </script>
   </body>
 </html>

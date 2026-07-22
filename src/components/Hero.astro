@@ -29,22 +29,23 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
     <!-- CONTEÚDO: texto do hero à esquerda -->
     <div class="relative h-full container-x flex items-center">
       <div class="max-w-2xl lg:max-w-xl xl:max-w-2xl">
-        <span class="chip bg-paper-pure">
-          <span class="h-1.5 w-1.5 rounded-full bg-ton animate-pulse"></span>
-          Parceiro Autorizado Ton • Loja física no Centro de Manaus
+        <span class="chip bg-paper-pure" data-store-chip>
+          <span class="h-1.5 w-1.5 rounded-full bg-ton animate-pulse" data-store-dot></span>
+          <span data-store-status>Loja no Centro de Manaus</span>
+          <span class="text-ink-500">· Seg a sex, 9h às 17h</span>
         </span>
 
-        <h1 class="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-ink-950">
+        <h1 class="hero-headline mt-6 text-center lg:text-left text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-ink-950">
           Sua maquininha Ton em Manaus,
           <span class="italic font-normal text-ton-deep"> na sua mão hoje.</span>
         </h1>
 
-        <p class="mt-6 max-w-xl text-base md:text-lg lg:text-xl text-ink-700 leading-relaxed">
-          T1, T2, T3, T3 Smart e TapTon em <strong class="text-ink-950">pronta entrega</strong> no Centro de Manaus.
-          Sem esperar Correios, com consultor de verdade pra te ajudar a escolher o modelo certo.
+        <p class="mt-6 max-w-xl text-center lg:text-left mx-auto lg:mx-0 text-base md:text-lg lg:text-xl text-ink-700 leading-relaxed">
+          T1, T2, T3, T3 Smart e TapTon em <strong class="text-ink-950">pronta entrega</strong>.
+          Retire na loja no Centro ou <strong class="text-ink-950">receba onde estiver</strong>, em qualquer bairro de Manaus. Sem esperar Correios.
         </p>
 
-        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+        <div class="mt-8 flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
           <a href={wa} target="_blank" rel="noopener" class="btn btn-wa" data-cta="hero-wa">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/></svg>
             Falar no WhatsApp agora
@@ -55,9 +56,9 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
           </a>
         </div>
 
-        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-ink-700">
+        <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 text-xs text-ink-700">
           <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Atendimento humano</span>
-          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Retirada no mesmo dia</span>
+          <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Entrega em toda Manaus</span>
           <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Loja física no Centro</span>
           <span class="flex items-center gap-1.5"><span class="h-1 w-1 rounded-full bg-ton"></span>Sem mensalidade</span>
         </div>
@@ -100,14 +101,14 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
     background: linear-gradient(
       to right,
       #FAFAF7 0%,
-      #FAFAF7 48%,
-      rgba(250, 250, 247, 0.95) 56%,
-      rgba(250, 250, 247, 0.6) 64%,
-      rgba(250, 250, 247, 0.2) 74%,
-      rgba(250, 250, 247, 0) 84%
+      #FAFAF7 52%,
+      rgba(250, 250, 247, 0.97) 60%,
+      rgba(250, 250, 247, 0.75) 68%,
+      rgba(250, 250, 247, 0.35) 78%,
+      rgba(250, 250, 247, 0) 88%
     );
   }
-  /* Mobile: vídeo full-viewport, gradiente vertical branco no rodapé pra texto ler bem */
+  /* Mobile: vídeo full-viewport, gradiente misto pra headline ter contraste em qualquer frame */
   @media (max-width: 1023px) {
     .hero-video {
       left: 50% !important;
@@ -115,15 +116,23 @@ const wa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent('Olá! Vim p
       object-position: center 30%;
     }
     .hero-overlay {
-      background: linear-gradient(
-        to bottom,
-        rgba(250, 250, 247, 0.15) 0%,
-        rgba(250, 250, 247, 0.35) 25%,
-        rgba(250, 250, 247, 0.75) 45%,
-        #FAFAF7 62%,
-        #FAFAF7 100%
-      );
+      background:
+        /* Camada de escurecimento sutil no topo (pra headline preta ler sobre fundo claro do vídeo) */
+        linear-gradient(
+          to bottom,
+          rgba(250, 250, 247, 0.55) 0%,
+          rgba(250, 250, 247, 0.5) 25%,
+          rgba(250, 250, 247, 0.75) 45%,
+          #FAFAF7 62%,
+          #FAFAF7 100%
+        );
     }
+  }
+  /* Contorno branco sutil na headline pra não sumir com o vídeo em nenhum frame */
+  .hero-headline {
+    text-shadow:
+      0 0 12px rgba(250, 250, 247, 0.85),
+      0 1px 2px rgba(250, 250, 247, 0.9);
   }
 </style>
 

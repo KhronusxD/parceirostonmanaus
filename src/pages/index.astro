@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import WhyHere from '../components/WhyHere.astro';
+import Time from '../components/Time.astro';
 import Models from '../components/Models.astro';
 import Plans from '../components/Plans.astro';
 import Store from '../components/Store.astro';
@@ -10,16 +11,17 @@ import LeadForm from '../components/LeadForm.astro';
 import Faq from '../components/Faq.astro';
 import Footer from '../components/Footer.astro';
 ---
-<Layout>
+<Layout videoPreloadUrl="https://pub-61b5d969a4e24870b3632f3f16c5a801.r2.dev/video-animation.mp4">
   <Header />
   <main>
     <Hero />
     <WhyHere />
     <Models />
     <Plans />
-    <Store />
+    <Time />
     <LeadForm />
     <Faq />
+    <Store />
   </main>
   <Footer />
 </Layout>

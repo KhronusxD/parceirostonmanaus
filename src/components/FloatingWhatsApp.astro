@@ -1,0 +1,370 @@
+---
+// Botão flutuante de WhatsApp com mock de "digitando..." antes de cair no WA real.
+// Aparece em todas as páginas (embutido no Layout).
+const waHref = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent(
+  'Olá! Vim pelo site e quero falar com um consultor.'
+);
+---
+<div class="fw-root" data-fw-root>
+  <!-- Card do mock de chat -->
+  <div class="fw-card" data-fw-card aria-hidden="true">
+    <header class="fw-card-header">
+      <div class="fw-avatar" aria-hidden="true">
+        <img src="/logo-ton.png" alt="" class="fw-avatar-img" />
+        <span class="fw-avatar-dot"></span>
+      </div>
+      <div class="fw-hd-info">
+        <div class="fw-hd-name">Loja Parceira Ton Manaus</div>
+        <div class="fw-hd-status" data-fw-status>online</div>
+      </div>
+      <button class="fw-close" type="button" data-fw-close aria-label="Fechar">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </header>
+
+    <div class="fw-body" data-fw-body>
+      <!-- bolhas aparecem via JS -->
+    </div>
+
+    <footer class="fw-card-footer">
+      <a href={waHref} target="_blank" rel="noopener" class="fw-cta" data-fw-cta data-cta="floating-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/>
+        </svg>
+        <span>Iniciar conversa no WhatsApp</span>
+      </a>
+    </footer>
+  </div>
+
+  <!-- FAB -->
+  <button type="button" class="fw-fab" data-fw-fab aria-label="Falar no WhatsApp">
+    <span class="fw-fab-pulse" aria-hidden="true"></span>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/>
+    </svg>
+    <span class="fw-badge" aria-hidden="true">1</span>
+  </button>
+</div>
+
+<style>
+  .fw-root {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    z-index: 60;
+    font-family: Inter, system-ui, sans-serif;
+  }
+  @media (min-width: 768px) {
+    .fw-root { right: 1.75rem; bottom: 1.75rem; }
+  }
+
+  /* FAB */
+  .fw-fab {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 9999px;
+    background: #00CC2C;
+    color: #0A0F0D;
+    border: none;
+    box-shadow: 0 10px 30px -8px rgba(0, 204, 44, 0.55), 0 4px 12px rgba(10, 15, 13, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .fw-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -8px rgba(0, 204, 44, 0.65); }
+  .fw-fab:active { transform: translateY(0); }
+  .fw-fab-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: #00CC2C;
+    opacity: 0.6;
+    animation: fw-pulse 2.4s ease-out infinite;
+  }
+  @keyframes fw-pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    80% { transform: scale(1.55); opacity: 0; }
+    100% { transform: scale(1.55); opacity: 0; }
+  }
+  .fw-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 9999px;
+    background: #E11D48;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 2px #FAFAF7;
+  }
+
+  /* Card */
+  .fw-card {
+    position: absolute;
+    right: 0;
+    bottom: 76px;
+    width: min(340px, calc(100vw - 2.5rem));
+    background: #EEF0EC;
+    border-radius: 16px;
+    box-shadow: 0 24px 60px -20px rgba(10, 15, 13, 0.35), 0 8px 24px -8px rgba(10, 15, 13, 0.18);
+    overflow: hidden;
+    transform: translateY(12px) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1.2), opacity 200ms ease;
+  }
+  .fw-card.fw-open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .fw-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #007A3D;
+    padding: 12px 14px;
+    color: #fff;
+  }
+  .fw-avatar {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 6px;
+    box-sizing: border-box;
+  }
+  .fw-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .fw-avatar-dot {
+    position: absolute;
+    right: -1px;
+    bottom: -1px;
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: #00E63A;
+    box-shadow: 0 0 0 2px #007A3D;
+  }
+  .fw-hd-info { flex: 1; line-height: 1.2; min-width: 0; }
+  .fw-hd-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .fw-hd-status { font-size: 11px; color: rgba(255, 255, 255, 0.75); }
+  .fw-close {
+    background: transparent;
+    border: 0;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 150ms ease;
+  }
+  .fw-close:hover { background: rgba(255, 255, 255, 0.15); }
+
+  .fw-body {
+    padding: 16px 14px 4px;
+    min-height: 140px;
+    max-height: 260px;
+    overflow-y: auto;
+    background:
+      radial-gradient(circle at 30% 20%, rgba(0, 204, 44, 0.05) 0, transparent 40%),
+      #EEF0EC;
+  }
+
+  .fw-bubble {
+    max-width: 85%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: #fff;
+    color: #0A0F0D;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 1px rgba(10, 15, 13, 0.08);
+    animation: fw-bubble-in 260ms cubic-bezier(0.2, 0.9, 0.3, 1.2);
+    border-radius: 4px 12px 12px 12px;
+    word-wrap: break-word;
+  }
+  .fw-typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 4px 12px 12px 12px;
+    box-shadow: 0 1px 1px rgba(10, 15, 13, 0.08);
+    margin-bottom: 8px;
+    animation: fw-bubble-in 240ms ease;
+  }
+  .fw-typing span {
+    width: 6px; height: 6px; border-radius: 9999px; background: #9DA5A0;
+    animation: fw-typing-dot 1.2s infinite ease-in-out;
+  }
+  .fw-typing span:nth-child(2) { animation-delay: 0.15s; }
+  .fw-typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes fw-typing-dot {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+  @keyframes fw-bubble-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fw-card-footer {
+    padding: 12px;
+    background: #EEF0EC;
+    border-top: 1px solid rgba(10, 15, 13, 0.08);
+  }
+  .fw-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    background: #00CC2C;
+    color: #0A0F0D;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 14px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: background 200ms ease, transform 100ms ease;
+  }
+  .fw-cta:hover { background: #00A324; color: #fff; }
+  .fw-cta:active { transform: scale(0.98); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fw-fab-pulse { animation: none; opacity: 0; }
+    .fw-typing span { animation: none; }
+    .fw-bubble, .fw-typing, .fw-card { animation: none; transition: opacity 100ms ease; }
+  }
+</style>
+
+<script is:inline>
+(function () {
+  var root = document.querySelector('[data-fw-root]');
+  if (!root) return;
+  var fab = root.querySelector('[data-fw-fab]');
+  var card = root.querySelector('[data-fw-card]');
+  var body = root.querySelector('[data-fw-body]');
+  var closeBtn = root.querySelector('[data-fw-close]');
+  var statusEl = root.querySelector('[data-fw-status]');
+  var cta = root.querySelector('[data-fw-cta]');
+
+  var opened = false;
+  var animated = false;
+
+  function addBubble(text) {
+    var b = document.createElement('div');
+    b.className = 'fw-bubble';
+    b.textContent = text;
+    body.appendChild(b);
+    body.scrollTop = body.scrollHeight;
+    return b;
+  }
+  function addTyping() {
+    var t = document.createElement('div');
+    t.className = 'fw-typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    body.appendChild(t);
+    body.scrollTop = body.scrollHeight;
+    return t;
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  function runConversation() {
+    if (animated) return;
+    animated = true;
+    (async function () {
+      if (statusEl) statusEl.textContent = 'digitando…';
+      var t1 = addTyping();
+      await wait(1200);
+      t1.remove();
+      addBubble('Oi! Aqui é da Loja Parceira Ton em Manaus.');
+      if (statusEl) statusEl.textContent = 'online';
+      await wait(700);
+
+      if (statusEl) statusEl.textContent = 'digitando…';
+      var t2 = addTyping();
+      await wait(1100);
+      t2.remove();
+      addBubble('Posso te ajudar a escolher a maquininha certa ou fazer uma análise gratuita da sua taxa atual.');
+      if (statusEl) statusEl.textContent = 'online';
+      await wait(700);
+
+      if (statusEl) statusEl.textContent = 'digitando…';
+      var t3 = addTyping();
+      await wait(900);
+      t3.remove();
+      addBubble('Quer continuar a conversa no WhatsApp?');
+      if (statusEl) statusEl.textContent = 'online';
+    })();
+  }
+
+  fab.addEventListener('click', function () {
+    opened = !opened;
+    if (opened) {
+      card.classList.add('fw-open');
+      card.setAttribute('aria-hidden', 'false');
+      runConversation();
+    } else {
+      card.classList.remove('fw-open');
+      card.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  closeBtn.addEventListener('click', function () {
+    opened = false;
+    card.classList.remove('fw-open');
+    card.setAttribute('aria-hidden', 'true');
+  });
+
+  // Fecha ao clicar fora
+  document.addEventListener('click', function (e) {
+    if (!opened) return;
+    if (root.contains(e.target)) return;
+    opened = false;
+    card.classList.remove('fw-open');
+    card.setAttribute('aria-hidden', 'true');
+  });
+
+  // Analytics
+  if (cta) {
+    cta.addEventListener('click', function () {
+      if (typeof window.gtag === 'function') {
+        try { window.gtag('event', 'whatsapp_click', { cta: 'floating-wa' }); } catch (_) {}
+      }
+    });
+  }
+})();
+</script>

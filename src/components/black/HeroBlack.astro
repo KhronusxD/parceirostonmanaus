@@ -1,0 +1,217 @@
+---
+const wa = 'https://wa.me/5592981074692?text=' + encodeURIComponent(
+  'Olá! Vim pela LP Ton Black. Quero minha análise gratuita. Faturo acima de R$ 20 mil por mês.'
+);
+---
+<section class="hero-black-scroll relative bg-ink-950 text-paper" data-hero-video>
+  <div class="hero-black-pin sticky top-0 h-screen w-full overflow-hidden">
+
+    <!-- VÍDEO em background: centralizado, cobrindo o hero -->
+    <video
+      class="hero-video absolute top-0 h-full w-auto max-w-none"
+      style="left: 50%; transform: translateX(-50%);"
+      src="https://pub-61b5d969a4e24870b3632f3f16c5a801.r2.dev/video-animation.mp4"
+      crossorigin="anonymous"
+      poster="/hero-poster.webp"
+      muted
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    ></video>
+
+    <!-- OVERLAY 1: escurecimento global do vídeo pra o texto branco ler bem -->
+    <div class="absolute inset-0 pointer-events-none bg-ink-950/60" aria-hidden="true"></div>
+
+    <!-- OVERLAY 2: degradê preto no rodapé (0-25% da altura) — esconde a marca d'água do Gemini -->
+    <div class="hero-black-bottom-fade absolute inset-x-0 bottom-0 h-1/4 pointer-events-none" aria-hidden="true"></div>
+
+    <!-- Brilho verde grande atrás do CTA (dá o "wow" premium) -->
+    <div class="pointer-events-none absolute inset-0 z-10" aria-hidden="true">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[820px] h-[820px] rounded-full bg-ton/12 blur-[120px]"></div>
+    </div>
+
+    <!-- Indicador discreto de carregamento -->
+    <div class="hero-video-loader absolute top-24 right-6 z-40 flex items-center gap-2 rounded-full bg-ink-900/85 backdrop-blur border border-ink-700 px-3 py-1.5 text-[10px] font-mono uppercase tracking-wider text-ink-300 opacity-0 transition-opacity duration-300 pointer-events-none" aria-hidden="true">
+      <span class="h-1.5 w-1.5 rounded-full bg-ton animate-pulse"></span>
+      Carregando vídeo
+    </div>
+
+    <!-- CONTEÚDO -->
+    <div class="relative z-20 h-full container-x flex items-center justify-center">
+      <div class="max-w-4xl text-center">
+        <span class="inline-flex items-center gap-2 rounded-full border border-ton/30 bg-ton/10 backdrop-blur-sm px-4 py-1.5 text-[11px] uppercase tracking-[0.18em] font-mono text-ton" data-store-chip>
+          <span class="h-1.5 w-1.5 rounded-full bg-ton animate-pulse" data-store-dot></span>
+          <span data-store-status>Loja no Centro de Manaus</span>
+          <span class="text-ton/70">· Seg a sex, 9h às 17h</span>
+        </span>
+
+        <h1 class="mt-8 text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight text-paper">
+          Sua maquininha está comendo seu lucro todo mês.
+        </h1>
+        <p class="mt-5 text-2xl md:text-3xl lg:text-4xl font-semibold text-ton leading-[1.15] tracking-tight max-w-3xl mx-auto">
+          No Plano Ton Black, você para de pagar caro por vender.
+        </p>
+
+        <p class="mt-8 max-w-2xl mx-auto text-lg md:text-xl text-ink-200/90 leading-relaxed">
+          Para negócios de Manaus que faturam acima de R$ 20 mil por mês. Taxa negociada pelo seu volume,
+          recebimento rápido e um parceiro de verdade na cidade, não um 0800. Entregamos e ativamos no seu comércio.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row justify-center gap-3">
+          <a href={wa} target="_blank" rel="noopener" class="btn btn-wa" data-cta="hero-black-wa">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/></svg>
+            Quero minha condição Black
+          </a>
+        </div>
+
+        <p class="mt-5 text-sm text-ink-300">
+          Análise gratuita da sua taxa atual. Sem compromisso.
+        </p>
+
+        <!-- Trust strip -->
+        <div class="mt-14 pt-8 border-t border-ink-700/60">
+          <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-xs uppercase tracking-wider text-ink-300">
+            <span class="flex items-center gap-2"><span class="h-1 w-1 rounded-full bg-ton"></span>Parceiro oficial Ton em Manaus</span>
+            <span class="flex items-center gap-2"><span class="h-1 w-1 rounded-full bg-ton"></span>Atendimento presencial</span>
+            <span class="flex items-center gap-2"><span class="h-1 w-1 rounded-full bg-ton"></span>Entrega no seu comércio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Área extra de scroll — expande via JS quando o vídeo tá pronto -->
+  <div class="hero-scrub-space" style="height: 0" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero-video {
+    image-rendering: high-quality;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    will-change: transform;
+    filter: contrast(1.04) saturate(1.06);
+  }
+
+  .hero-black-bottom-fade {
+    background: linear-gradient(
+      to top,
+      #0A0F0D 0%,
+      #0A0F0D 15%,
+      rgba(10, 15, 13, 0.9) 35%,
+      rgba(10, 15, 13, 0.55) 60%,
+      rgba(10, 15, 13, 0.2) 80%,
+      rgba(10, 15, 13, 0) 100%
+    );
+  }
+
+  @media (max-width: 1023px) {
+    .hero-video {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      object-position: center 30%;
+    }
+  }
+</style>
+
+<!-- GSAP + ScrollTrigger via CDN (evita conflito de dupla instância que acontece quando o mesmo
+     módulo é importado em dois <script> Astro diferentes na mesma sessão de build) -->
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/gsap.min.js"></script>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.0/ScrollTrigger.min.js"></script>
+
+<script is:inline>
+(function () {
+  function boot() {
+    var gsap = window.gsap;
+    var ScrollTrigger = window.ScrollTrigger;
+    if (!gsap || !ScrollTrigger) { return setTimeout(boot, 60); }
+    gsap.registerPlugin(ScrollTrigger);
+
+    var section = document.querySelector('[data-hero-video]');
+    if (!section) return;
+    var video = section.querySelector('.hero-video');
+    if (!video) return;
+
+    video.addEventListener('error', function () { video.style.display = 'none'; });
+
+    var loader = section.querySelector('.hero-video-loader');
+    var showLoader = function () { if (loader) loader.style.opacity = '1'; };
+    var hideLoader = function () { if (loader) loader.style.opacity = '0'; };
+    var loaderTimer = window.setTimeout(function () {
+      if (video.readyState < 4) showLoader();
+    }, 400);
+
+    var scrubSpace = section.querySelector('.hero-scrub-space');
+
+    function startAnimation() {
+      window.clearTimeout(loaderTimer);
+      hideLoader();
+      video.pause();
+      var dur = video.duration;
+      if (!isFinite(dur) || dur <= 0) return;
+
+      if (scrubSpace) {
+        scrubSpace.style.height = window.innerWidth >= 1024 ? '220vh' : '180vh';
+      }
+
+      requestAnimationFrame(function () {
+        var target = 0;
+        var current = 0;
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top top',
+          end: 'bottom bottom',
+          onUpdate: function (self) { target = self.progress * dur; },
+          invalidateOnRefresh: true
+        });
+        ScrollTrigger.refresh();
+
+        // Loop de suavização — segue o target com lerp pra evitar movimento brusco.
+        (function loop() {
+          current += (target - current) * 0.12;
+          if (Math.abs(video.currentTime - current) > 0.02) {
+            video.currentTime = current;
+          }
+          requestAnimationFrame(loop);
+        })();
+
+        // Fallback: força ScrollTrigger.update() a cada scroll — cobre cenários onde
+        // o listener global do ScrollTrigger não engatou (bundle vs CDN).
+        var rafPending = false;
+        window.addEventListener('scroll', function () {
+          if (rafPending) return;
+          rafPending = true;
+          requestAnimationFrame(function () {
+            ScrollTrigger.update();
+            rafPending = false;
+          });
+        }, { passive: true });
+      });
+    }
+
+    function isFullyBuffered() {
+      if (video.readyState >= 4) return true;
+      if (video.buffered.length && isFinite(video.duration)) {
+        return video.buffered.end(video.buffered.length - 1) >= video.duration - 0.25;
+      }
+      return false;
+    }
+
+    function armWhenReady() {
+      if (isFullyBuffered()) { startAnimation(); return; }
+      video.addEventListener('canplaythrough', startAnimation, { once: true });
+      var fallback = window.setTimeout(function () {
+        video.removeEventListener('canplaythrough', startAnimation);
+        startAnimation();
+      }, 15000);
+      video.addEventListener('canplaythrough', function () { window.clearTimeout(fallback); }, { once: true });
+    }
+
+    if (video.readyState >= 1) armWhenReady();
+    else video.addEventListener('loadedmetadata', armWhenReady, { once: true });
+  }
+  boot();
+})();
+</script>

@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeaderBlack from '../components/black/HeaderBlack.astro';
+import HeroBlack from '../components/black/HeroBlack.astro';
+import Dor from '../components/black/Dor.astro';
+import Mecanismo from '../components/black/Mecanismo.astro';
+import ExclusividadeManaus from '../components/black/ExclusividadeManaus.astro';
+import Prova from '../components/black/Prova.astro';
+import ComoFunciona from '../components/black/ComoFunciona.astro';
+import FaqBlack from '../components/black/FaqBlack.astro';
+import LojaFisicaBlack from '../components/black/LojaFisicaBlack.astro';
+import Time from '../components/Time.astro';
+import Fechamento from '../components/black/Fechamento.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Plano Ton Black em Manaus | Condição exclusiva para negócios acima de R$ 20 mil';
+const description = 'Taxa negociada pelo seu faturamento, Pix 0% e cai na hora, sem mensalidade. Análise gratuita da sua taxa atual com parceiro oficial Ton em Manaus.';
+---
+<Layout title={title} description={description} path="/ton-black" videoPreloadUrl="https://pub-61b5d969a4e24870b3632f3f16c5a801.r2.dev/video-animation.mp4">
+  <HeaderBlack />
+  <main>
+    <HeroBlack />
+    <Dor />
+    <Mecanismo />
+    <ExclusividadeManaus />
+    <Prova />
+    <ComoFunciona />
+    <FaqBlack />
+    <LojaFisicaBlack />
+    <Time variant="dark" eyebrow="Quem te atende" title="Consultores locais, na sua cidade." subtitle="No Black você fala direto com o seu consultor. Mesmo nome, mesmo número, mesma pessoa que negociou sua condição." />
+    <Fechamento />
+  </main>
+  <Footer />
+</Layout>

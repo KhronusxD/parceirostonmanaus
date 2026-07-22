@@ -1,0 +1,61 @@
+---
+const beneficios = [
+  {
+    title: 'Entrega e ativação no seu comércio',
+    text: 'A gente vai até o seu negócio em qualquer bairro de Manaus, entrega a maquininha e ativa junto. Você não perde um dia de venda.'
+  },
+  {
+    title: 'Atendimento presencial em Manaus',
+    text: 'Gente daqui vai até você, resolve na hora. Sem 0800, sem ficha, sem chatbot.'
+  },
+  {
+    title: 'Migração assistida',
+    text: 'Cuidamos da troca da sua maquininha atual sem você parar de vender um dia sequer.'
+  },
+  {
+    title: 'Contato direto',
+    text: 'Um consultor que conhece o seu nome, seu negócio e o seu faturamento. Não é URA.'
+  },
+  {
+    title: 'Revisão periódica da condição',
+    text: 'Conforme seu volume cresce, sua taxa acompanha. A gente revisa junto, sem você pedir.'
+  },
+  {
+    title: 'Suporte pós-venda no Centro',
+    text: 'Deu problema com a máquina? Desce no Ed. Manaus Shopping Center. Não sai da cidade.'
+  }
+];
+---
+<section class="relative py-24 md:py-32 bg-paper-soft">
+  <div class="container-x">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <div class="lg:col-span-5 lg:sticky lg:top-24">
+        <span class="eyebrow">03 · Vantagem de fechar com parceiro Ton</span>
+        <h2 class="mt-3 text-3xl md:text-5xl font-bold text-ink-950 leading-[1.05]">
+          Fechar com a gente é diferente de baixar o app.
+        </h2>
+        <p class="mt-6 text-ink-500 text-base md:text-lg leading-relaxed">
+          Você pode contratar o Ton pelo aplicativo. Vai funcionar. Mas o que a gente entrega é o que
+          o app não consegue: <strong class="text-ink-950">gente de verdade, aqui em Manaus, do primeiro contato ao dia que a taxa precisa mudar.</strong>
+        </p>
+        <p class="mt-5 text-sm text-ink-500 leading-relaxed">
+          Em Manaus, o Ton Black passa por nós. E isso é bom pra você.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 space-y-3">
+        {beneficios.map((b, i) => (
+          <div class="card p-6 flex gap-5 hover:border-ton/50 transition-colors">
+            <span class="shrink-0 h-9 w-9 rounded-full bg-ton-soft border border-ton/30 flex items-center justify-center text-ton-deep font-mono text-xs">
+              {String(i+1).padStart(2, '0')}
+            </span>
+            <div>
+              <h3 class="font-display text-lg md:text-xl font-semibold text-ink-950">{b.title}</h3>
+              <p class="mt-2 text-sm md:text-base text-ink-500 leading-relaxed">{b.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
