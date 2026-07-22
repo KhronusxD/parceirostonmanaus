@@ -81,21 +81,38 @@ const GTAG_ID = ''; // ex: 'AW-XXXXXXXXX' ou 'G-XXXXXXX'
       "image": ogImage,
       "url": canonical,
       "telephone": "+5592984603260",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. Eduardo Ribeiro, 520, Sala 02, Ed. Manaus Shopping Center",
-        "addressLocality": "Manaus",
-        "addressRegion": "AM",
-        "postalCode": "69010-000",
-        "addressCountry": "BR"
-      },
-      "geo": { "@type": "GeoCoordinates", "latitude": -3.130192, "longitude": -60.023093 },
       "openingHoursSpecification": [{
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
         "opens": "09:00", "closes": "17:00"
       }],
-      "sameAs": ["https://wa.me/lojatonmanaus"]
+      "sameAs": ["https://wa.me/lojatonmanaus"],
+      "location": [
+        {
+          "@type": "Place",
+          "name": "Unidade Centro",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Av. Eduardo Ribeiro, 520, Sala 02, Ed. Manaus Shopping Center",
+            "addressLocality": "Manaus",
+            "addressRegion": "AM",
+            "postalCode": "69010-000",
+            "addressCountry": "BR"
+          },
+          "geo": { "@type": "GeoCoordinates", "latitude": -3.130192, "longitude": -60.023093 }
+        },
+        {
+          "@type": "Place",
+          "name": "Unidade Cidade Nova",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Rua Felix Valois, 41, Cidade Nova",
+            "addressLocality": "Manaus",
+            "addressRegion": "AM",
+            "addressCountry": "BR"
+          }
+        }
+      ]
     })}></script>
   </head>
   <body>
