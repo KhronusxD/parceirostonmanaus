@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>Entrega — Loja Parceira Ton Manaus</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ton: #00CC2C;
+    --ton-deep: #00A324;
+    --ton-soft: #E6F9EC;
+    --ink: #0A0F0D;
+    --ink-700: #3A4441;
+    --ink-500: #6B7773;
+    --ink-300: #B7BEB9;
+    --line: #E4E7E4;
+    --paper: #FAFAF7;
+    --paper-soft: #F3F3EF;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { size: A4; margin: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    font-size: 10.5pt;
+    line-height: 1.55;
+  }
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 16mm 16mm 14mm;
+    position: relative;
+    page-break-after: always;
+    overflow: hidden;
+  }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ---------- CAPA ---------- */
+  .cover {
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -80mm; right: -60mm;
+    width: 200mm; height: 200mm;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,204,44,0.22) 0%, rgba(0,204,44,0) 68%);
+  }
+  .cover-top { position: relative; z-index: 1; }
+  .brand-row { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--paper);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk'; font-weight: 700; font-size: 19px; color: var(--ink);
+  }
+  .brand-txt { line-height: 1.25; }
+  .brand-txt strong { font-family: 'Space Grotesk'; font-size: 13pt; display: block; }
+  .brand-txt span { font-family: 'JetBrains Mono'; font-size: 7.5pt; letter-spacing: .18em; text-transform: uppercase; color: var(--ton); }
+
+  .cover-mid { position: relative; z-index: 1; margin: auto 0; }
+  .kicker {
+    display: inline-block;
+    font-family: 'JetBrains Mono'; font-size: 8pt; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--ton); border: 1px solid rgba(0,204,44,.4); background: rgba(0,204,44,.08);
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 22px;
+  }
+  .cover h1 { font-size: 40pt; line-height: 1.02; font-weight: 700; }
+  .cover h1 em { font-style: normal; color: var(--ton); display: block; }
+  .cover-sub { margin-top: 20px; font-size: 12pt; color: rgba(250,250,247,.8); max-width: 135mm; line-height: 1.6; }
+
+  .cover-stats { position: relative; z-index: 1; display: flex; gap: 10px; margin-top: 30px; }
+  .cover-stat { flex: 1; border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 14px 16px; background: rgba(255,255,255,.04); }
+  .cover-stat b { font-family: 'Space Grotesk'; font-size: 22pt; display: block; line-height: 1; color: var(--ton); }
+  .cover-stat span { font-size: 8pt; color: rgba(250,250,247,.65); display: block; margin-top: 6px; }
+
+  .cover-foot { position: relative; z-index: 1; border-top: 1px solid rgba(255,255,255,.14); padding-top: 16px; display: flex; justify-content: space-between; align-items: flex-end; font-size: 8.5pt; color: rgba(250,250,247,.6); }
+  .cover-foot .mono { color: var(--ton); }
+
+  /* ---------- CONTEÚDO ---------- */
+  .sec-label {
+    font-family: 'JetBrains Mono'; font-size: 8pt; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--ton-deep); margin-bottom: 8px;
+  }
+  h2.title { font-size: 22pt; line-height: 1.1; margin-bottom: 8px; }
+  .lead { color: var(--ink-500); font-size: 10.5pt; max-width: 150mm; margin-bottom: 22px; }
+
+  /* botões de link */
+  .links { display: flex; flex-direction: column; gap: 9px; }
+  .link-btn {
+    display: flex; align-items: center; gap: 14px;
+    border: 1px solid var(--line); border-radius: 14px;
+    padding: 13px 16px; background: #fff;
+  }
+  .link-btn.primary { background: var(--ton); border-color: var(--ton); }
+  .link-icon {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    background: var(--ton-soft); color: var(--ton-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk'; font-weight: 700; font-size: 11pt;
+  }
+  .link-btn.primary .link-icon { background: var(--ink); color: var(--ton); }
+  .link-main { flex: 1; min-width: 0; }
+  .link-main b { font-family: 'Space Grotesk'; font-size: 11pt; display: block; }
+  .link-main span { font-size: 8.5pt; color: var(--ink-500); display: block; margin-top: 1px; }
+  .link-btn.primary .link-main span { color: rgba(10,15,13,.7); }
+  .link-url { font-family: 'JetBrains Mono'; font-size: 7.5pt; color: var(--ton-deep); flex-shrink: 0; }
+  .link-btn.primary .link-url { color: var(--ink); }
+
+  /* cards de entregável */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card {
+    border: 1px solid var(--line); border-radius: 14px; padding: 15px 16px; background: #fff;
+    break-inside: avoid;
+  }
+  .card h4 { font-size: 11pt; margin-bottom: 7px; }
+  .card ul { list-style: none; }
+  .card li { font-size: 9pt; color: var(--ink-700); padding-left: 15px; position: relative; margin-bottom: 4px; line-height: 1.45; }
+  .card li::before {
+    content: ''; position: absolute; left: 0; top: 6px;
+    width: 5px; height: 5px; border-radius: 50%; background: var(--ton);
+  }
+  .card.dark { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .card.dark h4 { color: var(--paper); }
+  .card.dark li { color: rgba(250,250,247,.8); }
+  .card.dark li::before { background: var(--ton); }
+
+  .tag {
+    display: inline-block; font-family: 'JetBrains Mono'; font-size: 7pt;
+    letter-spacing: .12em; text-transform: uppercase; color: var(--ton-deep);
+    background: var(--ton-soft); padding: 3px 9px; border-radius: 100px; margin-bottom: 9px;
+  }
+  .card.dark .tag { background: rgba(0,204,44,.15); color: var(--ton); }
+
+  /* tabela */
+  table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+  th {
+    background: var(--ink); color: #fff; text-align: left;
+    font-family: 'Space Grotesk'; font-size: 8pt; text-transform: uppercase; letter-spacing: .04em;
+    padding: 9px 12px;
+  }
+  th:first-child { border-radius: 10px 0 0 0; }
+  th:last-child { border-radius: 0 10px 0 0; text-align: right; }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--line); color: var(--ink-700); }
+  td:last-child { text-align: right; font-family: 'JetBrains Mono'; color: var(--ink); font-weight: 500; }
+  tr:last-child td { border-bottom: 0; }
+  .tbl-wrap { border: 1px solid var(--line); border-radius: 11px; overflow: hidden; background: #fff; }
+
+  /* pendências */
+  .todo { border: 1px solid var(--line); border-left: 3px solid var(--ton); border-radius: 0 12px 12px 0; padding: 10px 14px; background: #fff; margin-bottom: 7px; break-inside: avoid; }
+  .todo b { font-family: 'Space Grotesk'; font-size: 10pt; display: block; margin-bottom: 2px; }
+  .todo span { font-size: 8.5pt; color: var(--ink-500); line-height: 1.45; }
+  .todo .now { color: var(--ink-700); }
+  .todo .now em { font-style: normal; font-family: 'JetBrains Mono'; font-size: 8pt; color: var(--ton-deep); }
+
+  .foot {
+    position: absolute; bottom: 10mm; left: 16mm; right: 16mm;
+    border-top: 1px solid var(--line); padding-top: 9px;
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--ink-300);
+  }
+  .foot .mono { font-family: 'JetBrains Mono'; }
+
+  .mt { margin-top: 22px; }
+  .mt-s { margin-top: 14px; }
+  .note { font-size: 8.5pt; color: var(--ink-500); line-height: 1.5; margin-top: 12px; }
+  .cta-band {
+    background: var(--ink); color: var(--paper); border-radius: 16px;
+    padding: 17px 20px; margin-top: 15px; position: relative; overflow: hidden;
+  }
+  .cta-band h3 { font-size: 13pt; margin-bottom: 5px; }
+  .cta-band p { font-size: 9pt; color: rgba(250,250,247,.75); max-width: 120mm; line-height: 1.5; }
+  .cta-pill {
+    display: inline-block; margin-top: 12px; background: var(--ton); color: var(--ink);
+    font-weight: 600; font-size: 9.5pt; padding: 9px 18px; border-radius: 100px;
+    font-family: 'Space Grotesk';
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA ============ -->
+<section class="page cover">
+  <div class="cover-top">
+    <div class="brand-row">
+      <div class="brand-mark">t</div>
+      <div class="brand-txt">
+        <strong>Loja Parceira Ton Manaus</strong>
+        <span>Parceiro Autorizado</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-mid">
+    <span class="kicker">Entrega do projeto</span>
+    <h1>Site no ar,<em>pronto pra vender.</em></h1>
+    <p class="cover-sub">
+      Landing page institucional, LP dedicada ao Plano Ton Black, calculadora de economia
+      e página de links. Tudo publicado em domínio próprio, com deploy automático.
+    </p>
+  </div>
+
+  <div class="cover-stats">
+    <div class="cover-stat"><b>5</b><span>páginas publicadas</span></div>
+    <div class="cover-stat"><b>2</b><span>lojas mapeadas</span></div>
+    <div class="cover-stat"><b>12+</b><span>pontos de contato</span></div>
+    <div class="cover-stat"><b>100%</b><span>no ar</span></div>
+  </div>
+
+  <div class="cover-foot">
+    <span>Documento de finalização</span>
+    <span class="mono">parceirotonmanaus.com.br</span>
+  </div>
+</section>
+
+<!-- ============ PÁGINA 2 — LINKS ============ -->
+<section class="page">
+  <div class="sec-label">01 · Acesso rápido</div>
+  <h2 class="title">Tudo o que está no ar</h2>
+  <p class="lead">Clique em qualquer botão abaixo para abrir a página.</p>
+
+  <div class="links">
+    <a class="link-btn primary" href="https://parceirotonmanaus.com.br">
+      <div class="link-icon">→</div>
+      <div class="link-main">
+        <b>Home</b>
+        <span>Página principal, com catálogo, planos e calculadora</span>
+      </div>
+      <div class="link-url">/</div>
+    </a>
+
+    <a class="link-btn" href="https://parceirotonmanaus.com.br/ton-black">
+      <div class="link-icon">B</div>
+      <div class="link-main">
+        <b>LP Plano Ton Black</b>
+        <span>Página de vendas para quem fatura acima de R$ 20 mil por mês</span>
+      </div>
+      <div class="link-url">/ton-black</div>
+    </a>
+
+    <a class="link-btn" href="https://parceirotonmanaus.com.br/links">
+      <div class="link-icon">L</div>
+      <div class="link-main">
+        <b>Página de links</b>
+        <span>Link in bio para o Instagram, com catálogo rápido</span>
+      </div>
+      <div class="link-url">/links</div>
+    </a>
+
+    <a class="link-btn" href="https://parceirotonmanaus.com.br/privacidade">
+      <div class="link-icon">P</div>
+      <div class="link-main">
+        <b>Política de Privacidade</b>
+        <span>Documento em conformidade com a LGPD</span>
+      </div>
+      <div class="link-url">/privacidade</div>
+    </a>
+
+    <a class="link-btn" href="https://parceirotonmanaus.com.br/termos">
+      <div class="link-icon">T</div>
+      <div class="link-main">
+        <b>Termos de Uso</b>
+        <span>Condições de uso e aviso de parceria Renda Ton</span>
+      </div>
+      <div class="link-url">/termos</div>
+    </a>
+  </div>
+
+  <div class="mt">
+    <div class="sec-label">Canais de atendimento</div>
+    <div class="links">
+      <a class="link-btn" href="https://wa.me/lojatonmanaus">
+        <div class="link-icon">W</div>
+        <div class="link-main">
+          <b>WhatsApp da loja</b>
+          <span>Recebe os leads do site e do catálogo</span>
+        </div>
+        <div class="link-url">(92) 8460-3260</div>
+      </a>
+      <a class="link-btn" href="https://wa.me/5592981074692">
+        <div class="link-icon">W</div>
+        <div class="link-main">
+          <b>WhatsApp Ton Black</b>
+          <span>Recebe os leads da LP do plano Black</span>
+        </div>
+        <div class="link-url">(92) 98107-4692</div>
+      </a>
+      <a class="link-btn" href="https://github.com/KhronusxD/parceirostonmanaus">
+        <div class="link-icon">G</div>
+        <div class="link-main">
+          <b>Repositório no GitHub</b>
+          <span>Código-fonte e histórico de alterações</span>
+        </div>
+        <div class="link-url">KhronusxD</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Loja Parceira Ton Manaus</span>
+    <span class="mono">02</span>
+  </div>
+</section>
+
+<!-- ============ PÁGINA 3 — ENTREGÁVEIS ============ -->
+<section class="page">
+  <div class="sec-label">02 · Entregáveis</div>
+  <h2 class="title">O que foi construído</h2>
+  <p class="lead">Cada bloco abaixo já está publicado e funcionando.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <span class="tag">Home</span>
+      <h4>Página principal</h4>
+      <ul>
+        <li>Vídeo controlado pelo scroll no topo</li>
+        <li>Aviso automático de loja aberta ou fechada</li>
+        <li>Catálogo dos 4 modelos com preço</li>
+        <li>Botão de WhatsApp por maquininha</li>
+        <li>Planos Mega+ e Black lado a lado</li>
+        <li>Seção da equipe com os 3 consultores</li>
+        <li>Formulário que cai direto no WhatsApp</li>
+        <li>FAQ com 9 perguntas</li>
+        <li>Duas lojas com mapa interativo</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Ton Black</span>
+      <h4>LP do plano premium</h4>
+      <ul>
+        <li>Topo escuro com vídeo de fundo</li>
+        <li>Copy longa em 7 blocos</li>
+        <li>Cenários de economia calculados</li>
+        <li>7 objeções respondidas no FAQ</li>
+        <li>Tabela oficial de taxas em popup</li>
+        <li>CTAs para o consultor dedicado</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Ferramenta</span>
+      <h4>Calculadora de economia</h4>
+      <ul>
+        <li>Compara a taxa atual do lead com a da Ton</li>
+        <li>Três perfis prontos de recebimento</li>
+        <li>Controle de quanto vai no Pix</li>
+        <li>Mostra economia por mês e por ano</li>
+        <li>Revela o Black acima de R$ 20 mil</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Conversão</span>
+      <h4>Captação de leads</h4>
+      <ul>
+        <li>Botão flutuante com conversa simulada</li>
+        <li>Mensagem pronta por contexto</li>
+        <li>Origem do anúncio preservada no lead</li>
+        <li>Eventos prontos para o Google Ads</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <span class="tag">Conteúdo</span>
+      <h4>Material visual</h4>
+      <ul>
+        <li>Fotos das lojas tratadas e otimizadas</li>
+        <li>Retratos dos consultores</li>
+        <li>Imagens dos 4 modelos padronizadas</li>
+        <li>Duas tabelas de taxas refeitas em HTML</li>
+      </ul>
+    </div>
+
+    <div class="card dark">
+      <span class="tag">Base legal</span>
+      <h4>Conformidade</h4>
+      <ul>
+        <li>Política de Privacidade sob a LGPD</li>
+        <li>Termos de Uso com foro em Manaus</li>
+        <li>Aviso de parceria Renda Ton no rodapé</li>
+        <li>Taxas sempre marcadas como referenciais</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-s">
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>Modelo publicado</th><th>Adesão a partir de</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>T1 · Bluetooth com o celular</td><td>R$ 16,80</td></tr>
+          <tr><td>T2 · 3G e Wi-Fi próprios</td><td>R$ 39,90</td></tr>
+          <tr><td>T3 · Impressora e teclado</td><td>R$ 86,40</td></tr>
+          <tr><td>T3 Smart · Android e tela grande</td><td>R$ 153,50</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>Loja Parceira Ton Manaus</span>
+    <span class="mono">03</span>
+  </div>
+</section>
+
+<!-- ============ PÁGINA 4 — TÉCNICO + PENDÊNCIAS ============ -->
+<section class="page">
+  <div class="sec-label">03 · Como funciona por baixo</div>
+  <h2 class="title">Infraestrutura</h2>
+
+  <div class="grid2 mt-s">
+    <div class="card">
+      <h4>Publicação</h4>
+      <ul>
+        <li>Site estático, sem servidor para manter</li>
+        <li>Hospedagem na Cloudflare, sem custo mensal</li>
+        <li>Domínio próprio com HTTPS ativo</li>
+        <li>Toda alteração publicada vai ao ar sozinha</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>Desempenho</h4>
+      <ul>
+        <li>Página abre em menos de meio segundo</li>
+        <li>Imagens comprimidas sem perder nitidez</li>
+        <li>Vídeo servido por armazenamento dedicado</li>
+        <li>Layout adaptado para celular</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-s">
+    <div class="sec-label">04 · Para tirar do "referencial"</div>
+    <h2 class="title">O que ainda depende de você</h2>
+    <p class="lead" style="margin-bottom:14px">São cinco pontos. Com eles eu finalizo e liberamos as campanhas.</p>
+
+    <div class="todo">
+      <b>1. Confirmar a taxa promocional do Mega+</b>
+      <span class="now">Você mencionou 0,57%, mas a tabela oficial que recebi mostra
+      <em>2,57% no débito</em> e <em>4,34% no crédito à vista</em> na coluna promocional.
+      Publiquei o que está na tabela. Se o número correto for outro, me envie a condição que eu ajusto.</span>
+    </div>
+
+    <div class="todo">
+      <b>2. Depoimento de cliente real</b>
+      <span>A LP do Black hoje prova o valor pela matemática das tabelas. Um depoimento verdadeiro,
+      com nome, negócio e economia, deixa a página bem mais forte. Foto é opcional.</span>
+    </div>
+
+    <div class="todo">
+      <b>3. Fidelidade, adesão e rescisão</b>
+      <span>Hoje o site responde "tratamos na análise". Se puder cravar os números,
+      eu deixo explícito e reduzo a objeção antes do atendimento.</span>
+    </div>
+
+    <div class="todo">
+      <b>4. Conta do Google Ads</b>
+      <span>Preciso do identificador da conta para ligar a medição de conversões.
+      Sem isso as campanhas rodam no escuro.</span>
+    </div>
+
+    <div class="todo">
+      <b>5. Perfil da empresa no Google</b>
+      <span>Necessário para as duas lojas aparecerem no mapa dentro dos anúncios
+      e para o cliente encontrar vocês na busca local.</span>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <h3>Assim que chegarem esses cinco pontos</h3>
+    <p>Eu atualizo o site, removo as marcações de "referencial" e subo as campanhas de Google Ads
+    com a estrutura já planejada.</p>
+    <a class="cta-pill" href="https://wa.me/5592981074692">Falar comigo no WhatsApp →</a>
+  </div>
+
+  <div class="foot">
+    <span>Este canal é de titularidade de um Parceiro Renda Ton. Ton é marca da Stone Instituição de Pagamento S.A.</span>
+    <span class="mono">04</span>
+  </div>
+</section>
+
+</body>
+</html>
