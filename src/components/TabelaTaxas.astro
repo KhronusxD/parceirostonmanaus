@@ -135,7 +135,9 @@ const mega = {
       <!-- TON MEGA+ -->
       <div class:list={['taxas-panel', !blackFirst && 'is-active']} data-taxas-panel="mega">
         <p class="taxas-panel-note">
-          Aceita <strong>CPF e CNPJ</strong>. A faixa promocional vale no começo, depois a taxa passa a seguir o seu faturamento.
+          Aceita <strong>CPF e CNPJ</strong>. Você começa na coluna <strong>Promocional</strong>, que vale
+          durante o primeiro mês ou até você faturar R$ 5 mil, o que acontecer primeiro. Depois disso a taxa
+          passa a seguir a faixa do seu faturamento, e <strong>vai caindo sozinha conforme você vende mais</strong>.
         </p>
         <div class="taxas-scroll">
           <table class="taxas-table">
@@ -145,7 +147,7 @@ const mega = {
                 {mega.faixas.map((f, i) => (
                   <th scope="col" class:list={[i === mega.destaque ? 'is-best' : '']}>
                     {f}
-                    {i === mega.destaque && <span class="best-badge">promo</span>}
+                    {i === mega.destaque && <span class="best-badge">você começa aqui</span>}
                   </th>
                 ))}
               </tr>
@@ -171,8 +173,9 @@ const mega = {
 
     <footer class="taxas-footer">
       <p>
-        Tabelas oficiais do Ton, sujeitas a alteração pela operadora. A condição final depende do plano
-        contratado, do seu faturamento e das políticas vigentes. Fazemos a simulação personalizada no atendimento.
+        Pix é sempre 0%, basta cadastrar uma chave (CPF, CNPJ ou telefone). Tabelas oficiais do Ton,
+        sujeitas a alteração pela operadora. A condição final depende do plano contratado, do seu
+        faturamento e das políticas vigentes. Fazemos a simulação personalizada no atendimento.
       </p>
       <a
         href="https://wa.me/lojatonmanaus?text=Ol%C3%A1!%20Vi%20a%20tabela%20de%20taxas%20no%20site%20e%20quero%20uma%20simula%C3%A7%C3%A3o."

@@ -6,11 +6,10 @@ import TabelaTaxas from './TabelaTaxas.astro';
     <div class="max-w-2xl mx-auto text-center">
       <span class="eyebrow">04 · Faça a conta</span>
       <h2 class="mt-3 text-3xl md:text-5xl font-bold text-ink-950 leading-[1.05]">
-        Quanto você paga de taxa por mês?
+        Quanto você economiza trocando pra Ton?
       </h2>
       <p class="mt-4 text-ink-500 text-base md:text-lg">
-        Coloque o seu faturamento e ajuste quanto das suas vendas entra em cada forma de pagamento.
-        A conta usa as taxas oficiais do Ton.
+        Coloque o seu faturamento e a taxa que você paga hoje. A conta usa as taxas oficiais do Ton.
       </p>
     </div>
 
@@ -18,105 +17,104 @@ import TabelaTaxas from './TabelaTaxas.astro';
       <!-- Controles -->
       <div class="lg:col-span-5 card p-6 md:p-7">
         <label class="block">
-          <span class="text-xs uppercase tracking-widest text-ink-500">Faturamento no cartão por mês</span>
+          <span class="text-xs uppercase tracking-widest text-ink-500">Quanto você vende no cartão por mês</span>
           <div class="mt-2 relative">
             <span class="absolute left-4 top-1/2 -translate-y-1/2 text-ink-500 font-display font-semibold">R$</span>
             <input
-              type="text"
-              inputmode="numeric"
-              value="15.000"
+              type="text" inputmode="numeric" value="15.000"
               data-calc-faturamento
               class="w-full rounded-xl bg-paper border border-line pl-12 pr-4 py-3.5 text-ink-950 font-display text-xl font-bold focus:border-ton focus:ring-2 focus:ring-ton/20 focus:outline-none transition"
             />
           </div>
         </label>
 
-        <div class="mt-7 space-y-6">
-          <div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="text-sm text-ink-700 font-medium">Pix</span>
-              <span class="font-mono text-sm text-ton-deep font-bold" data-calc-out="pix">15%</span>
-            </div>
-            <input type="range" min="0" max="100" value="15" step="5" data-calc-slider="pix" class="calc-range" />
-            <p class="mt-1.5 text-[11px] text-ton-deep font-medium">Taxa 0%. Cada real aqui é lucro cheio.</p>
+        <label class="block mt-6">
+          <span class="text-xs uppercase tracking-widest text-ink-500">Sua taxa de crédito à vista hoje</span>
+          <div class="mt-2 relative">
+            <input
+              type="text" inputmode="decimal" value="4,50"
+              data-calc-taxa-atual
+              class="w-full rounded-xl bg-paper border border-line pl-4 pr-10 py-3.5 text-ink-950 font-display text-xl font-bold focus:border-ton focus:ring-2 focus:ring-ton/20 focus:outline-none transition"
+            />
+            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-ink-500 font-display font-semibold">%</span>
           </div>
+          <span class="mt-1.5 block text-[11px] text-ink-500">
+            Está no extrato da sua maquininha atual. Não sabe? Deixe como está, é a média de mercado.
+          </span>
+        </label>
 
-          <div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="text-sm text-ink-700 font-medium">Débito</span>
-              <span class="font-mono text-sm text-ink-950 font-bold" data-calc-out="debito">25%</span>
-            </div>
-            <input type="range" min="0" max="100" value="25" step="5" data-calc-slider="debito" class="calc-range" />
-          </div>
-
-          <div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="text-sm text-ink-700 font-medium">Crédito à vista</span>
-              <span class="font-mono text-sm text-ink-950 font-bold" data-calc-out="credito">40%</span>
-            </div>
-            <input type="range" min="0" max="100" value="40" step="5" data-calc-slider="credito" class="calc-range" />
-          </div>
-
-          <div>
-            <div class="flex items-baseline justify-between mb-2">
-              <span class="text-sm text-ink-700 font-medium">Parcelado <span class="text-ink-500 font-normal">(média 3x)</span></span>
-              <span class="font-mono text-sm text-ink-950 font-bold" data-calc-out="parcelado">20%</span>
-            </div>
-            <input type="range" min="0" max="100" value="20" step="5" data-calc-slider="parcelado" class="calc-range" />
+        <div class="mt-7">
+          <span class="text-xs uppercase tracking-widest text-ink-500">Como você mais recebe</span>
+          <div class="mt-3 grid grid-cols-3 gap-2" data-calc-perfis>
+            <button type="button" class="calc-perfil" data-calc-perfil="debito">
+              <span class="block font-semibold text-sm">Débito</span>
+              <span class="block text-[10px] opacity-70 mt-0.5">na maioria</span>
+            </button>
+            <button type="button" class="calc-perfil is-active" data-calc-perfil="equilibrado">
+              <span class="block font-semibold text-sm">Equilibrado</span>
+              <span class="block text-[10px] opacity-70 mt-0.5">um pouco de tudo</span>
+            </button>
+            <button type="button" class="calc-perfil" data-calc-perfil="credito">
+              <span class="block font-semibold text-sm">Crédito</span>
+              <span class="block text-[10px] opacity-70 mt-0.5">e parcelado</span>
+            </button>
           </div>
         </div>
 
-        <p class="mt-6 text-[11px] text-ink-500 leading-relaxed" data-calc-soma></p>
+        <div class="mt-7 rounded-xl border border-ton/30 bg-ton-soft p-4">
+          <div class="flex items-baseline justify-between mb-2">
+            <span class="text-sm text-ink-950 font-medium">Quanto vai no Pix</span>
+            <span class="font-mono text-sm text-ton-deep font-bold" data-calc-out-pix>15%</span>
+          </div>
+          <input type="range" min="0" max="80" value="15" step="5" data-calc-pix class="calc-range" />
+          <p class="mt-2 text-[11px] text-ink-700 leading-relaxed">
+            No Ton o Pix é <strong>0%</strong>. Cada real que entra por aqui é lucro cheio.
+            Basta cadastrar uma chave (CPF, CNPJ ou telefone).
+          </p>
+        </div>
       </div>
 
       <!-- Resultado -->
       <div class="lg:col-span-7 flex flex-col gap-4">
+        <!-- Economia -->
         <div class="card p-6 md:p-8 bg-ink-950 border-ink-950 text-paper">
-          <div class="font-mono text-[10px] uppercase tracking-widest text-ton" data-calc-plano>No plano Ton Mega+</div>
-          <div class="mt-4 grid grid-cols-2 gap-6">
-            <div>
-              <div class="text-xs text-ink-300">Você paga de taxa</div>
-              <div class="mt-1 font-display text-3xl md:text-4xl font-bold text-paper leading-none" data-calc-taxa-mes>R$ 0</div>
-              <div class="mt-1 text-[11px] text-ink-300">por mês</div>
-            </div>
-            <div>
-              <div class="text-xs text-ink-300">No ano</div>
-              <div class="mt-1 font-display text-3xl md:text-4xl font-bold text-paper leading-none" data-calc-taxa-ano>R$ 0</div>
-              <div class="mt-1 text-[11px] text-ink-300">de custo com maquininha</div>
-            </div>
+          <div class="font-mono text-[10px] uppercase tracking-widest text-ton">Sua economia trocando pra Ton</div>
+          <div class="mt-4 flex items-end gap-3 flex-wrap">
+            <div class="font-display text-4xl md:text-5xl font-bold text-ton leading-none" data-calc-economia-mes>R$ 0</div>
+            <div class="text-sm text-ink-300 pb-1">por mês</div>
           </div>
-          <div class="mt-6 pt-5 border-t border-ink-700 flex items-baseline justify-between gap-4">
-            <span class="text-sm text-ink-200/85">Taxa efetiva sobre o total</span>
-            <span class="font-mono text-lg font-bold text-ton" data-calc-efetiva>0,00%</span>
+          <div class="mt-3 text-base text-ink-200/85" data-calc-economia-ano>
+            R$ 0 no ano
           </div>
-        </div>
 
-        <!-- Card do Pix -->
-        <div class="card p-6 md:p-7 border-ton/40 bg-ton-soft">
-          <div class="flex items-start gap-4">
-            <div class="shrink-0 h-11 w-11 rounded-full bg-ton flex items-center justify-center text-ink-950 font-display font-bold text-sm">0%</div>
+          <div class="mt-6 pt-5 border-t border-ink-700 grid grid-cols-2 gap-5">
             <div>
-              <h3 class="font-display text-lg font-semibold text-ink-950">O Pix não cobra nada de você</h3>
-              <p class="mt-1.5 text-sm text-ink-700 leading-relaxed" data-calc-pix-msg>
-                Aumente o Pix no controle ao lado e veja a taxa cair.
-              </p>
+              <div class="text-[11px] text-ink-300">Você paga hoje</div>
+              <div class="mt-1 font-display text-xl font-bold text-ink-200 line-through" data-calc-custo-atual>R$ 0</div>
+            </div>
+            <div>
+              <div class="text-[11px] text-ink-300">Pagaria na Ton</div>
+              <div class="mt-1 font-display text-xl font-bold text-paper" data-calc-custo-ton>R$ 0</div>
             </div>
           </div>
         </div>
 
-        <!-- Card do Black: aparece quando faturamento >= 20 mil -->
+        <!-- Detalhe -->
+        <div class="card p-6">
+          <div class="flex items-baseline justify-between gap-4 pb-3 border-b border-line">
+            <span class="text-sm text-ink-500">Sua taxa efetiva na Ton</span>
+            <span class="font-mono text-lg font-bold text-ton-deep" data-calc-efetiva>0,00%</span>
+          </div>
+          <p class="mt-3 text-xs text-ink-500 leading-relaxed" data-calc-detalhe></p>
+        </div>
+
+        <!-- Card do Black -->
         <div class="card p-6 md:p-7 ring-1 ring-ton/60 hidden" data-calc-black>
           <div class="eyebrow">Você tem direito ao Ton Black</div>
           <p class="mt-3 text-sm text-ink-700 leading-relaxed">
-            Com esse faturamento você entra na condição exclusiva pra MEI e CNPJ.
-            Com a mesma divisão de vendas, a sua taxa cairia para
-            <strong class="text-ink-950 font-mono" data-calc-black-efetiva>0,00%</strong>.
+            Com esse faturamento você entra na condição exclusiva pra MEI e CNPJ, e a economia sobe para
+            <strong class="text-ink-950 font-display text-base" data-calc-black-economia>R$ 0</strong> por mês.
           </p>
-          <div class="mt-5 flex items-baseline gap-2">
-            <span class="text-xs uppercase tracking-widest text-ton-deep font-mono">Economia</span>
-            <span class="font-display text-2xl font-bold text-ink-950" data-calc-black-economia>R$ 0</span>
-            <span class="text-sm text-ink-500">por mês</span>
-          </div>
           <a href="/ton-black" class="btn btn-wa mt-5 w-full sm:w-auto" data-cta="calculadora-black">
             Conhecer o Plano Ton Black
             <span aria-hidden="true">→</span>
@@ -129,8 +127,8 @@ import TabelaTaxas from './TabelaTaxas.astro';
       <TabelaTaxas label="Ver tabela completa de taxas" defaultTab="mega" />
       <p class="text-xs text-ink-500 max-w-2xl leading-relaxed">
         Simulação com base nas tabelas oficiais do Ton, recebimento em 1 dia útil. O parcelado usa a taxa de 3x
-        como média. A condição real depende do plano contratado e do seu histórico. Fazemos a conta exata
-        com o seu extrato, sem compromisso.
+        como média e assume que a sua taxa atual de débito e parcelado acompanha a de crédito na mesma proporção.
+        A conta exata sai do seu extrato, na análise gratuita.
       </p>
     </div>
   </div>
@@ -138,34 +136,36 @@ import TabelaTaxas from './TabelaTaxas.astro';
 
 <style>
   .calc-range {
-    width: 100%;
-    height: 6px;
-    border-radius: 9999px;
-    background: #E4E7E4;
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-    cursor: pointer;
+    width: 100%; height: 6px; border-radius: 9999px;
+    background: #D7F5E1; outline: none;
+    -webkit-appearance: none; appearance: none; cursor: pointer;
   }
   .calc-range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 9999px;
-    background: #00CC2C;
-    border: 3px solid #fff;
-    box-shadow: 0 2px 6px rgba(10, 15, 13, 0.2);
-    cursor: pointer;
+    -webkit-appearance: none; appearance: none;
+    width: 20px; height: 20px; border-radius: 9999px;
+    background: #00CC2C; border: 3px solid #fff;
+    box-shadow: 0 2px 6px rgba(10, 15, 13, 0.2); cursor: pointer;
   }
   .calc-range::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 9999px;
-    background: #00CC2C;
-    border: 3px solid #fff;
-    box-shadow: 0 2px 6px rgba(10, 15, 13, 0.2);
+    width: 20px; height: 20px; border-radius: 9999px;
+    background: #00CC2C; border: 3px solid #fff;
+    box-shadow: 0 2px 6px rgba(10, 15, 13, 0.2); cursor: pointer;
+  }
+  .calc-perfil {
+    border: 1px solid #E4E7E4;
+    background: #fff;
+    color: #3A4441;
+    border-radius: 12px;
+    padding: 0.7rem 0.4rem;
     cursor: pointer;
+    transition: all 160ms ease;
+    text-align: center;
+  }
+  .calc-perfil:hover { border-color: #00CC2C; }
+  .calc-perfil.is-active {
+    background: #0A0F0D;
+    border-color: #0A0F0D;
+    color: #fff;
   }
 </style>
 
@@ -174,7 +174,6 @@ import TabelaTaxas from './TabelaTaxas.astro';
   var root = document.querySelector('[data-calc]');
   if (!root) return;
 
-  // Tabelas oficiais do Ton (débito, crédito à vista, parcelado 3x)
   var MEGA = [
     { max: 3000,     deb: 2.98, cred: 5.15, parc: 12.68 },
     { max: 6000,     deb: 2.68, cred: 4.63, parc: 9.79 },
@@ -189,116 +188,135 @@ import TabelaTaxas from './TabelaTaxas.astro';
     { max: Infinity, deb: 0.74, cred: 2.68, parc: 4.45 }
   ];
 
+  // Perfis: proporção entre débito, crédito à vista e parcelado (o Pix sai do slider)
+  var PERFIS = {
+    debito:      { deb: 0.62, cred: 0.26, parc: 0.12 },
+    equilibrado: { deb: 0.30, cred: 0.47, parc: 0.23 },
+    credito:     { deb: 0.16, cred: 0.48, parc: 0.36 }
+  };
+
   function faixa(tabela, valor) {
     for (var i = 0; i < tabela.length; i++) {
       if (valor <= tabela[i].max) return tabela[i];
     }
     return tabela[tabela.length - 1];
   }
+  function brl(v) { return 'R$ ' + Math.round(v).toLocaleString('pt-BR'); }
+  function pct(v) { return v.toFixed(2).replace('.', ',') + '%'; }
 
   var input = root.querySelector('[data-calc-faturamento]');
-  var sliders = {
-    pix: root.querySelector('[data-calc-slider="pix"]'),
-    debito: root.querySelector('[data-calc-slider="debito"]'),
-    credito: root.querySelector('[data-calc-slider="credito"]'),
-    parcelado: root.querySelector('[data-calc-slider="parcelado"]')
-  };
-  var outs = {
-    pix: root.querySelector('[data-calc-out="pix"]'),
-    debito: root.querySelector('[data-calc-out="debito"]'),
-    credito: root.querySelector('[data-calc-out="credito"]'),
-    parcelado: root.querySelector('[data-calc-out="parcelado"]')
-  };
-  var elSoma = root.querySelector('[data-calc-soma]');
-  var elTaxaMes = root.querySelector('[data-calc-taxa-mes]');
-  var elTaxaAno = root.querySelector('[data-calc-taxa-ano]');
+  var inputTaxa = root.querySelector('[data-calc-taxa-atual]');
+  var sliderPix = root.querySelector('[data-calc-pix]');
+  var outPix = root.querySelector('[data-calc-out-pix]');
+  var botoes = root.querySelectorAll('[data-calc-perfil]');
+
+  var elEconomiaMes = root.querySelector('[data-calc-economia-mes]');
+  var elEconomiaAno = root.querySelector('[data-calc-economia-ano]');
+  var elCustoAtual = root.querySelector('[data-calc-custo-atual]');
+  var elCustoTon = root.querySelector('[data-calc-custo-ton]');
   var elEfetiva = root.querySelector('[data-calc-efetiva]');
-  var elPlano = root.querySelector('[data-calc-plano]');
-  var elPixMsg = root.querySelector('[data-calc-pix-msg]');
+  var elDetalhe = root.querySelector('[data-calc-detalhe]');
   var elBlack = root.querySelector('[data-calc-black]');
-  var elBlackEfetiva = root.querySelector('[data-calc-black-efetiva]');
   var elBlackEconomia = root.querySelector('[data-calc-black-economia]');
 
-  function brl(v) {
-    return 'R$ ' + Math.round(v).toLocaleString('pt-BR');
-  }
-  function pct(v) {
-    return v.toFixed(2).replace('.', ',') + '%';
-  }
-  function parseFaturamento() {
-    var raw = (input.value || '').replace(/\D/g, '');
+  var perfilAtivo = 'equilibrado';
+
+  function parseNum(el) {
+    var raw = (el.value || '').replace(/\D/g, '');
     return raw ? parseInt(raw, 10) : 0;
+  }
+  function parseTaxa() {
+    var raw = (inputTaxa.value || '').replace(',', '.').replace(/[^\d.]/g, '');
+    var v = parseFloat(raw);
+    return isNaN(v) ? 0 : v;
+  }
+
+  function custo(fat, mix, tabela) {
+    return fat * mix.pix * 0
+         + fat * mix.deb * tabela.deb / 100
+         + fat * mix.cred * tabela.cred / 100
+         + fat * mix.parc * tabela.parc / 100;
   }
 
   function calcular() {
-    var fat = parseFaturamento();
+    var fat = parseNum(input);
+    var taxaAtualCred = parseTaxa();
+    var pctPix = parseInt(sliderPix.value, 10);
+    outPix.textContent = pctPix + '%';
+
+    // Distribui o que não é Pix conforme o perfil
+    var resto = (100 - pctPix) / 100;
+    var p = PERFIS[perfilAtivo];
     var mix = {
-      pix: parseInt(sliders.pix.value, 10),
-      debito: parseInt(sliders.debito.value, 10),
-      credito: parseInt(sliders.credito.value, 10),
-      parcelado: parseInt(sliders.parcelado.value, 10)
+      pix: pctPix / 100,
+      deb: resto * p.deb,
+      cred: resto * p.cred,
+      parc: resto * p.parc
     };
-    var soma = mix.pix + mix.debito + mix.credito + mix.parcelado;
 
-    Object.keys(outs).forEach(function (k) { outs[k].textContent = mix[k] + '%'; });
-
-    if (soma !== 100) {
-      elSoma.textContent = 'Os percentuais somam ' + soma + '%. Ajuste pra fechar em 100% e a conta fica exata.';
-      elSoma.style.color = soma > 100 ? '#B91C1C' : '#6B7773';
-    } else {
-      elSoma.textContent = 'Percentuais somam 100%.';
-      elSoma.style.color = '#00A324';
-    }
-
-    // Normaliza pra sempre calcular sobre 100%
-    var base = soma > 0 ? soma : 1;
-    var vPix = fat * (mix.pix / base);
-    var vDeb = fat * (mix.debito / base);
-    var vCred = fat * (mix.credito / base);
-    var vParc = fat * (mix.parcelado / base);
-
+    // Concorrente: usa a taxa informada no crédito e projeta débito/parcelado
+    // na mesma proporção que a Ton pratica, pra ser uma comparação justa.
     var fMega = faixa(MEGA, fat);
-    var custoMega = vDeb * fMega.deb / 100 + vCred * fMega.cred / 100 + vParc * fMega.parc / 100;
-    var efetivaMega = fat > 0 ? (custoMega / fat) * 100 : 0;
+    var fator = fMega.cred > 0 ? taxaAtualCred / fMega.cred : 1;
+    var atual = {
+      deb: fMega.deb * fator,
+      cred: taxaAtualCred,
+      parc: fMega.parc * fator
+    };
 
-    elTaxaMes.textContent = brl(custoMega);
-    elTaxaAno.textContent = brl(custoMega * 12);
-    elEfetiva.textContent = pct(efetivaMega);
-    elPlano.textContent = 'No plano Ton Mega+';
+    // No concorrente o Pix costuma ter taxa; assumimos que ele cobra o mesmo do débito.
+    var custoAtual = fat * mix.pix * atual.deb / 100
+                   + fat * mix.deb * atual.deb / 100
+                   + fat * mix.cred * atual.cred / 100
+                   + fat * mix.parc * atual.parc / 100;
 
-    // Mensagem do Pix
-    if (mix.pix >= 50) {
-      elPixMsg.textContent = 'Com ' + mix.pix + '% no Pix você já está economizando bastante. Esse pedaço do faturamento não paga nada de taxa.';
+    var custoTon = custo(fat, mix, fMega);
+    var economia = custoAtual - custoTon;
+    var efetiva = fat > 0 ? (custoTon / fat) * 100 : 0;
+
+    elCustoAtual.textContent = brl(custoAtual);
+    elCustoTon.textContent = brl(custoTon);
+    elEfetiva.textContent = pct(efetiva);
+
+    if (economia > 0) {
+      elEconomiaMes.textContent = brl(economia);
+      elEconomiaMes.style.color = '';
+      elEconomiaAno.textContent = brl(economia * 12) + ' no ano';
     } else {
-      var maisPix = Math.min(mix.pix + 20, 100);
-      var vExtra = fat * (20 / base);
-      var economiaExtra = vExtra * fMega.cred / 100;
-      elPixMsg.textContent = 'Se você levar mais 20% das vendas pro Pix, deixa de pagar cerca de ' +
-        brl(economiaExtra) + ' por mês em taxa.';
+      elEconomiaMes.textContent = brl(0);
+      elEconomiaAno.textContent = 'Sua taxa atual já é competitiva. Mesmo assim, o Pix 0% e o suporte local continuam valendo.';
     }
+
+    var economiaPix = fat * mix.pix * atual.deb / 100;
+    elDetalhe.textContent = pctPix > 0
+      ? 'Só no Pix você deixa de pagar ' + brl(economiaPix) + ' por mês, porque na Ton ele é 0%.'
+      : 'Mova parte das vendas pro Pix no controle ao lado e veja a economia subir. Na Ton o Pix é 0%.';
 
     // Black
     if (fat >= 20000) {
       var fBlack = faixa(BLACK, fat);
-      var custoBlack = vDeb * fBlack.deb / 100 + vCred * fBlack.cred / 100 + vParc * fBlack.parc / 100;
-      var efetivaBlack = fat > 0 ? (custoBlack / fat) * 100 : 0;
-      elBlackEfetiva.textContent = pct(efetivaBlack);
-      elBlackEconomia.textContent = brl(custoMega - custoBlack);
+      var custoBlack = custo(fat, mix, fBlack);
+      elBlackEconomia.textContent = brl(custoAtual - custoBlack);
       elBlack.classList.remove('hidden');
     } else {
       elBlack.classList.add('hidden');
     }
   }
 
-  // Máscara de milhar no input
   input.addEventListener('input', function () {
     var raw = input.value.replace(/\D/g, '');
     input.value = raw ? parseInt(raw, 10).toLocaleString('pt-BR') : '';
     calcular();
   });
+  inputTaxa.addEventListener('input', calcular);
+  sliderPix.addEventListener('input', calcular);
 
-  Object.keys(sliders).forEach(function (k) {
-    sliders[k].addEventListener('input', calcular);
+  botoes.forEach(function (b) {
+    b.addEventListener('click', function () {
+      perfilAtivo = b.getAttribute('data-calc-perfil');
+      botoes.forEach(function (o) { o.classList.toggle('is-active', o === b); });
+      calcular();
+    });
   });
 
   calcular();
