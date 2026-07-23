@@ -36,7 +36,7 @@ const plans = [
 ---
 <section id="planos" class="relative py-24 md:py-32 bg-paper-soft">
   <div class="container-x">
-    <div class="max-w-2xl">
+    <div class="max-w-2xl mx-auto text-center">
       <span class="eyebrow">03 · Planos e taxas</span>
       <h2 class="mt-3 text-3xl md:text-5xl font-bold text-ink-950">
         Taxas que cabem no seu bolso.
@@ -47,7 +47,7 @@ const plans = [
       </p>
     </div>
 
-    <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl">
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
       {plans.map((p) => (
         <div class:list={[
           'card p-7 md:p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-0.5 hover:shadow-card flex flex-col',
@@ -88,7 +88,7 @@ const plans = [
       ))}
     </div>
 
-    <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+    <div class="mt-10 flex flex-col items-center gap-4 text-center">
       <TabelaTaxas label="Ver tabela completa de taxas" />
       <p class="text-xs text-ink-500 max-w-xl">
         Taxas de referência. A condição final depende do plano contratado e do volume mensal.
