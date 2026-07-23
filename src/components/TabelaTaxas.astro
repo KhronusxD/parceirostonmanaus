@@ -3,9 +3,11 @@
 export interface Props {
   variant?: 'light' | 'dark';
   label?: string;
+  defaultTab?: 'black' | 'mega';
 }
-const { variant = 'light', label = 'Ver tabela completa de taxas' } = Astro.props;
+const { variant = 'light', label = 'Ver tabela completa de taxas', defaultTab = 'black' } = Astro.props;
 const isDark = variant === 'dark';
+const blackFirst = defaultTab === 'black';
 
 const black = {
   faixas: ['R$ 0 a R$ 20 mil', 'R$ 20 a R$ 40 mil', 'R$ 40 a R$ 80 mil', 'Acima de R$ 80 mil'],
@@ -89,13 +91,13 @@ const mega = {
     </header>
 
     <div class="taxas-tabs" role="tablist">
-      <button type="button" class="taxas-tab is-active" data-taxas-tab="black" role="tab">Ton Black</button>
-      <button type="button" class="taxas-tab" data-taxas-tab="mega" role="tab">Ton Mega+</button>
+      <button type="button" class:list={['taxas-tab', blackFirst && 'is-active']} data-taxas-tab="black" role="tab">Ton Black</button>
+      <button type="button" class:list={['taxas-tab', !blackFirst && 'is-active']} data-taxas-tab="mega" role="tab">Ton Mega+</button>
     </div>
 
     <div class="taxas-body">
       <!-- TON BLACK -->
-      <div class="taxas-panel is-active" data-taxas-panel="black">
+      <div class:list={['taxas-panel', blackFirst && 'is-active']} data-taxas-panel="black">
         <p class="taxas-panel-note">
           Exclusivo para <strong>MEI e CNPJ</strong>. Quanto maior o seu faturamento, menor a taxa.
         </p>
@@ -131,7 +133,7 @@ const mega = {
       </div>
 
       <!-- TON MEGA+ -->
-      <div class="taxas-panel" data-taxas-panel="mega">
+      <div class:list={['taxas-panel', !blackFirst && 'is-active']} data-taxas-panel="mega">
         <p class="taxas-panel-note">
           Aceita <strong>CPF e CNPJ</strong>. A faixa promocional vale no começo, depois a taxa passa a seguir o seu faturamento.
         </p>
