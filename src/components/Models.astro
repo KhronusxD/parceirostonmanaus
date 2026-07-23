@@ -2,17 +2,9 @@
 const models = [
   {
     tag: 'Comece por aqui',
-    name: 'TapTon',
-    subtitle: 'Aceita cartão no seu Android',
-    price: 'Grátis',
-    img: '/ai-tapton.webp',
-    desc: 'Sem hardware. O próprio celular vira maquininha por aproximação. Ideal pra autônomo e MEI iniciante.',
-    for: 'Autônomo · MEI iniciante'
-  },
-  {
     name: 'T1',
     subtitle: 'Bluetooth com o celular',
-    price: '17',
+    price: '16,80',
     img: '/ai-t1.webp',
     desc: 'A menor e mais leve da linha. Conecta no celular por Bluetooth. Perfeita pra quem vende em movimento.',
     for: 'Delivery · Feira · Uber'
@@ -20,7 +12,7 @@ const models = [
   {
     name: 'T2',
     subtitle: 'Autônoma com 3G e Wi-Fi',
-    price: '40',
+    price: '39,90',
     img: '/ai-t2.webp',
     desc: 'Não depende do celular. Chip próprio e Wi-Fi. Comprovante por SMS ou e-mail.',
     for: 'Consultório · Serviço em campo'
@@ -30,7 +22,7 @@ const models = [
     highlight: true,
     name: 'T3',
     subtitle: '3G, Wi-Fi, impressora e teclado',
-    price: '86',
+    price: '86,40',
     img: '/ai-t3.webp',
     desc: 'Tudo da T2, com impressora térmica pra comprovante físico e teclado pra digitar valor rápido. Balcão em geral.',
     for: 'Loja · Restaurante · Balcão'
@@ -39,7 +31,7 @@ const models = [
     tag: 'Top de linha',
     name: 'T3 Smart',
     subtitle: 'Android embarcado e tela grande',
-    price: '154',
+    price: '153,50',
     img: '/ai-t3-smart.webp',
     desc: 'O melhor da linha. Android embarcado, tela ampla, impressora. Interface fluida pra operar rápido.',
     for: 'Loja premium · Fluxo alto'
@@ -97,7 +89,7 @@ const bannerWa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent(
             <div>
               <div class="text-xs text-ink-500">a partir de</div>
               <div class="font-display text-3xl font-bold text-ink-950">
-                {m.price === 'Grátis' ? m.price : (<><span>R$ </span><span>{m.price}</span></>)}
+                <span>R$ </span><span>{m.price}</span>
               </div>
             </div>
             <div class="text-right">
@@ -145,9 +137,29 @@ const bannerWa = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent(
       </article>
     </div>
 
-    <p class="mt-8 text-xs text-ink-500 max-w-3xl">
+    <!-- Benefícios que valem pra todos os modelos -->
+    <div class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <div class="card p-5">
+        <div class="font-display text-lg font-bold text-ton-deep">Pix 0%</div>
+        <p class="mt-1 text-xs text-ink-500 leading-relaxed">Ilimitado, sem taxa, cai na hora</p>
+      </div>
+      <div class="card p-5">
+        <div class="font-display text-lg font-bold text-ink-950">Garantia vitalícia</div>
+        <p class="mt-1 text-xs text-ink-500 leading-relaxed">Do fabricante, sem prazo pra acabar</p>
+      </div>
+      <div class="card p-5">
+        <div class="font-display text-lg font-bold text-ink-950">Suporte 24h</div>
+        <p class="mt-1 text-xs text-ink-500 leading-relaxed">Todo dia, com apoio local aqui em Manaus</p>
+      </div>
+      <div class="card p-5">
+        <div class="font-display text-lg font-bold text-ink-950">Bobina grátis</div>
+        <p class="mt-1 text-xs text-ink-500 leading-relaxed">Reposição sem custo pra você</p>
+      </div>
+    </div>
+
+    <p class="mt-6 text-xs text-ink-500 max-w-3xl">
       Valores de adesão referenciais. Podem variar conforme promoções vigentes do Ton e do plano contratado.
-      Todas as maquininhas têm zero mensalidade, zero aluguel e garantia vitalícia do fabricante.
+      Todas as maquininhas têm zero mensalidade e zero aluguel.
     </p>
   </div>
 </section>

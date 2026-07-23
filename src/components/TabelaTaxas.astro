@@ -1,0 +1,259 @@
+---
+// Modal com as tabelas oficiais de taxas (Ton Black e Ton Mega+).
+// Usa <dialog> nativo, sem dependência externa.
+export interface Props {
+  variant?: 'light' | 'dark';
+  label?: string;
+}
+const { variant = 'light', label = 'Ver tabela completa de taxas' } = Astro.props;
+const isDark = variant === 'dark';
+---
+<div class="inline-block" data-taxas-root>
+<button
+  type="button"
+  class:list={[
+    'btn',
+    isDark ? 'btn-wa' : 'btn-ghost'
+  ]}
+  data-taxas-open
+>
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+  </svg>
+  {label}
+</button>
+
+<dialog class="taxas-dialog" data-taxas-dialog aria-label="Tabelas de taxas Ton">
+  <div class="taxas-inner">
+    <header class="taxas-header">
+      <div>
+        <div class="taxas-eyebrow">Tabelas oficiais</div>
+        <h3 class="taxas-title">Taxas por faixa de faturamento</h3>
+      </div>
+      <button type="button" class="taxas-close" data-taxas-close aria-label="Fechar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </header>
+
+    <div class="taxas-tabs" role="tablist">
+      <button type="button" class="taxas-tab is-active" data-taxas-tab="black" role="tab">Ton Black</button>
+      <button type="button" class="taxas-tab" data-taxas-tab="mega" role="tab">Ton Mega+</button>
+    </div>
+
+    <div class="taxas-body">
+      <figure class="taxas-panel is-active" data-taxas-panel="black">
+        <img src="/tabela-ton-black.webp" alt="Tabela de taxas do plano Ton Black por faixa de faturamento" loading="lazy" />
+        <figcaption>
+          Plano <strong>Ton Black</strong>: condição exclusiva para MEI e CNPJ. Recebimento em 1 dia útil (D1).
+          Quanto maior o faturamento, menor a taxa. Pix sempre 0%.
+        </figcaption>
+      </figure>
+
+      <figure class="taxas-panel" data-taxas-panel="mega">
+        <img src="/tabela-ton-mega.webp" alt="Tabela de taxas do plano Ton Mega+ por faixa de faturamento" loading="lazy" />
+        <figcaption>
+          Plano <strong>Ton Mega+</strong>: aceita CPF e CNPJ. Recebimento em 1 dia útil (D1),
+          com faixa promocional no começo. Pix sempre 0%.
+        </figcaption>
+      </figure>
+    </div>
+
+    <footer class="taxas-footer">
+      <p>
+        Tabelas oficiais do Ton, sujeitas a alteração pela operadora. A condição final depende do plano
+        contratado, do seu faturamento e das políticas vigentes. Fazemos a simulação personalizada no atendimento.
+      </p>
+      <a
+        href="https://wa.me/lojatonmanaus?text=Ol%C3%A1!%20Vi%20a%20tabela%20de%20taxas%20no%20site%20e%20quero%20uma%20simula%C3%A7%C3%A3o."
+        target="_blank" rel="noopener"
+        class="btn btn-wa w-full sm:w-auto"
+        data-cta="tabela-taxas-wa"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/></svg>
+        Quero simular a minha taxa
+      </a>
+    </footer>
+  </div>
+</dialog>
+</div>
+
+<style>
+  .taxas-dialog {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    max-width: min(1100px, calc(100vw - 1.5rem));
+    width: 100%;
+    max-height: calc(100vh - 2rem);
+  }
+  .taxas-dialog::backdrop {
+    background: rgba(10, 15, 13, 0.72);
+    backdrop-filter: blur(4px);
+  }
+  .taxas-inner {
+    background: #FAFAF7;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 2rem);
+    box-shadow: 0 32px 80px -24px rgba(10, 15, 13, 0.5);
+  }
+  .taxas-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.25rem 1rem;
+    border-bottom: 1px solid #E4E7E4;
+  }
+  .taxas-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #00A324;
+  }
+  .taxas-title {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0A0F0D;
+    margin-top: 0.25rem;
+    line-height: 1.2;
+  }
+  .taxas-close {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 9999px;
+    border: 1px solid #E4E7E4;
+    background: #fff;
+    color: #3A4441;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 150ms ease;
+  }
+  .taxas-close:hover { background: #EEF0EC; }
+
+  .taxas-tabs {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid #E4E7E4;
+    background: #F3F3EF;
+  }
+  .taxas-tab {
+    border: 1px solid #E4E7E4;
+    background: #fff;
+    color: #3A4441;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 160ms ease;
+  }
+  .taxas-tab:hover { border-color: #00CC2C; }
+  .taxas-tab.is-active {
+    background: #00CC2C;
+    border-color: #00CC2C;
+    color: #0A0F0D;
+  }
+
+  .taxas-body {
+    overflow: auto;
+    padding: 1rem 1.25rem;
+    flex: 1;
+    -webkit-overflow-scrolling: touch;
+  }
+  .taxas-panel { display: none; margin: 0; }
+  .taxas-panel.is-active { display: block; }
+  .taxas-panel img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #E4E7E4;
+    display: block;
+    min-width: 620px;
+  }
+  .taxas-panel figcaption {
+    margin-top: 0.85rem;
+    font-size: 12px;
+    color: #6B7773;
+    line-height: 1.6;
+    min-width: auto;
+  }
+  .taxas-panel figcaption strong { color: #0A0F0D; }
+
+  .taxas-footer {
+    padding: 1rem 1.25rem 1.25rem;
+    border-top: 1px solid #E4E7E4;
+    background: #F3F3EF;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .taxas-footer p {
+    font-size: 11px;
+    color: #6B7773;
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (min-width: 640px) {
+    .taxas-footer {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .taxas-footer p { flex: 1; }
+  }
+</style>
+
+<script is:inline>
+(function () {
+  document.querySelectorAll('[data-taxas-root]').forEach(function (root) {
+    var btn = root.querySelector('[data-taxas-open]');
+    var dialog = root.querySelector('[data-taxas-dialog]');
+    if (!btn || !dialog) return;
+
+    btn.addEventListener('click', function () {
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open', '');
+      document.body.style.overflow = 'hidden';
+    });
+
+    dialog.querySelectorAll('[data-taxas-close]').forEach(function (close) {
+      close.addEventListener('click', function () {
+        dialog.close();
+      });
+    });
+
+    // Fecha ao clicar no backdrop
+    dialog.addEventListener('click', function (e) {
+      if (e.target === dialog) dialog.close();
+    });
+
+    dialog.addEventListener('close', function () {
+      document.body.style.overflow = '';
+    });
+
+    // Tabs
+    dialog.querySelectorAll('[data-taxas-tab]').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var key = tab.getAttribute('data-taxas-tab');
+        dialog.querySelectorAll('[data-taxas-tab]').forEach(function (t) {
+          t.classList.toggle('is-active', t === tab);
+        });
+        dialog.querySelectorAll('[data-taxas-panel]').forEach(function (p) {
+          p.classList.toggle('is-active', p.getAttribute('data-taxas-panel') === key);
+        });
+        var body = dialog.querySelector('.taxas-body');
+        if (body) body.scrollTop = 0;
+      });
+    });
+  });
+})();
+</script>

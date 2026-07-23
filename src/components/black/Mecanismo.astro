@@ -1,25 +1,34 @@
 ---
+import TabelaTaxas from '../TabelaTaxas.astro';
+
 const features = [
   {
-    label: 'Taxa negociada',
+    label: 'Débito',
     stat: 'a partir de 0,74%',
-    caption: 'no débito · condição negociada pela sua faixa de faturamento, não a taxa de balcão'
+    caption: 'condição negociada pela sua faixa de faturamento, não a taxa de balcão'
   },
   {
-    label: 'Recebimento',
-    stat: '1 dia útil ou na hora',
-    caption: 'seu dinheiro trabalha no seu caixa, não no do banco'
+    label: 'Crédito à vista',
+    stat: 'a partir de 2,68%',
+    caption: 'quanto maior o seu volume, menor a taxa que você paga'
   },
   {
     label: 'Pix',
-    stat: '0% e cai na hora',
-    caption: 'na maquininha e no app, sem taxa extra'
+    stat: '0% ilimitado',
+    caption: 'sem taxa, sem limite de volume, cai na hora no seu caixa'
   },
   {
-    label: 'Custo fixo',
-    stat: 'zero mensalidade',
-    caption: 'sem aluguel, sem taxa mensal, você paga só por transação'
+    label: 'Recebimento',
+    stat: '1 dia útil',
+    caption: 'seu dinheiro trabalha no seu caixa, não no do banco'
   }
+];
+
+const beneficios = [
+  'Garantia vitalícia do aparelho',
+  'Suporte 24h, todos os dias',
+  'Reposição de bobinas gratuita',
+  'Zero mensalidade e zero aluguel'
 ];
 ---
 <section class="relative py-24 md:py-32">
@@ -48,8 +57,22 @@ const features = [
       ))}
     </div>
 
-    <div class="mt-10 max-w-3xl">
-      <p class="text-sm text-ink-500 leading-relaxed">
+    <!-- Benefícios que vêm junto -->
+    <div class="mt-8 card p-6 md:p-7">
+      <div class="eyebrow">Vem junto, em qualquer plano</div>
+      <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-3">
+        {beneficios.map((b) => (
+          <li class="flex items-start gap-2.5 text-sm text-ink-700">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-ton-deep mt-0.5 shrink-0"><path d="M5 13l4 4L19 7"/></svg>
+            {b}
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <TabelaTaxas label="Ver tabela completa de taxas" />
+      <p class="text-sm text-ink-500 leading-relaxed max-w-xl">
         Taxas de referência "a partir de". A condição final é personalizada com base no seu faturamento e
         histórico. Fazemos a análise gratuita da sua taxa atual e mostramos exatamente quanto você economiza.
       </p>

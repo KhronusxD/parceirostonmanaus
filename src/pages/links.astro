@@ -6,11 +6,10 @@ const title = 'Loja Parceira Ton Manaus | Todos os nossos canais';
 const description = 'Todos os links da Loja Parceira Ton em Manaus: loja física, WhatsApp, condição Ton Black, análise gratuita da sua taxa e catálogo de maquininhas.';
 
 const models = [
-  { name: 'TapTon', img: '/ai-tapton.webp', price: 'Grátis', desc: 'Cartão no seu Android' },
-  { name: 'T1', img: '/ai-t1.webp', price: '17', desc: 'Bluetooth com o celular' },
-  { name: 'T2', img: '/ai-t2.webp', price: '40', desc: '3G e Wi-Fi próprios' },
-  { name: 'T3', img: '/ai-t3.webp', price: '86', desc: 'Impressora e teclado' },
-  { name: 'T3 Smart', img: '/ai-t3-smart.webp', price: '154', desc: 'Android e tela grande' }
+  { name: 'T1', img: '/ai-t1.webp', price: '16,80', desc: 'Bluetooth com o celular' },
+  { name: 'T2', img: '/ai-t2.webp', price: '39,90', desc: '3G e Wi-Fi próprios' },
+  { name: 'T3', img: '/ai-t3.webp', price: '86,40', desc: 'Impressora e teclado' },
+  { name: 'T3 Smart', img: '/ai-t3-smart.webp', price: '153,50', desc: 'Android e tela grande' }
 ];
 
 const waLoja = (msg: string) => 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent(msg);
@@ -166,7 +165,7 @@ const mainLinks = [
                   <div>
                     <div class="text-[10px] text-ink-500 uppercase tracking-wider">a partir de</div>
                     <div class="font-display text-xl font-bold text-ink-950 leading-none">
-                      {m.price === 'Grátis' ? 'Grátis' : `R$ ${m.price}`}
+                      R$ {m.price}
                     </div>
                   </div>
                   <span class="shrink-0 h-9 w-9 rounded-full bg-ton flex items-center justify-center text-ink-950 group-hover:bg-ton-deep group-hover:text-paper transition-colors">
