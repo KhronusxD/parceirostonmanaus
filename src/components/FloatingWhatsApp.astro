@@ -1,12 +1,9 @@
 ---
-// Botão flutuante de WhatsApp com mock de "digitando..." antes de cair no WA real.
-// Aparece em todas as páginas (embutido no Layout).
-const waHref = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent(
-  'Olá! Vim pelo site e quero falar com um consultor.'
-);
+// Botão flutuante que abre um questionário curto e, no fim, leva ao WhatsApp
+// com uma mensagem pronta incluindo o modelo escolhido.
+const waNumber = '5592984603260';
 ---
 <div class="fw-root" data-fw-root>
-  <!-- Card do mock de chat -->
   <div class="fw-card" data-fw-card aria-hidden="true">
     <header class="fw-card-header">
       <div class="fw-avatar" aria-hidden="true">
@@ -22,22 +19,12 @@ const waHref = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent(
       </button>
     </header>
 
-    <div class="fw-body" data-fw-body>
-      <!-- bolhas aparecem via JS -->
-    </div>
+    <div class="fw-body" data-fw-body></div>
 
-    <footer class="fw-card-footer">
-      <a href={waHref} target="_blank" rel="noopener" class="fw-cta" data-fw-cta data-cta="floating-wa">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/>
-        </svg>
-        <span>Iniciar conversa no WhatsApp</span>
-      </a>
-    </footer>
+    <div class="fw-options" data-fw-options></div>
   </div>
 
-  <!-- FAB -->
-  <button type="button" class="fw-fab" data-fw-fab aria-label="Falar no WhatsApp">
+  <button type="button" class="fw-fab" data-fw-fab aria-label="Achar minha maquininha">
     <span class="fw-fab-pulse" aria-hidden="true"></span>
     <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/>
@@ -48,323 +35,268 @@ const waHref = 'https://wa.me/lojatonmanaus?text=' + encodeURIComponent(
 
 <style>
   .fw-root {
-    position: fixed;
-    right: 1.25rem;
-    bottom: 1.25rem;
-    z-index: 60;
+    position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 60;
     font-family: Inter, system-ui, sans-serif;
   }
-  @media (min-width: 768px) {
-    .fw-root { right: 1.75rem; bottom: 1.75rem; }
-  }
+  @media (min-width: 768px) { .fw-root { right: 1.75rem; bottom: 1.75rem; } }
 
-  /* FAB */
   .fw-fab {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    border-radius: 9999px;
-    background: #00CC2C;
-    color: #0A0F0D;
-    border: none;
-    box-shadow: 0 10px 30px -8px rgba(0, 204, 44, 0.55), 0 4px 12px rgba(10, 15, 13, 0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    position: relative; width: 60px; height: 60px; border-radius: 9999px;
+    background: #00CC2C; color: #0A0F0D; border: none;
+    box-shadow: 0 10px 30px -8px rgba(0,204,44,.55), 0 4px 12px rgba(10,15,13,.15);
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
     transition: transform 200ms ease, box-shadow 200ms ease;
   }
-  .fw-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -8px rgba(0, 204, 44, 0.65); }
+  .fw-fab:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -8px rgba(0,204,44,.65); }
   .fw-fab:active { transform: translateY(0); }
-  .fw-fab-pulse {
-    position: absolute;
-    inset: 0;
-    border-radius: 9999px;
-    background: #00CC2C;
-    opacity: 0.6;
-    animation: fw-pulse 2.4s ease-out infinite;
-  }
-  @keyframes fw-pulse {
-    0% { transform: scale(1); opacity: 0.6; }
-    80% { transform: scale(1.55); opacity: 0; }
-    100% { transform: scale(1.55); opacity: 0; }
-  }
+  .fw-fab-pulse { position: absolute; inset: 0; border-radius: 9999px; background: #00CC2C; opacity: .6; animation: fw-pulse 2.4s ease-out infinite; }
+  @keyframes fw-pulse { 0% { transform: scale(1); opacity: .6; } 80%,100% { transform: scale(1.55); opacity: 0; } }
   .fw-badge {
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    min-width: 20px;
-    height: 20px;
-    padding: 0 6px;
-    border-radius: 9999px;
-    background: #E11D48;
-    color: #fff;
-    font-size: 11px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 0 2px #FAFAF7;
+    position: absolute; top: -2px; right: -2px; min-width: 20px; height: 20px; padding: 0 6px;
+    border-radius: 9999px; background: #E11D48; color: #fff; font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px #FAFAF7;
   }
 
-  /* Card */
   .fw-card {
-    position: absolute;
-    right: 0;
-    bottom: 76px;
-    width: min(340px, calc(100vw - 2.5rem));
-    background: #EEF0EC;
-    border-radius: 16px;
-    box-shadow: 0 24px 60px -20px rgba(10, 15, 13, 0.35), 0 8px 24px -8px rgba(10, 15, 13, 0.18);
-    overflow: hidden;
-    transform: translateY(12px) scale(0.96);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 220ms cubic-bezier(0.2, 0.9, 0.3, 1.2), opacity 200ms ease;
+    position: absolute; right: 0; bottom: 76px;
+    width: min(360px, calc(100vw - 2.5rem));
+    background: #EEF0EC; border-radius: 16px;
+    box-shadow: 0 24px 60px -20px rgba(10,15,13,.35), 0 8px 24px -8px rgba(10,15,13,.18);
+    overflow: hidden; display: flex; flex-direction: column;
+    transform: translateY(12px) scale(.96); opacity: 0; pointer-events: none;
+    transition: transform 220ms cubic-bezier(.2,.9,.3,1.2), opacity 200ms ease;
   }
-  .fw-card.fw-open {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .fw-card-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: #007A3D;
-    padding: 12px 14px;
-    color: #fff;
-  }
-  .fw-avatar {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    border-radius: 9999px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    overflow: hidden;
-    padding: 6px;
-    box-sizing: border-box;
-  }
-  .fw-avatar-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-  .fw-avatar-dot {
-    position: absolute;
-    right: -1px;
-    bottom: -1px;
-    width: 12px;
-    height: 12px;
-    border-radius: 9999px;
-    background: #00E63A;
-    box-shadow: 0 0 0 2px #007A3D;
-  }
+  .fw-card.fw-open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+
+  .fw-card-header { display: flex; align-items: center; gap: 10px; background: #007A3D; padding: 12px 14px; color: #fff; }
+  .fw-avatar { position: relative; width: 40px; height: 40px; border-radius: 9999px; background: #fff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; padding: 6px; box-sizing: border-box; }
+  .fw-avatar-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .fw-avatar-dot { position: absolute; right: -1px; bottom: -1px; width: 12px; height: 12px; border-radius: 9999px; background: #00E63A; box-shadow: 0 0 0 2px #007A3D; }
   .fw-hd-info { flex: 1; line-height: 1.2; min-width: 0; }
-  .fw-hd-name {
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .fw-hd-status { font-size: 11px; color: rgba(255, 255, 255, 0.75); }
-  .fw-close {
-    background: transparent;
-    border: 0;
-    color: rgba(255, 255, 255, 0.85);
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 150ms ease;
-  }
-  .fw-close:hover { background: rgba(255, 255, 255, 0.15); }
+  .fw-hd-name { font-size: 14px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .fw-hd-status { font-size: 11px; color: rgba(255,255,255,.75); }
+  .fw-close { background: transparent; border: 0; color: rgba(255,255,255,.85); cursor: pointer; width: 30px; height: 30px; border-radius: 9999px; display: flex; align-items: center; justify-content: center; transition: background 150ms ease; }
+  .fw-close:hover { background: rgba(255,255,255,.15); }
 
   .fw-body {
-    padding: 16px 14px 4px;
-    min-height: 140px;
-    max-height: 260px;
-    overflow-y: auto;
-    background:
-      radial-gradient(circle at 30% 20%, rgba(0, 204, 44, 0.05) 0, transparent 40%),
-      #EEF0EC;
+    padding: 16px 14px 6px; min-height: 130px; max-height: 42vh; overflow-y: auto;
+    background: radial-gradient(circle at 30% 10%, rgba(0,204,44,.05) 0, transparent 42%), #EEF0EC;
+    -webkit-overflow-scrolling: touch;
   }
-
   .fw-bubble {
-    max-width: 85%;
-    padding: 8px 12px;
-    border-radius: 12px;
-    background: #fff;
-    color: #0A0F0D;
-    font-size: 14px;
-    line-height: 1.4;
-    margin-bottom: 8px;
-    box-shadow: 0 1px 1px rgba(10, 15, 13, 0.08);
-    animation: fw-bubble-in 260ms cubic-bezier(0.2, 0.9, 0.3, 1.2);
-    border-radius: 4px 12px 12px 12px;
-    word-wrap: break-word;
+    max-width: 88%; padding: 9px 13px; border-radius: 4px 12px 12px 12px; background: #fff; color: #0A0F0D;
+    font-size: 14px; line-height: 1.45; margin-bottom: 8px; box-shadow: 0 1px 1px rgba(10,15,13,.08);
+    animation: fw-in 260ms cubic-bezier(.2,.9,.3,1.2); word-wrap: break-word;
   }
-  .fw-typing {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    padding: 10px 14px;
-    background: #fff;
-    border-radius: 4px 12px 12px 12px;
-    box-shadow: 0 1px 1px rgba(10, 15, 13, 0.08);
-    margin-bottom: 8px;
-    animation: fw-bubble-in 240ms ease;
-  }
-  .fw-typing span {
-    width: 6px; height: 6px; border-radius: 9999px; background: #9DA5A0;
-    animation: fw-typing-dot 1.2s infinite ease-in-out;
-  }
-  .fw-typing span:nth-child(2) { animation-delay: 0.15s; }
-  .fw-typing span:nth-child(3) { animation-delay: 0.3s; }
-  @keyframes fw-typing-dot {
-    0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
-    30% { transform: translateY(-4px); opacity: 1; }
-  }
-  @keyframes fw-bubble-in {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  .fw-bubble.user { margin-left: auto; background: #DCFCE7; border-radius: 12px 4px 12px 12px; color: #0A2E14; }
+  .fw-bubble strong { font-weight: 700; }
+  .fw-typing { display: inline-flex; align-items: center; gap: 4px; padding: 11px 14px; background: #fff; border-radius: 4px 12px 12px 12px; box-shadow: 0 1px 1px rgba(10,15,13,.08); margin-bottom: 8px; }
+  .fw-typing span { width: 6px; height: 6px; border-radius: 9999px; background: #9DA5A0; animation: fw-dot 1.2s infinite ease-in-out; }
+  .fw-typing span:nth-child(2) { animation-delay: .15s; }
+  .fw-typing span:nth-child(3) { animation-delay: .3s; }
+  @keyframes fw-dot { 0%,60%,100% { transform: translateY(0); opacity: .6; } 30% { transform: translateY(-4px); opacity: 1; } }
+  @keyframes fw-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-  .fw-card-footer {
-    padding: 12px;
-    background: #EEF0EC;
-    border-top: 1px solid rgba(10, 15, 13, 0.08);
+  .fw-options { padding: 8px 12px 14px; background: #EEF0EC; border-top: 1px solid rgba(10,15,13,.06); display: flex; flex-direction: column; gap: 7px; }
+  .fw-opt {
+    text-align: left; width: 100%; border: 1px solid #D7E0DB; background: #fff; color: #0A0F0D;
+    font-size: 13.5px; font-weight: 500; padding: 10px 13px; border-radius: 10px; cursor: pointer;
+    transition: all 150ms ease; font-family: inherit;
   }
-  .fw-cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    background: #00CC2C;
-    color: #0A0F0D;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 12px 14px;
-    border-radius: 9999px;
-    text-decoration: none;
-    transition: background 200ms ease, transform 100ms ease;
-  }
-  .fw-cta:hover { background: #00A324; color: #fff; }
-  .fw-cta:active { transform: scale(0.98); }
+  .fw-opt:hover { border-color: #00CC2C; background: #F3FBF5; }
+  .fw-opt.wa { background: #00CC2C; border-color: #00CC2C; color: #0A0F0D; font-weight: 600; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .fw-opt.wa:hover { background: #00A324; color: #fff; }
+  .fw-opt.ghost { text-align: center; color: #6B7773; border-style: dashed; }
+  .fw-model-price { display: block; font-size: 11px; color: #00A324; font-weight: 600; margin-top: 1px; }
+  .fw-opt.rec { border-color: #00CC2C; box-shadow: 0 0 0 1px rgba(0,204,44,.3); }
+  .fw-rec-tag { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #00A324; background: #E6F9EC; padding: 1px 7px; border-radius: 100px; margin-left: 6px; vertical-align: middle; }
 
   @media (prefers-reduced-motion: reduce) {
     .fw-fab-pulse { animation: none; opacity: 0; }
     .fw-typing span { animation: none; }
-    .fw-bubble, .fw-typing, .fw-card { animation: none; transition: opacity 100ms ease; }
+    .fw-bubble, .fw-card { animation: none; transition: opacity 100ms ease; }
   }
 </style>
 
-<script is:inline>
+<script is:inline define:vars={{ waNumber }}>
 (function () {
   var root = document.querySelector('[data-fw-root]');
   if (!root) return;
   var fab = root.querySelector('[data-fw-fab]');
   var card = root.querySelector('[data-fw-card]');
   var body = root.querySelector('[data-fw-body]');
+  var optionsEl = root.querySelector('[data-fw-options]');
   var closeBtn = root.querySelector('[data-fw-close]');
   var statusEl = root.querySelector('[data-fw-status]');
-  var cta = root.querySelector('[data-fw-cta]');
 
   var opened = false;
-  var animated = false;
+  var started = false;
+  var respostas = {};
 
-  function addBubble(text) {
+  var MODELOS = {
+    T1:  { nome: 'T1', preco: 'R$ 16,80', desc: 'Bluetooth com o celular' },
+    T2:  { nome: 'T2', preco: 'R$ 39,90', desc: '3G e Wi-Fi próprios' },
+    T3:  { nome: 'T3', preco: 'R$ 86,40', desc: 'Com impressora e teclado' },
+    Smart: { nome: 'T3 Smart', preco: 'R$ 153,50', desc: 'Android e tela grande' }
+  };
+
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function scrollDown() { body.scrollTop = body.scrollHeight; }
+
+  function addBubble(html, user) {
     var b = document.createElement('div');
-    b.className = 'fw-bubble';
-    b.textContent = text;
+    b.className = 'fw-bubble' + (user ? ' user' : '');
+    b.innerHTML = html;
     body.appendChild(b);
-    body.scrollTop = body.scrollHeight;
-    return b;
+    scrollDown();
   }
-  function addTyping() {
+  function typing() {
     var t = document.createElement('div');
     t.className = 'fw-typing';
     t.innerHTML = '<span></span><span></span><span></span>';
     body.appendChild(t);
-    body.scrollTop = body.scrollHeight;
+    scrollDown();
     return t;
   }
-  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  async function botSay(html, delay) {
+    if (statusEl) statusEl.textContent = 'digitando…';
+    var t = typing();
+    await wait(delay || 850);
+    t.remove();
+    addBubble(html);
+    if (statusEl) statusEl.textContent = 'online';
+  }
+  function clearOptions() { optionsEl.innerHTML = ''; }
+  function addOption(label, onClick, cls) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'fw-opt' + (cls ? ' ' + cls : '');
+    b.innerHTML = label;
+    b.addEventListener('click', onClick);
+    optionsEl.appendChild(b);
+    return b;
+  }
 
-  function runConversation() {
-    if (animated) return;
-    animated = true;
-    (async function () {
-      if (statusEl) statusEl.textContent = 'digitando…';
-      var t1 = addTyping();
-      await wait(1200);
-      t1.remove();
-      addBubble('Oi! Aqui é da Loja Parceira Ton em Manaus.');
-      if (statusEl) statusEl.textContent = 'online';
-      await wait(700);
+  // --- Regra de recomendação ---
+  function recomendar() {
+    var imp = respostas.impressao;
+    var onde = respostas.onde;
+    var neg = respostas.negocio;
+    if (imp === 'Preciso imprimir') {
+      if (neg === 'Loja / Comércio' || neg === 'Restaurante / Delivery') return 'Smart';
+      return 'T3';
+    }
+    if (imp === 'Não preciso') {
+      return onde === 'Na rua, em movimento' ? 'T1' : 'T2';
+    }
+    // tanto faz
+    return onde === 'Na rua, em movimento' ? 'T1' : 'T2';
+  }
 
-      if (statusEl) statusEl.textContent = 'digitando…';
-      var t2 = addTyping();
-      await wait(1100);
-      t2.remove();
-      addBubble('Posso te ajudar a escolher a maquininha certa ou fazer uma análise gratuita da sua taxa atual.');
-      if (statusEl) statusEl.textContent = 'online';
-      await wait(700);
+  // --- Passos ---
+  async function passoNegocio() {
+    clearOptions();
+    await botSay('Oi! 👋 Vou te ajudar a achar a maquininha certa em 30 segundos.', 700);
+    await botSay('Pra começar: <strong>que tipo de negócio</strong> você tem?', 900);
+    ['MEI / Autônomo', 'Loja / Comércio', 'Restaurante / Delivery', 'Salão / Estética', 'Saúde', 'Outro'].forEach(function (op) {
+      addOption(op, function () { escolher('negocio', op, passoOnde); });
+    });
+  }
+  async function passoOnde() {
+    clearOptions();
+    await botSay('Show! E <strong>onde você mais vende</strong>?', 800);
+    ['No balcão, ponto fixo', 'Na rua, em movimento', 'Um pouco dos dois'].forEach(function (op) {
+      addOption(op, function () { escolher('onde', op, passoImpressao); });
+    });
+  }
+  async function passoImpressao() {
+    clearOptions();
+    await botSay('Última: você precisa <strong>imprimir o comprovante</strong> na hora?', 800);
+    ['Preciso imprimir', 'Não preciso', 'Tanto faz'].forEach(function (op) {
+      addOption(op, function () { escolher('impressao', op, passoModelo); });
+    });
+  }
+  async function passoModelo() {
+    clearOptions();
+    var rec = recomendar();
+    var m = MODELOS[rec];
+    await botSay('Prontinho! Pelo seu perfil, a <strong>' + m.nome + '</strong> é a mais indicada. ' +
+      'Mas você escolhe. Qual você quer levar?', 1000);
 
-      if (statusEl) statusEl.textContent = 'digitando…';
-      var t3 = addTyping();
-      await wait(900);
-      t3.remove();
-      addBubble('Quer continuar a conversa no WhatsApp?');
-      if (statusEl) statusEl.textContent = 'online';
-    })();
+    var ordem = ['T1', 'T2', 'T3', 'Smart'];
+    ordem.forEach(function (k) {
+      var mm = MODELOS[k];
+      var isRec = (k === rec);
+      var label = '<span>' + mm.nome + (isRec ? '<span class="fw-rec-tag">indicada</span>' : '') +
+        '<span class="fw-model-price">' + mm.preco + ' · ' + mm.desc + '</span></span>';
+      addOption(label, function () { finalizar(mm.nome); }, isRec ? 'rec' : '');
+    });
+    addOption('Ainda estou na dúvida', function () { finalizar('a definir'); }, 'ghost');
+  }
+
+  function escolher(chave, valor, proximo) {
+    respostas[chave] = valor;
+    addBubble(valor, true);
+    clearOptions();
+    proximo();
+  }
+
+  async function finalizar(modelo) {
+    clearOptions();
+    if (modelo !== 'a definir') addBubble('Quero a ' + modelo, true);
+    else addBubble('Quero uma ajuda pra decidir', true);
+
+    await botSay('Perfeito! Vou te passar pro nosso consultor no WhatsApp com tudo já anotado. 🚀', 900);
+
+    var linhas = [
+      'Olá! Vim pelo site e já respondi o teste rápido.',
+      '',
+      modelo !== 'a definir' ? '*Maquininha que eu quero:* ' + modelo : '*Quero ajuda pra escolher a maquininha*',
+      '*Meu negócio:* ' + (respostas.negocio || '-'),
+      '*Onde eu vendo:* ' + (respostas.onde || '-'),
+      '*Impressão de comprovante:* ' + (respostas.impressao || '-')
+    ];
+    var url = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(linhas.join('\n'));
+
+    addOption(
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.2-.7.2-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1s-1.2-.4-2.3-1.4c-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5.9 2.9 1.1 3.1c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.7-.4zM12 2.2C6.6 2.2 2.2 6.6 2.2 12c0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4C8.9 21.4 10.4 21.8 12 21.8c5.4 0 9.8-4.4 9.8-9.8S17.4 2.2 12 2.2z"/></svg> Continuar no WhatsApp',
+      function () {
+        if (typeof window.gtag === 'function') {
+          try { window.gtag('event', 'lead_form_submit', { method: 'whatsapp', source: 'quiz', modelo: modelo }); } catch (e) {}
+        }
+        window.open(url, '_blank');
+      },
+      'wa'
+    );
+    addOption('Refazer o teste', function () { reiniciar(); }, 'ghost');
+  }
+
+  function reiniciar() {
+    respostas = {};
+    body.innerHTML = '';
+    clearOptions();
+    passoNegocio();
+  }
+
+  function abrir() {
+    card.classList.add('fw-open');
+    card.setAttribute('aria-hidden', 'false');
+    if (!started) { started = true; passoNegocio(); }
+  }
+  function fechar() {
+    card.classList.remove('fw-open');
+    card.setAttribute('aria-hidden', 'true');
   }
 
   fab.addEventListener('click', function () {
     opened = !opened;
-    if (opened) {
-      card.classList.add('fw-open');
-      card.setAttribute('aria-hidden', 'false');
-      runConversation();
-    } else {
-      card.classList.remove('fw-open');
-      card.setAttribute('aria-hidden', 'true');
-    }
+    if (opened) abrir(); else fechar();
   });
-
-  closeBtn.addEventListener('click', function () {
-    opened = false;
-    card.classList.remove('fw-open');
-    card.setAttribute('aria-hidden', 'true');
-  });
-
-  // Fecha ao clicar fora
+  closeBtn.addEventListener('click', function () { opened = false; fechar(); });
   document.addEventListener('click', function (e) {
     if (!opened) return;
     if (root.contains(e.target)) return;
-    opened = false;
-    card.classList.remove('fw-open');
-    card.setAttribute('aria-hidden', 'true');
+    opened = false; fechar();
   });
-
-  // Analytics
-  if (cta) {
-    cta.addEventListener('click', function () {
-      if (typeof window.gtag === 'function') {
-        try { window.gtag('event', 'whatsapp_click', { cta: 'floating-wa' }); } catch (_) {}
-      }
-    });
-  }
 })();
 </script>

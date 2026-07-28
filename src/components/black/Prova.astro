@@ -1,30 +1,31 @@
 ---
 import TabelaTaxas from '../TabelaTaxas.astro';
 
-// Comparativos calculados a partir das tabelas oficiais do Ton (crédito à vista, D1).
-// Mega+ é a taxa de quem não tem a condição Black; Black é a taxa da faixa correspondente.
+// Comparativos calculados a partir das tabelas oficiais do Ton (D1).
+// Mix realista: 20% Pix (0%), 30% débito, 30% crédito à vista, 20% parcelado (média 3x).
+// Mega+ é a taxa efetiva de quem não tem o Black; Black é a taxa da faixa correspondente.
 const casos = [
   {
     faturamento: 'R$ 30 mil',
-    semBlack: '4,31%',
-    comBlack: '2,88%',
-    economiaMes: 'R$ 429',
-    economiaAno: 'R$ 5.148'
+    semBlack: '2,49%',
+    comBlack: '2,08%',
+    economiaMes: 'R$ 124',
+    economiaAno: 'R$ 1.490'
   },
   {
     faturamento: 'R$ 50 mil',
-    semBlack: '4,14%',
-    comBlack: '2,78%',
-    economiaMes: 'R$ 680',
-    economiaAno: 'R$ 8.160',
+    semBlack: '2,42%',
+    comBlack: '2,00%',
+    economiaMes: 'R$ 214',
+    economiaAno: 'R$ 2.568',
     destaque: true
   },
   {
     faturamento: 'R$ 100 mil',
-    semBlack: '4,14%',
-    comBlack: '2,68%',
-    economiaMes: 'R$ 1.460',
-    economiaAno: 'R$ 17.520'
+    semBlack: '2,42%',
+    comBlack: '1,92%',
+    economiaMes: 'R$ 508',
+    economiaAno: 'R$ 6.096'
   }
 ];
 ---
@@ -36,8 +37,8 @@ const casos = [
         Quanto o Black devolve pro seu caixa.
       </h2>
       <p class="mt-5 text-ink-500 text-base md:text-lg leading-relaxed">
-        Não é promessa, é a diferença entre duas tabelas oficiais do Ton. Simulação com o volume
-        todo em crédito à vista, recebimento em 1 dia útil.
+        Não é promessa, é a diferença entre duas tabelas oficiais do Ton. A vantagem do Black aparece
+        principalmente no débito e no parcelado. Simulação com um mix real de vendas, recebimento em 1 dia útil.
       </p>
     </div>
 
@@ -54,11 +55,11 @@ const casos = [
 
           <div class="mt-6 space-y-2.5">
             <div class="flex items-baseline justify-between gap-3">
-              <span class="text-sm text-ink-500">Sem o Black</span>
+              <span class="text-sm text-ink-500">Taxa efetiva no Mega+</span>
               <span class="font-mono text-sm text-ink-500 line-through">{c.semBlack}</span>
             </div>
             <div class="flex items-baseline justify-between gap-3">
-              <span class="text-sm text-ink-950 font-medium">Com o Black</span>
+              <span class="text-sm text-ink-950 font-medium">Taxa efetiva no Black</span>
               <span class="font-mono text-base text-ton-deep font-bold">{c.comBlack}</span>
             </div>
           </div>
@@ -99,8 +100,8 @@ const casos = [
     <div class="mt-10 flex flex-col items-center gap-4 text-center">
       <TabelaTaxas label="Ver a tabela oficial do Ton Black" defaultTab="black" />
       <p class="text-xs text-ink-500 max-w-2xl leading-relaxed">
-        Simulações com base nas tabelas oficiais vigentes, considerando o faturamento todo em crédito à vista.
-        Na prática o resultado varia conforme a divisão entre débito, crédito e parcelado. Fazemos a conta
+        Simulações com base nas tabelas oficiais vigentes, com um mix de 20% Pix, 30% débito, 30% crédito à
+        vista e 20% parcelado. Na prática o resultado varia conforme a sua divisão de vendas. Fazemos a conta
         exata com o seu extrato na análise gratuita.
       </p>
     </div>

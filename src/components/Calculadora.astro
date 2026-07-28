@@ -174,12 +174,13 @@ import TabelaTaxas from './TabelaTaxas.astro';
   var root = document.querySelector('[data-calc]');
   if (!root) return;
 
+  // parc usa a taxa de 3x como média de parcelamento
   var MEGA = [
-    { max: 3000,     deb: 2.98, cred: 5.15, parc: 12.68 },
-    { max: 6000,     deb: 2.68, cred: 4.63, parc: 9.79 },
-    { max: 10000,    deb: 2.61, cred: 4.54, parc: 9.20 },
-    { max: 30000,    deb: 2.51, cred: 4.31, parc: 7.55 },
-    { max: Infinity, deb: 2.48, cred: 4.14, parc: 7.50 }
+    { max: 3000,     deb: 1.69, cred: 3.86, parc: 11.24 },
+    { max: 6000,     deb: 1.39, cred: 3.34, parc: 8.35 },
+    { max: 10000,    deb: 1.32, cred: 3.25, parc: 7.76 },
+    { max: 30000,    deb: 1.22, cred: 3.02, parc: 6.11 },
+    { max: Infinity, deb: 1.19, cred: 2.85, parc: 6.06 }
   ];
   var BLACK = [
     { max: 20000,    deb: 1.36, cred: 3.14, parc: 6.11 },
