@@ -2,10 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "loja-ton-manaus",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "cwd": "/Users/edrodrigues/Documents/ANTIGRAVITY/loja-ton-manaus",
+      "name": "ton-dev",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "cd '/Users/edrodrigues/dev/parceirotonmanaus' && npm run dev"],
       "port": 4321
     }
   ]

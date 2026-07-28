@@ -295,6 +295,11 @@ const waNumber = '5592984603260';
   closeBtn.addEventListener('click', function () { opened = false; fechar(); });
   document.addEventListener('click', function (e) {
     if (!opened) return;
+    // Usa o caminho do evento (composedPath) porque os botões de opção são
+    // removidos do DOM no próprio clique — nesse caso root.contains(e.target)
+    // já daria false e fecharia o card por engano.
+    var path = (typeof e.composedPath === 'function') ? e.composedPath() : [];
+    if (path.indexOf(root) !== -1) return;
     if (root.contains(e.target)) return;
     opened = false; fechar();
   });
