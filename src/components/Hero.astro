@@ -4,16 +4,26 @@ const wa = 'https://wa.me/5592984603260?text=' + encodeURIComponent('Olá! Vim p
 <section class="hero-scroll relative" data-hero-video>
   <div class="hero-pin sticky top-0 h-screen w-full overflow-hidden">
 
-    <!-- VÍDEO em background: proporção natural, meio ancorado em 75% da viewport (centro do quadrante direito) -->
+    <!-- MOBILE: imagem estática (vídeo scroll-scrub trava em celular) -->
+    <img
+      src="/hero-poster.webp"
+      alt=""
+      aria-hidden="true"
+      class="hero-static lg:hidden absolute top-0 h-full w-auto max-w-none"
+      style="left: 62%; transform: translateX(-50%);"
+    />
+
+    <!-- DESKTOP: vídeo controlado pelo scroll, meio ancorado em 75% da viewport.
+         preload=none: só baixa quando o script confirma que é desktop. -->
     <video
-      class="hero-video absolute top-0 h-full w-auto max-w-none"
+      class="hero-video hidden lg:block absolute top-0 h-full w-auto max-w-none"
       style="left: 75%; transform: translateX(-50%);"
       src="https://pub-61b5d969a4e24870b3632f3f16c5a801.r2.dev/video-animation.mp4"
       crossorigin="anonymous"
       poster="/hero-poster.webp"
       muted
       playsinline
-      preload="auto"
+      preload="none"
       aria-hidden="true"
     ></video>
 
@@ -108,9 +118,9 @@ const wa = 'https://wa.me/5592984603260?text=' + encodeURIComponent('Olá! Vim p
       rgba(250, 250, 247, 0) 88%
     );
   }
-  /* Mobile: vídeo full-viewport, gradiente misto pra headline ter contraste em qualquer frame */
+  /* Mobile: imagem estática full-viewport, gradiente misto pra headline ter contraste */
   @media (max-width: 1023px) {
-    .hero-video {
+    .hero-static {
       left: 50% !important;
       transform: translateX(-50%) !important;
       object-position: center 30%;
@@ -142,10 +152,14 @@ const wa = 'https://wa.me/5592984603260?text=' + encodeURIComponent('Olá! Vim p
   gsap.registerPlugin(ScrollTrigger);
 
   const section = document.querySelector('[data-hero-video]');
-  if (section) {
+  // No mobile/tablet o vídeo não é usado (imagem estática) — sai cedo pra não baixar 14MB nem armar scrub.
+  if (section && window.matchMedia('(min-width: 1024px)').matches) {
     const video = section.querySelector('.hero-video') as HTMLVideoElement | null;
     if (video) {
       video.addEventListener('error', () => { video.style.display = 'none'; });
+      // preload=none no HTML — agora que sabemos que é desktop, manda carregar.
+      video.preload = 'auto';
+      video.load();
 
       const loader = section.querySelector('.hero-video-loader') as HTMLElement | null;
       const showLoader = () => { if (loader) loader.style.opacity = '1'; };

@@ -49,7 +49,7 @@ const GTAG_ID = ''; // ex: 'AW-XXXXXXXXX' ou 'G-XXXXXXX'
 
     { videoPreloadUrl && (
       <>
-        <link rel="preload" href={videoPreloadUrl} as="video" type="video/mp4" crossorigin="anonymous" fetchpriority="high" />
+        <link rel="preload" href={videoPreloadUrl} as="video" type="video/mp4" crossorigin="anonymous" fetchpriority="high" media="(min-width: 1024px)" />
         <link rel="preconnect" href={new URL(videoPreloadUrl).origin} crossorigin />
       </>
     )}
