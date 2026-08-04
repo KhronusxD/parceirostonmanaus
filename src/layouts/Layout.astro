@@ -19,8 +19,9 @@ const {
 const canonical = new URL(path, Astro.site ?? 'https://parceirostonmanaus.com.br').toString();
 const ogImage = new URL('/img/og-cover.jpg', Astro.site ?? 'https://parceirostonmanaus.com.br').toString();
 
-// Google Ads / GA4 — substituir pelos IDs reais antes de publicar
-const GTAG_ID = ''; // ex: 'AW-XXXXXXXXX' ou 'G-XXXXXXX'
+// Google Ads
+const GTAG_ID = 'AW-18359105439';
+const CONV_LEAD = 'AW-18359105439/BMyzCNSPstscEJ_vprJE'; // conversão "Lead - WhatsApp"
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -69,6 +70,20 @@ const GTAG_ID = ''; // ex: 'AW-XXXXXXXXX' ou 'G-XXXXXXX'
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${GTAG_ID}');
+
+          // Conversão de lead: dispara em qualquer clique que leve ao WhatsApp e no envio do formulário.
+          window.__tonConvLead = '${CONV_LEAD}';
+          window.tonLead = function(extra){
+            try {
+              gtag('event', 'conversion', Object.assign({ send_to: window.__tonConvLead }, extra || {}));
+            } catch (e) {}
+          };
+          // Delegação global: pega todos os links wa.me e botões [data-cta] do site de uma vez.
+          document.addEventListener('click', function (e) {
+            var t = e.target;
+            if (!t || !t.closest) return;
+            if (t.closest('a[href*="wa.me"], [data-cta]')) window.tonLead();
+          }, true);
         `}></script>
       </>
     )}

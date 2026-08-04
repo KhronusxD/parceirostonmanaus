@@ -119,6 +119,8 @@ const waNumber = '5592984603260';
         window.gtag('event', 'lead_form_submit', { method: 'whatsapp', modelo: mod, negocio: neg });
       } catch (_) {}
     }
+    // Conversão Google Ads (form não é clique num <a>, então dispara aqui)
+    if (typeof window.tonLead === 'function') window.tonLead();
 
     const url = 'https://wa.me/' + waNumber + '?text=' + encodeURIComponent(msg);
     window.location.href = url;

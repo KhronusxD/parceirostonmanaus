@@ -264,6 +264,7 @@ const waNumber = '5592984603260';
         if (typeof window.gtag === 'function') {
           try { window.gtag('event', 'lead_form_submit', { method: 'whatsapp', source: 'quiz', modelo: modelo }); } catch (e) {}
         }
+        if (typeof window.tonLead === 'function') window.tonLead();
         window.open(url, '_blank');
       },
       'wa'
