@@ -8,7 +8,7 @@ const AT = {
      número, então é só por aqui que se conta quantos vieram de cada link. Pesquisar
      "#josias" ou "#alana" no WhatsApp dá o total de cada um. */
   codigo: "JOSIAS",
-  gyrehub: "",                // <<< slug do formulário no GyreHub (deixar vazio desliga)
+  gyrehub: "8ou2z6",       // slug do formulário no GyreHub (vazio desliga)
   /* Horário de atendimento, SEMPRE em hora de Manaus (UTC-4, sem horário de verão).
      dias: 0=dom … 6=sáb. Fora da janela o aviso diz a que horas ele volta, em vez de
      prometer alguém do outro lado. sempre:true ignora o horário. */
