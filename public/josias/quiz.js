@@ -4,7 +4,10 @@ const AT = {
   nome: "Josias",
   guia: "../img/josias.webp",
   whatsapp: "5592984603260",   // <<< WhatsApp deste atendente
-  codigo: "JOSIAS",       // vai na mensagem, pra rastrear de qual página veio
+  /* Vai como "*Origem:* #josias" no fim da mensagem. As duas páginas caem no MESMO
+     número, então é só por aqui que se conta quantos vieram de cada link. Pesquisar
+     "#josias" ou "#alana" no WhatsApp dá o total de cada um. */
+  codigo: "JOSIAS",
   gyrehub: "",                // <<< slug do formulário no GyreHub (deixar vazio desliga)
   /* Horário de atendimento, SEMPRE em hora de Manaus (UTC-4, sem horário de verão).
      dias: 0=dom … 6=sáb. Fora da janela o aviso diz a que horas ele volta, em vez de
@@ -387,7 +390,7 @@ function irWhats(){
     + "*PEDIDO*\n" + linhas.join("\n") + "\n\n"
     + "*Recomendado:* " + m.nome + " — a partir de " + m.por + "\n"
     + "*Nome:* " + nome + "\n"
-    + "_cod " + AT.codigo + "_";
+    + "*Origem:* #" + AT.codigo.toLowerCase();
   px("Contact",{modelo:m.nome});
   location.href = "https://wa.me/" + AT.whatsapp + "?text=" + encodeURIComponent(txt);
 }
