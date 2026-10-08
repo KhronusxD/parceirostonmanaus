@@ -3,7 +3,7 @@
 const AT = {
   nome: "Alana",
   guia: "../img/alana.webp",
-  whatsapp: "5592984603260",   // <<< WhatsApp deste atendente
+  whatsapp: "5592993155508",   // <<< WhatsApp deste atendente
   /* Vai como "*Origem:* #josias" no fim da mensagem. As duas páginas caem no MESMO
      número, então é só por aqui que se conta quantos vieram de cada link. Pesquisar
      "#josias" ou "#alana" no WhatsApp dá o total de cada um. */
