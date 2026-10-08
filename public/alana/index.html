@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Escolha sua maquininha Ton</title>
+<meta name="description" content="Responda 5 perguntas e descubra a maquininha certa pro seu negócio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<div class="crt"></div>
+
+<!-- ======= HUD ======= -->
+<header id="hud" class="hud off">
+  <div class="hudL"><img id="hudFace" src="" alt="">
+    <div><span id="hudNome"></span><span id="hudStatus" class="status"></span></div></div>
+  <div class="hudR"><span id="hudFase">FASE 1/5</span>
+    <div class="bar"><i id="barFill"></i></div></div>
+</header>
+
+<main>
+<!-- ======= TELA DE ABERTURA ======= -->
+<section id="s-start" class="scr on">
+  <div class="startWrap">
+    <div class="tag">TON · PARCEIRO OFICIAL</div>
+    <h1 class="titulo">QUAL<br>MAQUININHA<br><span>É A SUA?</span></h1>
+    <p class="lead">5 perguntas rápidas. No final você fala direto comigo no WhatsApp com o pedido já montado.</p>
+    <div class="selos">
+      <span class="sl"><svg viewBox="0 0 11 13" aria-hidden="true"><path d="M4 0h3v1h2v1h1v4H9v1H8v1H7v1H6v2H5v-2H4V8H3V7H2V6H1V2h1V1h2z"/><path class="vz" d="M4 2h3v1h1v2H7v1H4V5H3V3h1z"/></svg>DIRETO DE MANAUS</span>
+      <span class="sl"><svg viewBox="0 0 13 11" aria-hidden="true"><path d="M0 1h8v2h2l2 3v3h-1v1H9V9H5v1H3V9H1V8H0z"/><path class="vz" d="M9 4h1l1 2H9z"/></svg>PRONTA ENTREGA</span>
+    </div>
+    <div id="startStatus" class="online"></div>
+    <img id="startFace" class="startFace" src="" alt="">
+    <button class="btn big" onclick="comecar()">► COMEÇAR</button>
+    <p class="mini">Leva menos de 1 minuto</p>
+  </div>
+</section>
+
+<!-- ======= PERGUNTAS ======= -->
+<section id="s-quiz" class="scr">
+  <div class="palco">
+    <img id="qFace" class="face" src="" alt="">
+    <div class="balao"><p id="qFala"></p></div>
+  </div>
+  <h2 id="qTitulo" class="pergunta"></h2>
+  <div id="qOpcoes" class="opcoes"></div>
+  <button id="btnVoltar" class="voltar" onclick="voltar()">◄ voltar</button>
+</section>
+
+<!-- ======= CAPTURA ======= -->
+<section id="s-lead" class="scr">
+  <div class="palco">
+    <img id="lFace" class="face" src="" alt="">
+    <div class="balao"><p id="lFala"></p></div>
+  </div>
+  <h2 class="pergunta">QUASE LÁ</h2>
+  <div class="form">
+    <label>SEU NOME</label>
+    <input id="inNome" type="text" autocomplete="name" placeholder="como te chamo?">
+    <label>SEU WHATSAPP</label>
+    <input id="inZap" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(92) 9 0000-0000">
+    <button class="btn" onclick="enviar()">► VER MINHA MAQUININHA</button>
+    <p class="mini">Só pra eu te chamar com o pedido pronto. Nada de spam.</p>
+  </div>
+</section>
+
+<!-- ======= CARREGANDO ======= -->
+<section id="s-load" class="scr">
+  <div class="loadWrap">
+    <img id="ldFace" class="face grande" src="" alt="">
+    <h2 class="pergunta">MONTANDO SEU PEDIDO</h2>
+    <ul id="ldLista" class="checklist"></ul>
+    <div class="bar grosso"><i id="ldBar"></i></div>
+  </div>
+</section>
+
+<!-- ======= RESULTADO ======= -->
+<section id="s-res" class="scr">
+  <div class="palco">
+    <img id="rFace" class="face" src="" alt="">
+    <div class="balao"><p id="rFala"></p></div>
+  </div>
+
+  <div class="card">
+    <div class="selo" id="rSelo">RECOMENDADA PRA VOCÊ</div>
+    <h2 id="rModelo" class="modelo"></h2>
+    <p id="rSub" class="modeloSub"></p>
+    <div class="precos">
+      <div class="pDe">de <s id="rDe"></s></div>
+      <div class="pPor"><span id="rPor"></span><em>a partir de, por mês</em></div>
+    </div>
+    <div id="rEco" class="economia"></div>
+    <ul id="rBullets" class="bullets"></ul>
+  </div>
+
+  <div class="resumo">
+    <div class="resumoTit">SEU PEDIDO</div>
+    <ul id="rResumo"></ul>
+  </div>
+
+  <div class="entrega">
+    <b>Estoque aqui em Manaus.</b> Pronta entrega — sem esperar máquina vir de fora.
+  </div>
+  <div id="resStatus" class="online"></div>
+  <button class="btn zap" onclick="irWhats()">► FALAR COM <span id="rNome"></span> AGORA</button>
+  <button class="btn fantasma" onclick="reiniciar()">refazer o teste</button>
+  <p class="mini" id="rRodape"></p>
+</section>
+</main>
+
+<button id="som" class="som" onclick="mutar()" aria-label="som">♪</button>
+<script src="quiz.js"></script>
+</body>
+</html>
