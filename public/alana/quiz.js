@@ -4,16 +4,13 @@ const AT = {
   nome: "Alana",
   guia: "../img/alana.webp",
   whatsapp: "5592993155508",   // <<< WhatsApp deste atendente
-  /* Vai como "*Origem:* #josias" no fim da mensagem. As duas páginas caem no MESMO
-     número, então é só por aqui que se conta quantos vieram de cada link. Pesquisar
-     "#josias" ou "#alana" no WhatsApp dá o total de cada um. */
-  codigo: "ALANA",
-  gyrehub: "0wc3vt",       // slug do formulário no GyreHub (vazio desliga)
+  codigo: "ALANA",       // vai na mensagem, pra rastrear de qual página veio
+  gyrehub: "",                // <<< slug do formulário no GyreHub (deixar vazio desliga)
   /* Horário de atendimento, SEMPRE em hora de Manaus (UTC-4, sem horário de verão).
      dias: 0=dom … 6=sáb. Fora da janela o aviso diz a que horas ele volta, em vez de
      prometer alguém do outro lado. sempre:true ignora o horário. */
   horario: {dias:[1,2,3,4,5,6], de:8, ate:18, sempre:false},
-  pixel: "882829890919527"    // pixel "Parceiros Ton Manaus"
+  pixel: ""                   // <<< ID do pixel da Meta, se for usar
 };
 /* ======================================================================== */
 
@@ -64,11 +61,8 @@ function ghBeacon(){
 addEventListener("pagehide", ghBeacon);
 addEventListener("visibilitychange", ()=>{ if (document.visibilityState === "hidden") ghBeacon(); });
 
-/* Quem separa Josias de Alana é o formulário: há um slug pra cada um. Não adianta
-   mandar o atendente aqui — o GyreHub só guarda utm_*, fbclid, gclid e referrer,
-   e descarta o resto sem avisar. */
 function ghTracking(){
-  const q = new URLSearchParams(location.search), t = {};
+  const q = new URLSearchParams(location.search), t = {atendente: AT.codigo};
   ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid","gclid"]
     .forEach(k=>{ const v=q.get(k); if (v) t[k]=v; });
   if (document.referrer) t.referrer = document.referrer;
@@ -137,10 +131,6 @@ function mutar(){
 
 /* ===== conteúdo ===== */
 const MODELOS = {
-  t1:{nome:"TON T1", sub:"A menor e mais leve da linha. Conecta no seu celular por Bluetooth.",
-      de:null, por:"R$ 16,80",
-      bullets:["Cabe no bolso, vai pra qualquer lugar","Usa o seu celular pra conectar","Ideal pra delivery, feira e atendimento em movimento"],
-      pra:"Delivery · Feira · Serviço em movimento"},
   t2:{nome:"TON T2", sub:"Autônoma: tem chip próprio e Wi-Fi, não depende do seu celular.",
       de:"R$ 49,88", por:"R$ 37,41",
       bullets:["Chip próprio e Wi-Fi, funciona sozinha","Comprovante por SMS ou e-mail","Ideal pra quem atende fora e não quer depender de sinal"],
@@ -158,44 +148,44 @@ const MODELOS = {
 const PERGUNTAS = [
  {t:"ONDE VOCÊ VENDE?", fala:"Bora montar seu pedido! Primeiro me diz: onde o dinheiro entra?",
   o:[
-   {x:"Na rua, em movimento", d:"Delivery, feira, aplicativo", p:{t1:3},
+   {x:"Na rua, em movimento", d:"Delivery, feira, aplicativo", p:{t2:2},
     r:"Quem vende andando não pode carregar peso. Já anotei aqui."},
    {x:"No balcão da minha loja", d:"Loja, restaurante, mercadinho", p:{t3:3},
     r:"Balcão com fila pede comprovante na hora. Tô de olho numa máquina aqui."},
-   {x:"Vou até o cliente", d:"Consultório, serviço em campo", p:{t2:3},
+   {x:"Vou até o cliente", d:"Consultório, serviço em campo", p:{t2:2},
     r:"Então você precisa de uma que ande sozinha, sem depender do seu celular."},
    {x:"Tenho loja e vendo online", d:"Movimento alto", p:{t3s:2, t3:1},
     r:"Movimento alto muda o modelo, viu. Guarda essa resposta."}]},
 
  {t:"JÁ TEM MAQUININHA?", fala:"Agora me conta como tá hoje. Sem vergonha.",
   o:[
-   {x:"Não, vai ser a primeira", d:"Tô começando agora", p:{t1:1, t2:1},
+   {x:"Não, vai ser a primeira", d:"Tô começando agora", p:{t2:1},
     r:"Primeira máquina! Relaxa que eu te explico tudo sem enrolação."},
    {x:"Tenho, mas quero trocar", d:"Taxa alta ou máquina ruim", p:{t3:1, t3s:1},
     r:"Trocar é o pedido mais comum. Quase sempre é taxa. Eu te mostro a conta."},
-   {x:"Tenho e quero mais uma", d:"Pra não perder venda na fila", p:{t1:2},
+   {x:"Tenho e quero mais uma", d:"Pra não perder venda na fila", p:{t2:1},
     r:"Segunda máquina é esperto: dois clientes pagando ao mesmo tempo."}]},
 
  {t:"QUANTO VOCÊ VENDE POR MÊS?", fala:"Essa aqui define sua taxa. Pode falar à vontade.",
   o:[
-   {x:"Até R$ 5 mil", d:"", p:{t1:2},
+   {x:"Até R$ 5 mil", d:"", p:{t2:3},
     r:"Beleza. Dá pra começar leve e crescer depois."},
-   {x:"R$ 5 mil a R$ 15 mil", d:"", p:{t2:2},
+   {x:"R$ 5 mil a R$ 15 mil", d:"", p:{t2:3},
     r:"Esse volume já abre conversa de taxa. Anotado."},
-   {x:"R$ 15 mil a R$ 50 mil", d:"", p:{t3:2},
+   {x:"R$ 15 mil a R$ 50 mil", d:"", p:{t3:4},
     r:"Com esse volume eu consigo taxa melhor pra você."},
-   {x:"Mais de R$ 50 mil", d:"", p:{t3s:3},
+   {x:"Mais de R$ 50 mil", d:"", p:{t3s:5},
     r:"Volume alto! Esse eu levo pro gerente e volto com proposta especial."}]},
 
  {t:"O QUE NÃO PODE FALTAR?", fala:"Última técnica, prometo. Escolhe a mais importante.",
   o:[
-   {x:"Caber no bolso", d:"Leve, pra levar pra todo lado", p:{t1:3},
+   {x:"Caber no bolso", d:"Leve, pra levar pra todo lado", p:{t2:3},
     r:"Anotado: leve."},
-   {x:"Funcionar sem o celular", d:"Chip próprio", p:{t2:3},
+   {x:"Funcionar sem o celular", d:"Chip próprio", p:{t2:2},
     r:"Anotado: independente."},
    {x:"Imprimir o comprovante", d:"Papel na mão do cliente", p:{t3:3},
     r:"Anotado: com impressora."},
-   {x:"Tela grande e rápida", d:"Operação ágil", p:{t3s:3},
+   {x:"Tela grande e rápida", d:"Operação ágil", p:{t3s:4},
     r:"Anotado: tela grande."}]},
 
  {t:"QUANDO QUER COMEÇAR?", fala:"Pra eu saber se corro ou se te dou um tempo.",
@@ -306,26 +296,33 @@ function enviar(){
   if (nome.length < 2){ $("inNome").focus(); return alert("Me diz seu nome 🙂"); }
   if (zap.length < 10){ $("inZap").focus(); return alert("Confere o WhatsApp, parece faltar número"); }
   somEscolhe();
-  calcular();
-  const m = MODELOS[modeloId];
-  /* Tudo que importa sobe AGORA, não na tela de resultado: entre uma e outra há 3,3s
-     de carregamento, e quem troca de app nesse meio fecha a sessão (o beacon dispara
-     no visibilitychange) sem a marca nem o resumo. */
   gh("resposta",{pergunta:"Qual é o seu nome?", valor:nome});
   gh("resposta",{pergunta:"Qual seu WhatsApp?", valor:zap});
-  gh("resposta",{pergunta:"Maquininha recomendada", valor:m.nome});
-  gh("resposta",{pergunta:"Resumo do pedido",
-     valor: m.nome + " · " + respostas.map(o=>o.x).join(" · ")});
   GH.temLead = true;
-  ghFallback(60000);
-  px("Lead",{content_name:"quiz_ton", modelo:m.nome});
+  calcular();
+  px("Lead",{content_name:"quiz_ton", modelo: MODELOS[modeloId].nome});
   carregando();
 }
+
+/* A exigência do cliente ELIMINA quem não faz aquilo, em vez de só não pontuar:
+   "preciso imprimir" não pode terminar numa máquina sem impressora, por mais que
+   as outras respostas empurrem pra lá. */
+const VETO = { "Imprimir o comprovante": ["t2"] };
+/* Empate vai pra mais completa. Antes caía na primeira chave do objeto, o que
+   entregava sempre a mais simples — e a mais barata. */
+const FORCA = { t2:1, t3:2, t3s:3 };
 
 function calcular(){
   pts = {};
   respostas.forEach(o => { for (const k in o.p) pts[k] = (pts[k] || 0) + o.p[k]; });
-  modeloId = Object.keys(MODELOS).sort((a,b)=>(pts[b]||0)-(pts[a]||0))[0];
+
+  const iExig = PERGUNTAS.findIndex(q => q.t === "O QUE NÃO PODE FALTAR?");
+  const exigencia = (respostas[iExig] || {}).x || "";
+  const fora = VETO[exigencia] || [];
+  const elegiveis = Object.keys(MODELOS).filter(k => fora.indexOf(k) < 0);
+
+  modeloId = elegiveis.sort((a,b) =>
+    ((pts[b]||0) - (pts[a]||0)) || (FORCA[b] - FORCA[a]))[0];
 }
 
 function carregando(){
@@ -368,6 +365,11 @@ function resultado(){
     respostas[k] ? "<li>" + q.t.replace("?","").toLowerCase() + ": <b>" + respostas[k].x + "</b></li>" : "").join("");
   $("rRodape").textContent = "Atendimento com " + AT.nome + " · Parceiro Ton oficial";
 
+  gh("resposta",{pergunta:"Maquininha recomendada", valor:m.nome});
+  gh("resposta",{pergunta:"Resumo do pedido",
+     valor: m.nome + " · " + respostas.map(o=>o.x).join(" · ")});
+  ghFallback(60000);
+
   somVitoria(); confete();
   px("InitiateCheckout",{content_name:"quiz_ton_resultado", modelo:m.nome});
 }
@@ -396,7 +398,7 @@ function irWhats(){
     + "*PEDIDO*\n" + linhas.join("\n") + "\n\n"
     + "*Recomendado:* " + m.nome + " — a partir de " + m.por + "\n"
     + "*Nome:* " + nome + "\n"
-    + "*Origem:* #" + AT.codigo.toLowerCase();
+    + "_cod " + AT.codigo + "_";
   px("Contact",{modelo:m.nome});
   location.href = "https://wa.me/" + AT.whatsapp + "?text=" + encodeURIComponent(txt);
 }
