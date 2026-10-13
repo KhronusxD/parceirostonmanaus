@@ -296,11 +296,19 @@ function enviar(){
   if (nome.length < 2){ $("inNome").focus(); return alert("Me diz seu nome 🙂"); }
   if (zap.length < 10){ $("inZap").focus(); return alert("Confere o WhatsApp, parece faltar número"); }
   somEscolhe();
+  calcular();
+  const m = MODELOS[modeloId];
+  /* Tudo que importa sobe AGORA, não na tela de resultado: entre uma e outra há 3,3s
+     de carregamento, e quem troca de app nesse meio fecha a sessão (o beacon dispara
+     no visibilitychange) sem a marca nem o resumo. */
   gh("resposta",{pergunta:"Qual é o seu nome?", valor:nome});
   gh("resposta",{pergunta:"Qual seu WhatsApp?", valor:zap});
+  gh("resposta",{pergunta:"Maquininha recomendada", valor:m.nome});
+  gh("resposta",{pergunta:"Resumo do pedido",
+     valor: m.nome + " · " + respostas.map(o=>o.x).join(" · ")});
   GH.temLead = true;
-  calcular();
-  px("Lead",{content_name:"quiz_ton", modelo: MODELOS[modeloId].nome});
+  ghFallback(60000);
+  px("Lead",{content_name:"quiz_ton", modelo:m.nome});
   carregando();
 }
 
@@ -364,11 +372,6 @@ function resultado(){
   $("rResumo").innerHTML = PERGUNTAS.map((q, k) =>
     respostas[k] ? "<li>" + q.t.replace("?","").toLowerCase() + ": <b>" + respostas[k].x + "</b></li>" : "").join("");
   $("rRodape").textContent = "Atendimento com " + AT.nome + " · Parceiro Ton oficial";
-
-  gh("resposta",{pergunta:"Maquininha recomendada", valor:m.nome});
-  gh("resposta",{pergunta:"Resumo do pedido",
-     valor: m.nome + " · " + respostas.map(o=>o.x).join(" · ")});
-  ghFallback(60000);
 
   somVitoria(); confete();
   px("InitiateCheckout",{content_name:"quiz_ton_resultado", modelo:m.nome});
