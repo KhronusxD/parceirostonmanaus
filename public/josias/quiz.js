@@ -5,12 +5,12 @@ const AT = {
   guia: "../img/josias.webp",
   whatsapp: "5592984603260",   // <<< WhatsApp deste atendente
   codigo: "JOSIAS",       // vai na mensagem, pra rastrear de qual página veio
-  gyrehub: "",                // <<< slug do formulário no GyreHub (deixar vazio desliga)
+  gyrehub: "8ou2z6",     // slug do formulário no GyreHub (vazio desliga)
   /* Horário de atendimento, SEMPRE em hora de Manaus (UTC-4, sem horário de verão).
      dias: 0=dom … 6=sáb. Fora da janela o aviso diz a que horas ele volta, em vez de
      prometer alguém do outro lado. sempre:true ignora o horário. */
   horario: {dias:[1,2,3,4,5,6], de:8, ate:18, sempre:false},
-  pixel: ""                   // <<< ID do pixel da Meta, se for usar
+  pixel: "882829890919527"    // pixel "Parceiros Ton Manaus"
 };
 /* ======================================================================== */
 
