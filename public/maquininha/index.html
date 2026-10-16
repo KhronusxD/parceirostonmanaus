@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Maquininha Ton com 25% de desconto | Parceiro Autorizado Ton</title>
-<meta name="description" content="Compre sua maquininha Ton T2, T3 ou T3 Smart com 25% de desconto pelo Parceiro Autorizado Ton. Frete grátis para todo o Brasil, sem mensalidade e Pix 0%.">
+<meta name="description" content="Maquininha Ton T1, T2, T3 e T3 Smart pelo Parceiro Autorizado Ton: cupom de 25%, 12x sem juros, frete grátis para todo o Brasil, Pix 0% e taxas a partir de 0,57%.">
 <!-- prévia pra aprovação: tirar o noindex quando o Ed liberar -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://parceirotonmanaus.com.br/maquininha/">
 <meta name="theme-color" content="#0A0F0D">
 <meta property="og:title" content="Maquininha Ton com 25% de desconto">
-<meta property="og:description" content="T2, T3 e T3 Smart com cupom de parceiro, frete grátis para todo o Brasil.">
+<meta property="og:description" content="T1, T2, T3 e T3 Smart com cupom de parceiro, 12x sem juros e frete grátis para todo o Brasil.">
 <meta property="og:image" content="https://parceirotonmanaus.com.br/ai-t3.webp">
 <link rel="icon" href="/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -20,12 +20,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0A0F0D; --ink2:#141B17; --ink3:#1E2822;
+  --ink:#0A0F0D; --ink2:#121915; --ink3:#1B241F;
   --paper:#FAFAF7; --cream:#F7F2E8; --line:#E6E2D8;
   --muted:#5B655F; --muted-d:#A3ADA6;
   --verde:#00CC2C; --verde-esc:#00A824; --verde-claro:#E6F9EA;
   --amarelo:#FFD33D;
-  --r:20px; --sh:0 1px 2px rgba(10,15,13,.06),0 12px 32px -12px rgba(10,15,13,.18);
+  --sh:0 1px 2px rgba(10,15,13,.06),0 12px 32px -12px rgba(10,15,13,.18);
   --sans:"Inter",system-ui,sans-serif; --tit:"Space Grotesk",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -33,16 +33,19 @@ html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{font-family:var(--sans);background:var(--paper);color:var(--ink);line-height:1.55;font-size:16px;overflow-x:hidden}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
-button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
-.wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 20px}
+button,select,input{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
 h1,h2,h3{font-family:var(--tit);letter-spacing:-.02em;line-height:1.08}
 h2{font-size:clamp(28px,4.2vw,44px)}
 .kicker{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--verde-esc)}
 .kicker:before{content:"";width:18px;height:2px;background:currentColor;border-radius:2px}
 .sec{padding:88px 0}
-.sec-head{max-width:640px;margin-bottom:40px}
+.sec-head{max-width:680px;margin-bottom:40px}
+.sec-head.centro{margin-left:auto;margin-right:auto;text-align:center}
 .sec-head p{color:var(--muted);margin-top:14px;font-size:17px}
 em.v{font-style:normal;color:var(--verde)}
+.ok{color:var(--verde-esc);flex:none}
 
 /* botões */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s;white-space:nowrap}
@@ -53,52 +56,62 @@ em.v{font-style:normal;color:var(--verde)}
 .btn-esc:hover{background:#1c2520}
 .btn-borda{border:1.5px solid rgba(255,255,255,.22);color:#fff}
 .btn-borda:hover{border-color:rgba(255,255,255,.5)}
-.btn-borda-esc{border:1.5px solid var(--line);color:var(--ink);background:#fff}
 .btn svg{flex:none}
 
+/* barra do topo */
+.topo{background:var(--verde);color:var(--ink);font-size:13.5px;font-weight:500}
+.topo .wrap{display:flex;justify-content:center;align-items:center;gap:8px 22px;min-height:38px;padding-top:6px;padding-bottom:6px;flex-wrap:wrap;text-align:center}
+.topo b{font-weight:700}
+.topo .sep{opacity:.4}
+
 /* nav */
-.nav{position:sticky;top:0;z-index:40;background:rgba(10,15,13,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
+.nav{position:sticky;top:0;z-index:40;background:rgba(10,15,13,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
 .marca{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff;min-width:0}
 .marca img{height:34px;width:auto}
-.marca span{font:600 12px/1.25 var(--sans);color:var(--muted-d);border-left:1px solid rgba(255,255,255,.14);padding-left:12px}
-.marca b{display:block;color:#fff;font-size:13px}
-.nav-links{display:flex;gap:26px;font-size:14px;color:#cfd6d1}
-.nav-links a{text-decoration:none}
-.nav-links a:hover{color:#fff}
-.nav .btn{height:42px;padding:0 18px;font-size:14px}
+.marca span{font:500 12px/1.25 var(--sans);color:var(--muted-d);border-left:1px solid rgba(255,255,255,.14);padding-left:12px}
+.marca b{display:block;color:#fff;font-size:13px;font-weight:600}
+.nav-taxas{display:flex;color:#fff}
+.nav-taxas div{padding:0 16px;border-left:1px solid rgba(255,255,255,.1);text-align:center;line-height:1.15}
+.nav-taxas div:first-child{border:0}
+.nav-taxas b{display:block;font:700 17px/1.1 var(--tit);color:var(--verde)}
+.nav-taxas small{font-size:11px;color:var(--muted-d)}
+.nav .btn{height:44px;padding:0 20px;font-size:14px}
 
 /* hero */
-.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:56px 0 0}
-.hero:before{content:"";position:absolute;width:900px;height:900px;right:-260px;top:-200px;background:radial-gradient(closest-side,rgba(0,204,44,.28),rgba(0,204,44,0));pointer-events:none}
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:54px 0 0}
+.hero:before{content:"";position:absolute;width:960px;height:960px;right:-280px;top:-240px;background:radial-gradient(closest-side,rgba(0,204,44,.3),rgba(0,204,44,0));pointer-events:none}
 .hero:after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000,transparent 70%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);pointer-events:none}
-.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,.68fr);gap:40px;align-items:center}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:center}
 .selo{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);font-size:13px;color:#dfe6e1}
-.selo i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--verde);color:var(--ink);font-style:normal}
-.hero h1{font-size:clamp(36px,4.6vw,60px);margin:22px 0 20px;max-width:760px}
-.hero h1 em{font-style:normal;color:var(--verde);position:relative;white-space:nowrap}
-.hero .lead{font-size:clamp(17px,1.6vw,19px);color:#c4cdc7;max-width:560px}
+.selo i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--verde);color:var(--ink);font-style:normal;font-weight:700}
+.hero h1{font-size:clamp(36px,4.6vw,60px);margin:22px 0 18px;max-width:780px}
+.hero h1 em{font-style:normal;color:var(--verde)}
+.hero .lead{font-size:clamp(17px,1.5vw,19px);color:#c4cdc7;max-width:600px}
 .hero .lead b{color:#fff;font-weight:600}
-.precobox{margin:28px 0 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.precobox .de{font-size:15px;color:var(--muted-d)}
-.precobox .de s{color:#8d9791}
-.precobox .por{font:700 46px/1 var(--tit);letter-spacing:-.03em}
-.precobox .por small{font-size:18px;font-weight:600;margin-right:4px;color:#c4cdc7}
-.precobox .parc{font-size:14px;color:#c4cdc7;line-height:1.35}
-.precobox .parc b{color:#fff}
-.tag-eco{display:inline-block;background:var(--amarelo);color:var(--ink);font:700 13px/1 var(--sans);padding:7px 10px;border-radius:8px;transform:rotate(-2deg)}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-.hero-ok{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:26px;font-size:14px;color:#c4cdc7}
-.hero-ok span{display:inline-flex;align-items:center;gap:8px}
-.hero-ok svg{color:var(--verde)}
-.hero-vis{position:relative;align-self:end;min-height:520px}
+.hero-tx{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:28px 0 26px;max-width:640px}
+.hero-tx div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 14px 12px}
+.hero-tx b{display:block;font:700 30px/1 var(--tit);letter-spacing:-.03em}
+.hero-tx div:first-child b{color:var(--verde)}
+.hero-tx small{display:block;margin-top:6px;font-size:12px;color:#a8b2ab;line-height:1.25}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hero-ctas .preco{font-size:14px;color:#c4cdc7;line-height:1.3;margin-left:6px}
+.hero-ctas .preco b{color:#fff;font:700 20px/1.1 var(--tit)}
+.notas{display:flex;gap:12px 26px;flex-wrap:wrap;margin-top:28px;padding-top:22px;border-top:1px solid rgba(255,255,255,.08);max-width:640px}
+.nota-i{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#a8b2ab;line-height:1.25}
+.nota-i b{font:700 18px/1 var(--tit);color:#fff}
+.nota-i .est{color:var(--amarelo);letter-spacing:1px;font-size:12px}
+.notas .fonte{font-size:11px;color:#6f7a73;align-self:center}
+.hero-vis{position:relative;align-self:end;min-height:560px}
 .hero-vis img.maq{position:absolute;bottom:-30px;left:50%;transform:translateX(-46%) rotate(4deg);width:min(400px,92%);filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
 .flut{position:absolute;background:#fff;color:var(--ink);border-radius:16px;padding:12px 14px;box-shadow:0 20px 40px -14px rgba(0,0,0,.5);font-size:13px;line-height:1.3;display:flex;align-items:center;gap:10px;z-index:2}
 .flut b{font:700 18px/1 var(--tit);display:block}
-.flut .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--verde-claro);color:var(--verde-esc);flex:none}
-.flut.f1{top:70px;left:0}
-.flut.f2{top:210px;right:0}
-.flut.f3{bottom:90px;left:6px}
+.flut .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--verde-claro);color:var(--verde-esc);flex:none;font-weight:700}
+.flut.f1{top:60px;left:0}
+.flut.f2{top:220px;right:0}
+.flut.f3{bottom:110px;left:6px}
+.selo-25{position:absolute;top:8px;right:16px;width:104px;height:104px;border-radius:50%;background:var(--amarelo);color:var(--ink);display:grid;place-items:center;text-align:center;font:700 13px/1.05 var(--tit);transform:rotate(10deg);box-shadow:0 14px 30px -10px rgba(0,0,0,.5);z-index:2}
+.selo-25 b{display:block;font-size:34px;letter-spacing:-.04em}
 @media (prefers-reduced-motion:no-preference){
   .flut{animation:boia 6s ease-in-out infinite}
   .flut.f2{animation-delay:-2s}.flut.f3{animation-delay:-4s}
@@ -107,7 +120,7 @@ em.v{font-style:normal;color:var(--verde)}
 
 /* faixa */
 .faixa{background:var(--verde);color:var(--ink);overflow:hidden;white-space:nowrap;border-block:1px solid #00b527}
-.faixa .rolo{display:inline-flex;gap:44px;padding:15px 0;font:600 15px/1 var(--tit);animation:rola 32s linear infinite}
+.faixa .rolo{display:inline-flex;gap:44px;padding:15px 0;font:600 15px/1 var(--tit);animation:rola 34s linear infinite}
 .faixa .rolo span{display:inline-flex;align-items:center;gap:44px}
 .faixa .rolo span:after{content:"✦";font-size:12px}
 @keyframes rola{to{transform:translateX(-50%)}}
@@ -122,42 +135,65 @@ em.v{font-style:normal;color:var(--verde)}
 .neg[aria-pressed="true"]{border-color:var(--verde);background:var(--verde-claro);box-shadow:0 0 0 3px rgba(0,204,44,.15)}
 .reco{border-radius:22px;background:var(--cream);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);overflow:hidden;min-height:330px;position:relative}
 .reco .img{display:grid;place-items:center;padding:10px}
-.reco .img img{width:100%;max-width:280px}
+.reco .img img{width:100%;max-width:280px;max-height:300px;object-fit:contain}
 .reco .txt{padding:28px 26px 26px 6px;display:flex;flex-direction:column;justify-content:center}
-.reco .pra{font:600 12px/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--verde-esc)}
+.reco .pra{font:600 12px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--verde-esc)}
 .reco h3{font-size:30px;margin:10px 0 8px}
 .reco p{color:var(--muted);font-size:15px}
 .reco .val{margin:16px 0 18px;font-size:14px;color:var(--muted)}
 .reco .val b{font:700 26px/1 var(--tit);color:var(--ink);margin-right:6px}
 .reco .vazio{position:absolute;inset:0;z-index:2;display:grid;place-items:center;text-align:center;padding:30px;color:var(--muted);background:var(--cream);font-size:15px}
+.reco .vazio .mini{display:flex;justify-content:center;gap:6px;margin-bottom:18px}
+.reco .vazio .mini img{width:72px;height:72px;object-fit:contain;border-radius:14px;background:#fff}
 .reco .vazio b{display:block;font:600 22px/1.2 var(--tit);color:var(--ink);margin-bottom:6px}
 .reco.on .vazio{display:none}
 
 /* modelos */
-.modelos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
-.card{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:var(--sh);transition:transform .2s}
+.modelos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:stretch}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;position:relative;box-shadow:var(--sh);transition:transform .2s}
 .card:hover{transform:translateY(-4px)}
 .card.top{border:2px solid var(--verde);box-shadow:0 24px 50px -22px rgba(0,168,36,.5)}
-.card .fita{position:absolute;top:16px;left:16px;z-index:1;background:var(--ink);color:#fff;font:600 12px/1 var(--sans);padding:8px 12px;border-radius:999px}
+.card .fita{position:absolute;top:14px;left:14px;z-index:1;background:var(--ink);color:#fff;font:600 11.5px/1 var(--sans);padding:7px 11px;border-radius:999px}
 .card.top .fita{background:var(--verde);color:var(--ink)}
-.card .foto{background:var(--cream);aspect-ratio:1/.8;display:grid;place-items:center;overflow:hidden}
-.card .foto img{width:88%}
-.card .corpo{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
-.card h3{font-size:26px}
-.card .sub{color:var(--muted);font-size:14.5px;margin:6px 0 16px;min-height:44px}
-.card ul{list-style:none;display:grid;gap:9px;margin-bottom:22px;font-size:14.5px}
-.card li{display:flex;gap:10px;align-items:flex-start}
-.card li svg{flex:none;margin-top:3px;color:var(--verde-esc)}
-.card .precos{margin-top:auto;border-top:1px dashed var(--line);padding-top:18px}
-.card .linha1{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
-.card .off{background:var(--verde-claro);color:var(--verde-esc);font-weight:700;font-size:12px;padding:4px 8px;border-radius:6px}
-.card .p12{font:700 34px/1.1 var(--tit);letter-spacing:-.03em;margin:8px 0 2px}
-.card .p12 small{font-size:16px;font-weight:600;color:var(--muted)}
-.card .av{font-size:14px;color:var(--muted)}
+.card .cupom{position:absolute;top:14px;right:14px;z-index:1;background:var(--amarelo);color:var(--ink);font:700 11.5px/1 var(--sans);padding:7px 10px;border-radius:8px;transform:rotate(3deg)}
+.card .foto{background:var(--cream);aspect-ratio:1/.82;display:grid;place-items:center;overflow:hidden}
+.card .foto img{width:86%;height:92%;object-fit:contain}
+.card .corpo{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:24px}
+.card .sub{color:var(--muted);font-size:14px;margin:4px 0 14px;min-height:42px;line-height:1.4}
+.card .precos{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px}
+.card .naton{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card .off{background:var(--verde-claro);color:var(--verde-esc);font-weight:700;font-size:11.5px;padding:3px 7px;border-radius:6px}
+.card .p12{font:700 34px/1.05 var(--tit);letter-spacing:-.03em;margin:8px 0 2px}
+.card .p12 small{font-size:15px;font-weight:600;color:var(--muted);letter-spacing:0}
+.card .av{font-size:13.5px;color:var(--muted)}
 .card .av b{color:var(--ink)}
-.card .eco{font-size:13px;color:var(--verde-esc);font-weight:600;margin-top:4px}
-.card .btn{width:100%;margin-top:18px}
-.nota{font-size:13px;color:var(--muted);margin-top:22px;text-align:center}
+.card .eco{font-size:12.5px;color:var(--verde-esc);font-weight:600;margin-top:6px}
+.card .chips{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.card .chips span{font-size:12px;font-weight:600;padding:5px 9px;border-radius:999px;background:var(--verde-claro);color:#0b6b22}
+.card .chips span.dest{background:var(--ink);color:var(--verde)}
+.card ul{list-style:none;display:grid;gap:7px;font-size:13.5px;margin:16px 0 0;padding-top:16px;border-top:1px dashed var(--line)}
+.card li{display:flex;gap:9px;align-items:flex-start;line-height:1.35}
+.card li svg{margin-top:2px}
+.card .btn{width:100%;height:50px;font-size:15px}
+.card .entrega{font-size:12.5px;color:var(--muted);text-align:center;margin-top:8px}
+.card .entrega b{color:var(--ink)}
+.rodape-modelos{display:flex;justify-content:center;gap:10px 26px;flex-wrap:wrap;margin-top:26px;font-size:13.5px;color:var(--muted);text-align:center}
+
+/* comparativo */
+details.comp{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:20px}
+details.comp summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+details.comp summary::-webkit-details-marker{display:none}
+details.comp summary .mais{width:30px;height:30px;border-radius:50%;background:var(--paper);display:grid;place-items:center;transition:transform .2s;font-weight:500}
+details.comp[open] summary .mais{transform:rotate(45deg)}
+.comp .tb-scroll{overflow-x:auto;padding:0 22px 22px}
+.comp table{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}
+.comp th,.comp td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:center}
+.comp th:first-child,.comp td:first-child{text-align:left;color:var(--muted);position:sticky;left:0;background:#fff}
+.comp thead th{font:700 16px/1.2 var(--tit)}
+.comp td.sim{color:var(--verde-esc);font-weight:700}
+.comp td.nao{color:#b7bdb9}
+.comp .col-top{background:var(--verde-claro)}
 
 /* taxas */
 .taxas{background:var(--ink);color:#fff;position:relative;overflow:hidden}
@@ -165,48 +201,106 @@ em.v{font-style:normal;color:var(--verde)}
 .taxas .wrap{position:relative}
 .taxas .sec-head p{color:#b7c0ba}
 .taxas .kicker{color:var(--verde)}
-.tx-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:22px}
+.tx-top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:18px}
 .tx{background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:22px}
 .tx span{font-size:13px;color:#a8b2ab}
 .tx b{display:block;font:700 40px/1 var(--tit);letter-spacing:-.03em;margin-top:10px;color:#fff}
 .tx.pix b{color:var(--verde)}
-.tx small{display:block;margin-top:8px;font-size:12.5px;color:#a8b2ab}
+.tx small{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:12.5px;color:#c4cdc7}
+.tx small:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--verde);flex:none}
 .tx-info{display:flex;gap:14px;align-items:flex-start;background:rgba(0,204,44,.08);border:1px solid rgba(0,204,44,.25);border-radius:16px;padding:16px 18px;font-size:14.5px;color:#d5ddd8;margin-bottom:26px}
 .tx-info svg{flex:none;color:var(--verde);margin-top:2px}
+.simu{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden;margin-bottom:18px}
+.simu .ent{padding:28px;display:grid;gap:18px}
+.simu h3{font-size:24px}
+.simu label{display:block;font-size:13px;color:#a8b2ab;margin-bottom:8px;font-weight:500}
+.simu .valor{display:flex;align-items:center;background:var(--ink);border:1.5px solid rgba(255,255,255,.12);border-radius:14px;padding:0 16px;height:56px}
+.simu .valor span{color:#a8b2ab;font-weight:600;margin-right:8px}
+.simu .valor input{background:none;border:0;outline:none;width:100%;font:700 24px/1 var(--tit);color:#fff}
+.simu .valor:focus-within{border-color:var(--verde)}
+.formas{display:flex;flex-wrap:wrap;gap:8px}
+.formas button{height:40px;padding:0 14px;border-radius:999px;border:1.5px solid rgba(255,255,255,.14);color:#dfe6e1;font-size:14px;font-weight:500}
+.formas button[aria-pressed="true"]{background:var(--verde);border-color:var(--verde);color:var(--ink);font-weight:700}
+.simu select{width:100%;height:48px;border-radius:12px;background:var(--ink);border:1.5px solid rgba(255,255,255,.12);color:#fff;padding:0 12px;font-size:15px}
+.simu .res{background:linear-gradient(160deg,#0f3d1c,#0a2213);padding:28px;display:flex;flex-direction:column;justify-content:center}
+.simu .res .rot{font-size:14px;color:#b9d8c1}
+.simu .res .grande{font:700 clamp(44px,6vw,64px)/1 var(--tit);letter-spacing:-.04em;margin:10px 0 14px;color:#fff}
+.simu .res .linha{display:flex;justify-content:space-between;font-size:14px;color:#cfe3d4;padding:9px 0;border-top:1px solid rgba(255,255,255,.1)}
+.simu .res .linha b{color:#fff}
+.simu .res .obs{font-size:12px;color:#8fb39a;margin-top:12px}
 details.tabela{background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:20px}
 details.tabela summary{list-style:none;cursor:pointer;padding:20px 22px;display:flex;justify-content:space-between;align-items:center;font-weight:600}
 details.tabela summary::-webkit-details-marker{display:none}
 details.tabela summary .mais{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:transform .2s}
 details.tabela[open] summary .mais{transform:rotate(45deg)}
-.tb-scroll{overflow-x:auto;padding:0 22px 22px;-webkit-overflow-scrolling:touch}
-table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
-th,td{padding:10px 12px;text-align:right;border-bottom:1px solid rgba(255,255,255,.07);white-space:nowrap}
-th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--ink2)}
-thead th{font-size:12px;color:#a8b2ab;font-weight:600;vertical-align:bottom;white-space:normal;line-height:1.25}
-td.dest,th.dest{background:rgba(0,204,44,.1);color:#fff;font-weight:600}
-th.dest{color:var(--verde)}
+.tabela .tb-scroll{overflow-x:auto;padding:0 22px 22px;-webkit-overflow-scrolling:touch}
+.tabela table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px}
+.tabela th,.tabela td{padding:10px 12px;text-align:right;border-bottom:1px solid rgba(255,255,255,.07);white-space:nowrap}
+.tabela th:first-child,.tabela td:first-child{text-align:left;position:sticky;left:0;background:var(--ink2)}
+.tabela thead th{font-size:12px;color:#a8b2ab;font-weight:600;vertical-align:bottom;white-space:normal;line-height:1.25}
+.tabela td.dest,.tabela th.dest{background:rgba(0,204,44,.1);color:#fff;font-weight:600}
+.tabela th.dest{color:var(--verde)}
 .tb-nota{font-size:12.5px;color:#8f9993;padding:0 22px 20px}
 
-/* como funciona */
+/* bandeiras */
+.band{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center}
+.band-lista{display:flex;flex-wrap:wrap;gap:10px}
+.band-lista span{display:inline-flex;align-items:center;height:46px;padding:0 18px;border-radius:14px;background:#fff;border:1px solid var(--line);font:700 15px/1 var(--tit);box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.band-lista span.v{border-style:dashed}
+.band-lista span.v small{font:500 11px/1 var(--sans);color:var(--muted);margin-left:6px}
+.band-obs{font-size:13px;color:var(--muted);margin-top:16px}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(180px,auto);gap:14px}
+.bx{border-radius:24px;padding:24px;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;min-width:0}
+.bx .ic{width:46px;height:46px;border-radius:14px;background:var(--verde-claro);color:var(--verde-esc);display:grid;place-items:center;margin-bottom:auto;font-size:20px}
+.bx h3{font-size:20px;margin:18px 0 6px}
+.bx p{color:var(--muted);font-size:14.5px}
+.bx.g{grid-column:span 2;grid-row:span 2;background:var(--ink);color:#fff;border:0}
+.bx.g:before{content:"";position:absolute;width:520px;height:520px;right:-200px;top:-200px;background:radial-gradient(closest-side,rgba(0,204,44,.35),transparent)}
+.bx.g>*{position:relative}
+.bx.g p{color:#c4cdc7;font-size:16px;max-width:420px}
+.bx.g h3{font-size:30px}
+.bx.g .ic{background:rgba(0,204,44,.15);color:var(--verde)}
+.bx.g .formas-v{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.bx.g .formas-v span{font-size:13px;font-weight:600;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.08)}
+.bx.vd{background:var(--verde);border:0}
+.bx.vd p{color:#0b3d17}
+.bx.vd .ic{background:rgba(10,15,13,.12);color:var(--ink)}
+.bx.w2{grid-column:span 2}
+
+/* quem somos */
+.quem{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.lojas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.lojas figure{border-radius:20px;overflow:hidden;position:relative;aspect-ratio:4/3.4;background:var(--ink)}
+.lojas figure:first-child{grid-column:span 2;aspect-ratio:16/9}
+.lojas img{width:100%;height:100%;object-fit:cover}
+.lojas figcaption{position:absolute;left:10px;bottom:10px;right:10px;width:fit-content;background:rgba(10,15,13,.78);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;border-radius:12px;padding:8px 12px;font-size:12.5px;line-height:1.3}
+.lojas figcaption b{display:block;font-family:var(--tit);font-size:14px}
+.equipe{display:flex;gap:10px;margin:24px 0 8px;flex-wrap:wrap}
+.pessoa{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 16px 5px 5px}
+.pessoa img{width:42px;height:42px;border-radius:50%;object-fit:cover}
+.pessoa b{display:block;font-size:14px;line-height:1.2}
+.pessoa small{font-size:12px;color:var(--muted)}
+.quem-lista{display:grid;gap:12px;margin-top:22px}
+.quem-lista div{display:flex;gap:12px;align-items:flex-start;font-size:15px}
+.quem-lista b{font-weight:600}
+
+/* passos */
 .passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:p}
 .passo{background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;position:relative}
 .passo:before{counter-increment:p;content:counter(p);font:700 15px/1 var(--tit);width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--ink);color:var(--verde);margin-bottom:20px}
 .passo h3{font-size:21px;margin-bottom:8px}
 .passo p{color:var(--muted);font-size:15px}
 
-/* por que parceiro */
-.porque{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
-.porque-lista{display:grid;gap:14px}
-.pq{display:flex;gap:16px;padding:20px;border-radius:20px;background:#fff;border:1px solid var(--line)}
-.pq .ic{width:46px;height:46px;border-radius:14px;background:var(--verde-claro);color:var(--verde-esc);display:grid;place-items:center;flex:none}
-.pq h3{font-size:18px;margin-bottom:4px}
-.pq p{color:var(--muted);font-size:14.5px}
-.foto-loja{border-radius:28px;overflow:hidden;aspect-ratio:4/5;position:relative;background:var(--ink)}
-.foto-loja img{width:100%;height:100%;object-fit:cover}
-.foto-loja .leg{position:absolute;left:16px;right:16px;bottom:16px;background:rgba(10,15,13,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#fff;border-radius:16px;padding:14px 16px;font-size:14px}
-.foto-loja .leg b{display:block;font-family:var(--tit);font-size:16px}
-
-/* prova social: preparada, só aparece quando tiver depoimento real */
+/* notas da ton */
+.aval{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.av-c{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px;text-align:center}
+.av-c b{display:block;font:700 52px/1 var(--tit);letter-spacing:-.04em}
+.av-c b small{font-size:20px;color:var(--muted);font-weight:600}
+.av-c .est{color:#f5b800;font-size:18px;letter-spacing:2px;margin:8px 0 4px}
+.av-c span{font-size:14px;color:var(--muted)}
+.aval-nota{text-align:center;font-size:12.5px;color:var(--muted);margin-top:14px}
 .prova[hidden]{display:none}
 
 /* faq */
@@ -219,21 +313,29 @@ th.dest{color:var(--verde)}
 .faq details p{padding:0 22px 20px;color:var(--muted);font-size:15px}
 
 /* cta final */
-.final{padding:0 0 90px}
+.final{padding:0 0 70px}
 .final-box{background:var(--ink);color:#fff;border-radius:32px;padding:56px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:30px;align-items:center;position:relative;overflow:hidden}
 .final-box:before{content:"";position:absolute;width:600px;height:600px;right:-200px;top:-260px;background:radial-gradient(closest-side,rgba(0,204,44,.3),transparent)}
 .final-box>*{position:relative}
 .final-box h2{font-size:clamp(30px,4vw,46px)}
 .final-box p{color:#c4cdc7;margin:14px 0 26px;font-size:17px}
 .final-box .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.final-box img{width:100%;max-width:300px;margin:-20px auto -90px;transform:rotate(-6deg);filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+.final-box img{width:100%;max-width:300px;margin:-20px auto -90px;transform:rotate(-6deg);border-radius:28px;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+
+/* faixa whatsapp */
+.wa-faixa{background:#25D366;color:#06301a}
+.wa-faixa .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px;flex-wrap:wrap}
+.wa-faixa b{font:700 20px/1.2 var(--tit);display:block;color:#03210f}
+.wa-faixa .btn{background:#fff;color:#0b5d2a;height:48px}
 
 /* rodapé */
 footer{background:#060908;color:#9aa49d;font-size:13.5px;padding:44px 0 120px}
 footer .wrap{display:grid;gap:22px}
-footer .top{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+footer .top{display:grid;grid-template-columns:auto 1fr 1fr;gap:24px 40px;align-items:start}
 footer img{height:32px;width:auto}
 footer a{color:#cfd6d1}
+footer .col b{display:block;color:#fff;font-size:13px;margin-bottom:4px}
+footer .col b+br{display:none}
 footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-height:1.6}
 
 /* whatsapp flutuante + barra mobile */
@@ -245,18 +347,18 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
 .modal{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:20px}
 .modal.on{display:flex}
 .modal .fundo{position:absolute;inset:0;background:rgba(6,9,8,.66);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-.caixa{position:relative;width:100%;max-width:520px;max-height:calc(100dvh - 40px);overflow:auto;background:#fff;border-radius:28px;box-shadow:0 40px 80px -20px rgba(0,0,0,.5);animation:sobe .25s ease}
+.caixa{position:relative;width:100%;max-width:540px;max-height:calc(100dvh - 40px);overflow:auto;background:#fff;border-radius:28px;box-shadow:0 40px 80px -20px rgba(0,0,0,.5);animation:sobe .25s ease}
 @keyframes sobe{from{transform:translateY(16px);opacity:0}}
-.caixa .cab{padding:24px 26px 18px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center;position:sticky;top:0;background:#fff;z-index:1}
-.caixa .cab img{width:64px;height:64px;border-radius:16px;background:var(--cream);flex:none;object-fit:cover}
+.caixa .cab{padding:22px 26px 16px;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center;position:sticky;top:0;background:#fff;z-index:1}
+.caixa .cab img{width:64px;height:64px;border-radius:16px;background:var(--cream);flex:none;object-fit:contain}
 .caixa .cab h3{font-size:20px}
-.caixa .cab p{font-size:13.5px;color:var(--muted)}
-.caixa .fechar{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--paper);display:grid;place-items:center}
-.caixa form{padding:20px 26px 26px;display:grid;gap:16px}
+.caixa .cab p{font-size:13.5px;color:var(--muted);padding-right:30px}
+.caixa .fechar{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:var(--paper);display:grid;place-items:center;z-index:2}
+.caixa form{padding:18px 26px 26px;display:grid;gap:16px}
 .campo label,.campo .rot{display:block;font-weight:600;font-size:14px;margin-bottom:7px}
-.campo input{width:100%;height:50px;border:1.5px solid var(--line);border-radius:14px;padding:0 15px;font:inherit;font-size:16px;background:var(--paper);outline:none;transition:border .15s}
+.campo input:not([type=radio]){width:100%;height:50px;border:1.5px solid var(--line);border-radius:14px;padding:0 15px;font-size:16px;background:var(--paper);outline:none;transition:border .15s}
 .campo input:focus{border-color:var(--verde);background:#fff}
-.campo.erro input{border-color:#e5484d}
+.campo.erro input:not([type=radio]){border-color:#e5484d}
 .opcoes{display:flex;flex-wrap:wrap;gap:8px}
 .opcoes label{margin:0;font-weight:500;font-size:14px}
 .opcoes input{position:absolute;opacity:0;pointer-events:none}
@@ -264,8 +366,6 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
 .opcoes input:checked+span{border-color:var(--verde);background:var(--verde-claro);font-weight:600}
 .opcoes input:focus-visible+span{outline:2px solid var(--verde);outline-offset:2px}
 .campo.erro .opcoes span{border-color:#f0a3a5}
-.cupom-ok{display:flex;gap:12px;align-items:center;padding:14px;border-radius:14px;background:var(--verde-claro);font-size:14px}
-.cupom-ok b{font-family:var(--tit)}
 .lgpd{font-size:12px;color:var(--muted);line-height:1.5}
 .caixa .btn{width:100%}
 .sucesso{padding:34px 28px 30px;text-align:center;display:none}
@@ -275,7 +375,13 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
 .sucesso h3{font-size:26px}
 .sucesso p{color:var(--muted);margin:8px 0 18px;font-size:15px}
 .codigo{display:inline-flex;gap:10px;align-items:center;border:2px dashed var(--verde);border-radius:14px;padding:12px 16px;font:700 17px/1 var(--tit);letter-spacing:.04em;margin-bottom:18px;max-width:100%;overflow-wrap:anywhere}
+.codigo[hidden]{display:none}
 .sucesso .aviso{font-size:12.5px;color:var(--muted);margin-top:14px}
+
+/* cashback (desligado até confirmar campanha ativa) */
+.cashback{display:none;margin:12px 0 0;border:1.5px dashed var(--verde);background:var(--verde-claro);border-radius:12px;padding:10px 12px;font-size:12.5px;color:#0b4d1c;line-height:1.35}
+.cashback b{font-size:14px;display:block}
+body.cb-on .cashback{display:block}
 
 /* revelar */
 .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -283,116 +389,149 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.faixa .rolo{animation:none}}
 
 /* responsivo */
+@media (max-width:1180px){
+  .modelos{grid-template-columns:repeat(2,minmax(0,1fr));max-width:780px;margin:0 auto}
+  .nav-taxas{display:none}
+}
 @media (max-width:1020px){
-  .nav-links{display:none}
   .hero .wrap{grid-template-columns:1fr;text-align:center}
-  .hero .lead{margin:0 auto}
-  .precobox,.hero-ctas,.hero-ok{justify-content:center}
-  .hero-vis{min-height:400px;max-width:460px;width:100%;margin:0 auto}
+  .hero h1,.hero .lead{margin-left:auto;margin-right:auto}
+  .hero-tx{margin-left:auto;margin-right:auto}
+  .hero-ctas,.notas{justify-content:center;margin-left:auto;margin-right:auto}
+  .hero-vis{min-height:420px;max-width:460px;width:100%;margin:0 auto}
   .escolha{grid-template-columns:1fr}
-  .modelos{grid-template-columns:1fr;max-width:480px;margin:0 auto}
   .tx-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .simu{grid-template-columns:1fr}
+  .band{grid-template-columns:1fr}
+  .bento{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .quem{grid-template-columns:1fr}
   .passos{grid-template-columns:1fr}
-  .porque{grid-template-columns:1fr}
-  .foto-loja{aspect-ratio:16/11}
   .faq{grid-template-columns:1fr}
   .final-box{grid-template-columns:1fr;padding:40px 28px;text-align:center}
   .final-box .ctas{justify-content:center}
   .final-box img{margin:0 auto -70px;max-width:220px}
+  footer .top{grid-template-columns:1fr}
 }
 @media (max-width:640px){
   .sec{padding:64px 0}
+  .topo{font-size:12.5px}
+  .topo .sep,.topo .opc{display:none}
   .marca span{display:none}
+  .nav .wrap{height:62px}
   .nav .btn{height:40px;padding:0 14px}
   .nav .btn .longo{display:none}
-  .hero{padding-top:36px}
   .selo .longo{display:none}
-  .hero h1 em{white-space:normal}
-  .precobox{gap:10px 14px}
-  .precobox .por{font-size:40px}
+  .hero{padding-top:34px}
+  .hero-tx{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .hero-tx b{font-size:26px}
   .hero-ctas{display:grid;grid-template-columns:1fr;gap:10px}
   .hero-ctas .btn{width:100%}
-  .hero-ok{font-size:13px;gap:8px 16px}
-  .hero-vis{min-height:340px}
+  .hero-ctas .preco{margin:4px 0 0}
+  .notas{gap:14px 18px}
+  .hero-vis{min-height:360px}
+  .selo-25{width:84px;height:84px;font-size:11px;right:6px}
+  .selo-25 b{font-size:27px}
   .flut{font-size:12px;padding:10px 12px}
   .flut b{font-size:16px}
   .flut .ic{width:30px;height:30px}
-  .flut.f1{top:30px}
-  .flut.f2{top:150px}
-  .flut.f3{bottom:60px}
+  .flut.f1{top:40px}
+  .flut.f2{top:170px}
+  .flut.f3{bottom:70px}
   .escolha{padding:18px;border-radius:24px}
   .negocios{grid-template-columns:1fr}
   .reco{grid-template-columns:1fr;min-height:0}
-  .reco .img img{max-width:200px}
+  .reco .vazio{position:relative}
+  .reco.on .vazio{display:none}
+  .reco:not(.on) .img,.reco:not(.on) .txt{display:none}
+  .reco .vazio .mini img{width:58px;height:58px}
+  .reco .img img{max-width:200px;max-height:220px}
   .reco .txt{padding:0 22px 24px;text-align:center}
   .reco .txt .btn{width:100%}
+  .modelos{grid-template-columns:1fr;max-width:420px}
+  .card.top{order:-1}
   .tx b{font-size:32px}
   .tx{padding:18px}
+  .simu .ent,.simu .res{padding:22px}
+  .bento{grid-template-columns:1fr}
+  .bx.g,.bx.w2{grid-column:auto;grid-row:auto}
+  .aval{grid-template-columns:1fr}
   .final-box h2{font-size:30px}
   .final-box .ctas .btn{width:100%}
+  .wa-faixa .btn{width:100%}
   .wa-flut{bottom:86px;right:16px;width:54px;height:54px}
   .barra{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:44;gap:10px;align-items:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
   .barra.on{transform:none}
   .barra .info{font-size:12px;color:var(--muted);line-height:1.25;flex:1;min-width:0}
-  .barra .info b{display:block;color:var(--ink);font:700 17px/1.1 var(--tit)}
-  .barra .btn{height:48px;padding:0 20px;font-size:15px}
+  .barra .info b{display:block;color:var(--ink);font:700 16px/1.1 var(--tit)}
+  .barra .btn{height:48px;padding:0 18px;font-size:15px}
   .modal{padding:0;align-items:flex-end}
   .caixa{border-radius:24px 24px 0 0;max-height:94dvh}
-  .caixa form{padding:18px 20px 24px}
-  .caixa .cab{padding:20px 20px 16px}
+  .caixa form{padding:16px 20px 24px}
+  .caixa .cab{padding:20px 20px 14px}
 }
 </style>
 </head>
 <body>
 
+<div class="topo">
+  <div class="wrap">
+    <span>🏷️ <b>Cupom de 25% ativo</b> nesta página</span>
+    <span class="sep">|</span>
+    <span>🚚 Pedindo hoje, chega <b class="js-entrega">em 3 a 7 dias úteis</b></span>
+    <span class="sep opc">|</span>
+    <span class="opc">Frete grátis para todo o Brasil</span>
+  </div>
+</div>
+
 <nav class="nav">
   <div class="wrap">
     <a class="marca" href="#topo" aria-label="Parceiro Autorizado Ton">
       <img src="/logo-parceiro-ton.png" alt="Parceiro Ton" width="96" height="34">
-      <span><b>Parceiro Autorizado Ton</b>Envio para todo o Brasil</span>
+      <span><b>Parceiro Autorizado Ton</b>Duas lojas físicas em Manaus</span>
     </a>
-    <div class="nav-links">
-      <a href="#escolha">Qual é a sua</a>
-      <a href="#modelos">Modelos</a>
-      <a href="#taxas">Taxas</a>
-      <a href="#duvidas">Dúvidas</a>
+    <div class="nav-taxas" aria-label="Taxas promocionais do Ton Mega+">
+      <div><b>0%</b><small>Pix</small></div>
+      <div><b>0,57%</b><small>débito</small></div>
+      <div><b>0,57%</b><small>crédito</small></div>
+      <div><b>7,97%</b><small>crédito 12x</small></div>
+      <div><b>14,87%</b><small>crédito 18x</small></div>
     </div>
-    <button class="btn btn-v" data-comprar="t3">Garantir <span class="longo">&nbsp;meu cupom</span></button>
+    <button class="btn btn-v" data-comprar="t3">Garantir<span class="longo">&nbsp;meu cupom</span></button>
   </div>
 </nav>
 
 <header class="hero" id="topo">
   <div class="wrap">
     <div>
-      <span class="selo"><i>✓</i> Parceiro Autorizado Ton<span class="longo">· cupom exclusivo de 25%</span></span>
-      <h1>Sua maquininha Ton com <em>25% de desconto</em>, entregue onde você estiver.</h1>
-      <p class="lead">Escolha o modelo, libere o cupom do parceiro e finalize <b>no pagamento da própria Ton</b>. Frete grátis para todo o Brasil, chega em 3 a 7 dias úteis.</p>
-      <div class="precobox">
-        <div>
-          <div class="de">T2 de <s>R$ 49,88</s> por</div>
-          <div class="por"><small>R$</small>37,41</div>
-        </div>
-        <div class="parc">ou <b>12x de R$ 3,12</b><br>sem juros no cartão</div>
-        <span class="tag-eco">economize até R$ 47,97</span>
+      <span class="selo"><i>✓</i> Parceiro Autorizado Ton<span class="longo">&nbsp;· plano Ton Mega+</span></span>
+      <h1>Maquininha Ton com <em>25% de desconto</em> e taxa a partir de 0,57%.</h1>
+      <p class="lead">Mesma maquininha e mesma garantia da Ton, <b>mais barata com o cupom do parceiro</b>. Você paga no site da Ton em <b>12x sem juros</b> e recebe com frete grátis em qualquer lugar do Brasil.</p>
+      <div class="hero-tx">
+        <div><b>0%</b><small>Pix na maquininha</small></div>
+        <div><b>0,57%</b><small>débito e crédito à vista*</small></div>
+        <div><b>7,97%</b><small>crédito em 12x*</small></div>
+        <div><b>14,87%</b><small>crédito em 18x*</small></div>
       </div>
       <div class="hero-ctas">
         <button class="btn btn-v" data-comprar="t3">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg>
           Liberar meu cupom de 25%
         </button>
-        <a class="btn btn-borda" href="#escolha">Me ajude a escolher</a>
+        <a class="btn btn-borda" href="#modelos">Ver os 4 modelos</a>
+        <div class="preco">a partir de<br><b>12x R$ 1,40</b> sem juros</div>
       </div>
-      <div class="hero-ok">
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Sem mensalidade</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Pix 0%</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Garantia vitalícia</span>
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Aceita CPF</span>
+      <div class="notas">
+        <div class="nota-i"><span><b>9,4</b>/10</span><span>Reclame Aqui<br><span class="est">★★★★★</span></span></div>
+        <div class="nota-i"><span><b>4,8</b>/5</span><span>Google Play<br><span class="est">★★★★★</span></span></div>
+        <div class="nota-i"><span><b>4,9</b>/5</span><span>App Store<br><span class="est">★★★★★</span></span></div>
+        <span class="fonte">Notas da Ton, publicadas em ton.com.br</span>
       </div>
     </div>
     <div class="hero-vis" aria-hidden="true">
+      <div class="selo-25"><span><b>25%</b>OFF com<br>cupom</span></div>
       <div class="flut f1"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg></span><span><b>Frete grátis</b>todo o Brasil</span></div>
-      <div class="flut f2"><span class="ic">%</span><span><b>0,57%</b>débito e crédito*</span></div>
-      <div class="flut f3"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/></svg></span><span><b>Vitalícia</b>garantia do aparelho</span></div>
+      <div class="flut f2"><span class="ic">⚡</span><span><b>Na hora</b>recebimento</span></div>
+      <div class="flut f3"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2 4 6v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V6z"/></svg></span><span><b>Quebrou? Trocou</b>garantia vitalícia</span></div>
       <img class="maq" src="/ton-sem-fundo.webp" alt="" width="900" height="1200" fetchpriority="high">
     </div>
   </div>
@@ -400,76 +539,111 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
 
 <div class="faixa" aria-hidden="true">
   <div class="rolo">
-    <span>25% off com o cupom do parceiro</span><span>Frete grátis para todo o Brasil</span><span>Zero mensalidade e zero aluguel</span><span>Pix 0% e ilimitado</span><span>Suporte 24h da Ton</span><span>Garantia vitalícia</span>
-    <span>25% off com o cupom do parceiro</span><span>Frete grátis para todo o Brasil</span><span>Zero mensalidade e zero aluguel</span><span>Pix 0% e ilimitado</span><span>Suporte 24h da Ton</span><span>Garantia vitalícia</span>
+    <span>25% off com o cupom do parceiro</span><span>12x sem juros</span><span>Frete grátis para todo o Brasil</span><span>Zero mensalidade e zero aluguel</span><span>Pix 0% e ilimitado</span><span>Mais de 50 bandeiras</span><span>Atendimento 24h da Ton</span><span>Garantia vitalícia</span>
+    <span>25% off com o cupom do parceiro</span><span>12x sem juros</span><span>Frete grátis para todo o Brasil</span><span>Zero mensalidade e zero aluguel</span><span>Pix 0% e ilimitado</span><span>Mais de 50 bandeiras</span><span>Atendimento 24h da Ton</span><span>Garantia vitalícia</span>
   </div>
 </div>
 
 <main>
 
-<!-- 2. escolha pelo negócio -->
-<section class="sec" id="escolha">
+<!-- modelos -->
+<section class="sec" id="modelos">
+  <div class="wrap">
+    <div class="sec-head centro rv">
+      <span class="kicker">Escolha o seu modelo</span>
+      <h2>Quatro maquininhas. O menor preço é o de parceiro.</h2>
+      <p>O preço riscado é o que a própria Ton cobra hoje no site dela. Com o cupom do parceiro, você paga menos e parcela em 12x sem juros.</p>
+    </div>
+    <div class="modelos" id="cards"></div>
+    <div class="rodape-modelos">
+      <span>📅 Preços conferidos no carrinho da Ton em 16/10/2026</span>
+      <span>🏷️ O cupom de 25% vale para T2, T3 e T3 Smart</span>
+      <span>📄 <a href="https://www.ton.com.br/planos-e-taxas" target="_blank" rel="noopener">Condições do plano na Ton</a></span>
+    </div>
+    <details class="comp rv">
+      <summary>Comparar os 4 modelos lado a lado <span class="mais">+</span></summary>
+      <div class="tb-scroll"><table id="comparativo"></table></div>
+    </details>
+  </div>
+</section>
+
+<!-- escolha pelo negócio -->
+<section class="sec" id="escolha" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker">Qual é a sua</span>
+      <span class="kicker">Ainda em dúvida?</span>
       <h2>Me conta onde você vende. A gente indica a maquininha certa.</h2>
       <p>Cada modelo foi feito pra um tipo de operação. Escolha a que mais parece com o seu dia a dia.</p>
     </div>
     <div class="escolha rv">
       <div class="negocios" role="group" aria-label="Tipo de negócio">
+        <button class="neg" data-neg="comecando" data-m="t1" aria-pressed="false"><span class="e">🌱</span><span>Estou começando<small>Vendo pouco e quero gastar o mínimo</small></span></button>
         <button class="neg" data-neg="rua" data-m="t2" aria-pressed="false"><span class="e">🛵</span><span>Delivery ou na rua<small>Entrega, feira, ambulante, evento</small></span></button>
-        <button class="neg" data-neg="servico" data-m="t2" aria-pressed="false"><span class="e">🧰</span><span>Serviço em campo<small>Técnico, diarista, autônomo</small></span></button>
+        <button class="neg" data-neg="servico" data-m="t2" aria-pressed="false"><span class="e">🧰</span><span>Serviço ou consultório<small>Técnico, salão, autônomo</small></span></button>
         <button class="neg" data-neg="balcao" data-m="t3" aria-pressed="false"><span class="e">🏪</span><span>Loja ou balcão<small>Comércio, mercadinho, lanchonete</small></span></button>
         <button class="neg" data-neg="restaurante" data-m="t3" aria-pressed="false"><span class="e">🍽️</span><span>Restaurante ou bar<small>Fila, comanda e comprovante</small></span></button>
-        <button class="neg" data-neg="consultorio" data-m="t2" aria-pressed="false"><span class="e">🩺</span><span>Consultório ou salão<small>Atendimento com hora marcada</small></span></button>
         <button class="neg" data-neg="alto" data-m="t3s" aria-pressed="false"><span class="e">🚀</span><span>Movimento alto<small>Várias vendas por hora, loja premium</small></span></button>
       </div>
       <div class="reco" id="reco" aria-live="polite">
-        <div class="vazio"><div><b>Escolha ao lado</b>e a recomendação aparece aqui, com o preço de parceiro.</div></div>
+        <div class="vazio"><div>
+          <div class="mini"><img src="/ai-t1.webp" alt="" loading="lazy" width="72" height="72"><img src="/ai-t2.webp" alt="" loading="lazy" width="72" height="72"><img src="/ai-t3.webp" alt="" loading="lazy" width="72" height="72"><img src="/ai-t3-smart.webp" alt="" loading="lazy" width="72" height="72"></div>
+          <b>Escolha o seu tipo de negócio</b>e a recomendação aparece aqui, com o preço de parceiro.</div></div>
         <div class="img"><img id="recoImg" src="/ai-t3.webp" alt="" width="1024" height="1024" loading="lazy"></div>
         <div class="txt">
           <span class="pra" id="recoPra">Recomendada pra você</span>
           <h3 id="recoNome">TON T3</h3>
           <p id="recoPq"></p>
           <div class="val"><b id="recoParc">12x R$ 6,75</b><span id="recoAv">ou R$ 81,00 à vista</span></div>
-          <button class="btn btn-esc" id="recoBtn" data-comprar="t3">Quero essa com 25% off</button>
+          <button class="btn btn-esc" id="recoBtn" data-comprar="t3">Quero essa</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3. comparativo -->
-<section class="sec" id="modelos" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kicker">Modelos</span>
-      <h2>Três maquininhas. Preço de parceiro em todas.</h2>
-      <p>O cupom de 25% vale para qualquer modelo. Você paga a adesão uma vez e a maquininha é sua, sem aluguel.</p>
-    </div>
-    <div class="modelos" id="cards"></div>
-    <p class="nota">Preços com o cupom do parceiro, conferidos no carrinho da Ton em 16/10/2026. Parcelamento sem juros no cartão de crédito.</p>
-  </div>
-</section>
-
-<!-- 4. taxas -->
+<!-- taxas + simulador -->
 <section class="sec taxas" id="taxas">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kicker">Taxas</span>
-      <h2>Quanto fica de cada venda, sem letra miúda.</h2>
-      <p>Com o plano Ton Mega+, você começa na taxa promocional. Depois ela segue a faixa do seu faturamento e cai sozinha conforme você vende mais.</p>
+      <span class="kicker">Plano Ton Mega+</span>
+      <h2>As menores taxas da Ton, e você escolhe quando receber.</h2>
+      <p>No primeiro mês você vende com a taxa promocional. Depois ela segue a faixa do seu faturamento e cai sozinha conforme você vende mais. Aceita CPF e CNPJ.</p>
     </div>
     <div class="tx-top rv">
-      <div class="tx pix"><span>Pix na maquininha</span><b>0%</b><small>ilimitado, cai na hora</small></div>
-      <div class="tx"><span>Débito</span><b>0,57%</b><small>taxa promocional*</small></div>
-      <div class="tx"><span>Crédito à vista</span><b>0,57%</b><small>taxa promocional*</small></div>
-      <div class="tx"><span>Crédito em 12x</span><b>7,97%</b><small>taxa promocional*</small></div>
+      <div class="tx pix"><span>Pix na maquininha</span><b>0%</b><small>cai em até 1 minuto</small></div>
+      <div class="tx"><span>Débito e crédito à vista</span><b>0,57%</b><small>receba na hora</small></div>
+      <div class="tx"><span>Crédito em 12x</span><b>7,97%</b><small>receba na hora</small></div>
+      <div class="tx"><span>Crédito em 18x</span><b>14,87%</b><small>receba na hora</small></div>
     </div>
     <div class="tx-info rv">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-      <span>*A taxa promocional vale no primeiro mês ou até você faturar R$ 5 mil, o que vier primeiro. Depois, segue a tabela abaixo pela faixa de faturamento. Fatura acima de R$ 20 mil por mês? Pergunte pelo plano Ton Black no WhatsApp.</span>
+      <span>*A taxa promocional vale por 30 dias a partir do recebimento da maquininha ou até você vender R$ 5 mil, o que vier primeiro. Você escolhe no app se recebe as vendas na hora ou em 1 dia útil. Fatura acima de R$ 20 mil por mês? Pergunte pelo plano Ton Black no WhatsApp.</span>
     </div>
+
+    <div class="simu rv" id="simulador">
+      <div class="ent">
+        <h3>Quanto cai na sua conta?</h3>
+        <div><label for="sValor">Valor da venda</label><div class="valor"><span>R$</span><input id="sValor" inputmode="numeric" value="100,00"></div></div>
+        <div><label>Forma de pagamento</label>
+          <div class="formas" id="sFormas">
+            <button type="button" data-f="Pix" aria-pressed="false">Pix</button>
+            <button type="button" data-f="Débito" aria-pressed="false">Débito</button>
+            <button type="button" data-f="Crédito à vista" aria-pressed="true">Crédito à vista</button>
+            <button type="button" data-f="parc" aria-pressed="false">Parcelado</button>
+          </div>
+        </div>
+        <div id="sParcBox" hidden><label for="sParc">Em quantas vezes</label><select id="sParc"></select></div>
+        <div><label for="sFaixa">Período</label><select id="sFaixa"></select></div>
+      </div>
+      <div class="res">
+        <span class="rot">Você recebe</span>
+        <div class="grande" id="sRecebe">R$ 99,43</div>
+        <div class="linha"><span>Taxa</span><b id="sTaxa">0,57%</b></div>
+        <div class="linha"><span>Custo da venda</span><b id="sCusto">R$ 0,57</b></div>
+        <p class="obs">Simulação com a tabela oficial do Ton Mega+ (out/2026). No parcelado a taxa incide sobre o valor total da venda.</p>
+      </div>
+    </div>
+
     <details class="tabela rv">
       <summary>Ver a tabela completa do Ton Mega+ <span class="mais">+</span></summary>
       <div class="tb-scroll"><table id="tabela"></table></div>
@@ -478,51 +652,116 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
   </div>
 </section>
 
+<!-- bandeiras -->
+<section class="sec" id="bandeiras">
+  <div class="wrap band">
+    <div class="rv">
+      <span class="kicker">Bandeiras</span>
+      <h2 style="margin-top:12px">Aceite mais de 50 bandeiras no débito, crédito e vouchers.</h2>
+      <p class="band-obs" style="font-size:16px;margin-top:14px">Inclusive vale-refeição e vale-alimentação nas maquininhas T2, T3 e T3 Smart. Seu cliente paga do jeito que quiser.</p>
+    </div>
+    <div class="rv">
+      <div class="band-lista">
+        <span>Visa</span><span>Mastercard</span><span>Elo</span><span>American Express</span><span>Pix</span><span>Aproximação (NFC)</span>
+        <span class="v">Alelo<small>CNPJ</small></span><span class="v">Pluxee<small>CNPJ</small></span><span class="v">Ticket<small>CNPJ</small></span><span class="v">Up Brasil<small>CNPJ</small></span><span class="v">VR<small>CNPJ</small></span><span>e muitas outras</span>
+      </div>
+      <p class="band-obs">As bandeiras de voucher (Alelo, Pluxee, Ticket, Up Brasil e VR) são aceitas somente em cadastros com CNPJ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- muito além da maquininha -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kicker">Muito além da maquininha</span>
+      <h2>Pra você nunca mais perder uma venda.</h2>
+    </div>
+    <div class="bento">
+      <div class="bx g rv">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
+        <h3>Venda na maquininha, no celular ou por link.</h3>
+        <p>Esqueceu a maquininha? Com a conta Ton você também vende pelo celular com o TapTon, por Pix ou mandando um link de pagamento pelo WhatsApp.</p>
+        <div class="formas-v"><span>Maquininha</span><span>TapTon</span><span>Link de pagamento</span><span>Pix</span></div>
+      </div>
+      <div class="bx rv"><span class="ic">⚡</span><h3>Receba na hora</h3><p>Você escolhe no app: na hora ou em 1 dia útil.</p></div>
+      <div class="bx rv"><span class="ic">🪪</span><h3>Não precisa de CNPJ</h3><p>O Ton é pra todos: CPF, MEI ou empresa.</p></div>
+      <div class="bx rv"><span class="ic">🔁</span><h3>Quebrou? Trocou</h3><p>Garantia vitalícia do aparelho, sem custo de troca.</p></div>
+      <div class="bx rv"><span class="ic">📶</span><h3>Chip com internet</h3><p>T2, T3 e T3 Smart vêm com chip e Wi-Fi, sem depender do seu celular.</p></div>
+      <div class="bx vd w2 rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span><h3>Sem aluguel e sem mensalidade</h3><p>Você paga a adesão uma vez e só as taxas de cada venda. Nada todo mês.</p></div>
+      <div class="bx w2 rv"><span class="ic">🎧</span><h3>Atendimento 24h da Ton + o nosso</h3><p>Suporte da Ton a qualquer hora e a nossa equipe no WhatsApp pra ajudar na escolha, no pedido e na ativação.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- quem somos -->
+<section class="sec" id="quem" style="padding-top:0">
+  <div class="wrap quem">
+    <div class="lojas rv">
+      <figure><img src="/store-2.webp" alt="Fachada da loja Parceiro Ton" loading="lazy" width="1600" height="1195"><figcaption><b>Unidade Centro</b>Av. Eduardo Ribeiro, 520 · Manaus/AM</figcaption></figure>
+      <figure><img src="/store-3.webp" alt="Atendimento na loja Parceiro Ton" loading="lazy" width="1600" height="1195"><figcaption><b>Atendimento presencial</b></figcaption></figure>
+      <figure><img src="/store-1.webp" alt="Interior da loja Parceiro Ton" loading="lazy" width="1600" height="1195"><figcaption><b>Unidade Cidade Nova</b>Rua Felix Valois, 41</figcaption></figure>
+    </div>
+    <div>
+      <div class="rv">
+        <span class="kicker">Quem somos</span>
+        <h2 style="margin-top:12px">Um parceiro com endereço, rosto e WhatsApp que responde.</h2>
+        <p style="color:var(--muted);font-size:17px;margin-top:14px">Somos Parceiro Autorizado Ton com duas lojas físicas em Manaus. O seu pedido sai pela própria Ton, com a garantia dela. A diferença é que você tem o cupom de parceiro e uma equipe pra te ajudar do começo ao fim.</p>
+      </div>
+      <div class="equipe rv">
+        <div class="pessoa"><img src="/team-3.webp" alt="" loading="lazy" width="42" height="42"><span><b>Josias</b><small>Consultor</small></span></div>
+        <div class="pessoa"><img src="/team-2.webp" alt="" loading="lazy" width="42" height="42"><span><b>Alana</b><small>Consultora</small></span></div>
+        <div class="pessoa"><img src="/team-1.webp" alt="" loading="lazy" width="42" height="42"><span><b>Adonias</b><small>Consultor</small></span></div>
+      </div>
+      <div class="quem-lista rv">
+        <div><svg class="ok" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><b>Cupom oficial do programa de parceiros</b>, aplicado direto no carrinho da Ton.</span></div>
+        <div><svg class="ok" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><b>Ajuda na ativação</b> por WhatsApp, até a primeira venda passar.</span></div>
+        <div><svg class="ok" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg><span><b>Pagamento só no site da Ton.</b> A gente nunca pede dado de cartão.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- como funciona -->
-<section class="sec" id="como">
+<section class="sec" id="como" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kicker">Como funciona</span>
       <h2>Do clique à primeira venda em poucos dias.</h2>
     </div>
     <div class="passos">
-      <div class="passo rv"><h3>Libere o cupom</h3><p>Escolha o modelo e preencha nome e WhatsApp. Leva 30 segundos e o desconto de 25% vai aplicado.</p></div>
+      <div class="passo rv"><h3>Libere o cupom</h3><p>Escolha o modelo e preencha nome e WhatsApp. Leva 30 segundos e o desconto vai aplicado.</p></div>
       <div class="passo rv"><h3>Pague no site da Ton</h3><p>Você é levado ao carrinho oficial da Ton, já com o cupom. Paga no cartão em até 12x sem juros ou à vista.</p></div>
-      <div class="passo rv"><h3>Receba e ative</h3><p>A maquininha chega com frete grátis em 3 a 7 dias úteis. Ativa pelo app da Ton e já sai vendendo.</p></div>
+      <div class="passo rv"><h3>Receba e ative</h3><p>Chega com frete grátis em 3 a 7 dias úteis. Ativa pelo app da Ton e já sai vendendo.</p></div>
     </div>
   </div>
 </section>
 
-<!-- por que o parceiro -->
+<!-- notas oficiais da ton -->
 <section class="sec" style="padding-top:0">
-  <div class="wrap porque">
-    <div>
-      <div class="sec-head rv" style="margin-bottom:26px">
-        <span class="kicker">Por que comprar com o parceiro</span>
-        <h2>A mesma maquininha. Mais barata e com gente pra te ajudar.</h2>
-      </div>
-      <div class="porque-lista">
-        <div class="pq rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.59 13.41 13.42 20.58a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><circle cx="7" cy="7" r="1.5"/></svg></span><div><h3>25% de desconto na adesão</h3><p>O cupom é do programa oficial de parceiros da Ton. A maquininha, a garantia e as taxas são as mesmas.</p></div></div>
-        <div class="pq rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1 1 21 11.5z"/></svg></span><div><h3>Atendimento humano no WhatsApp</h3><p>Dúvida na escolha, no pedido ou na ativação? Fale com a nossa equipe, gente de verdade do outro lado.</p></div></div>
-        <div class="pq rv"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 9.5 12 3l9 6.5V21H3z"/><path d="M9 21v-7h6v7"/></svg></span><div><h3>Loja física de verdade</h3><p>Somos uma loja parceira com endereço no Centro de Manaus. Você sabe com quem está comprando.</p></div></div>
-      </div>
+  <div class="wrap">
+    <div class="sec-head centro rv">
+      <span class="kicker">Reputação</span>
+      <h2>Quem usa Ton, recomenda.</h2>
     </div>
-    <div class="foto-loja rv">
-      <img src="/store-1.webp" alt="Loja do Parceiro Autorizado Ton" loading="lazy" width="1600" height="1195">
-      <div class="leg"><b>Loja Parceira Ton</b>Av. Eduardo Ribeiro, 520 · Sala 02 · Centro, Manaus/AM</div>
+    <div class="aval">
+      <div class="av-c rv"><b>9,4<small>/10</small></b><div class="est">★★★★★</div><span>Nota da Ton no Reclame Aqui</span></div>
+      <div class="av-c rv"><b>4,8<small>/5</small></b><div class="est">★★★★★</div><span>App Ton no Google Play</span></div>
+      <div class="av-c rv"><b>4,9<small>/5</small></b><div class="est">★★★★★</div><span>App Ton na App Store</span></div>
     </div>
+    <p class="aval-nota">Notas publicadas pela Ton em ton.com.br, consultadas em 16/10/2026.</p>
   </div>
 </section>
 
-<!-- 5. prova social: preparada e escondida até ter depoimento real com autorização -->
+<!-- prova social própria: preparada e escondida até ter depoimento real com autorização -->
 <section class="sec prova" id="prova" hidden>
   <div class="wrap">
-    <div class="sec-head"><span class="kicker">Quem já comprou</span><h2>O que dizem os clientes</h2></div>
-    <div class="modelos" id="depoimentos"></div>
+    <div class="sec-head"><span class="kicker">Clientes do parceiro</span><h2>O que dizem os nossos clientes</h2></div>
+    <div id="depoimentos"></div>
   </div>
 </section>
 
-<!-- 6. faq -->
+<!-- faq -->
 <section class="sec" id="duvidas" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv">
@@ -530,15 +769,15 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
       <h2>Perguntas frequentes</h2>
     </div>
     <div class="faq">
-      <details class="rv"><summary>Vocês são a Ton?</summary><p>Não. Somos um Parceiro Autorizado Ton, do programa oficial de revenda. A maquininha, a garantia, o suporte e as taxas são da Ton. O que muda é o cupom de 25% e o nosso atendimento no WhatsApp.</p></details>
+      <details class="rv"><summary>Vocês são a Ton?</summary><p>Não. Somos um Parceiro Autorizado Ton, do programa oficial de revenda. A maquininha, a garantia, o suporte e as taxas são da Ton. O que muda é o cupom de parceiro e o nosso atendimento no WhatsApp.</p></details>
       <details class="rv"><summary>Em quanto tempo chega?</summary><p>De 3 a 7 dias úteis, com frete grátis para todo o Brasil. O envio é feito pela própria Ton.</p></details>
-      <details class="rv"><summary>Preciso de CNPJ?</summary><p>Não. Todos os modelos aceitam CPF, então autônomo e MEI também podem ter. Com CNPJ, algumas condições ficam ainda melhores.</p></details>
-      <details class="rv"><summary>Como eu ativo a maquininha?</summary><p>Pelo app da Ton, no celular. Você cria a conta, liga a maquininha e segue o passo a passo. Se travar em alguma etapa, chama a gente no WhatsApp que ajudamos.</p></details>
+      <details class="rv"><summary>Preciso de CNPJ?</summary><p>Não. Todos os modelos aceitam CPF, então autônomo e MEI também podem ter. Só os vouchers (vale-refeição e alimentação) exigem CNPJ.</p></details>
+      <details class="rv"><summary>O cupom vale para o T1?</summary><p>O T1 já sai pelo preço mínimo da Ton, R$ 16,80 ou 12x de R$ 1,40, e o cupom não reduz mais. O desconto de 25% vale para T2, T3 e T3 Smart.</p></details>
+      <details class="rv"><summary>Quando eu recebo o dinheiro das vendas?</summary><p>Você escolhe no app: na hora ou em 1 dia útil. O Pix na maquininha cai em até 1 minuto. O dinheiro vai para a sua conta Ton, de onde você transfere para o seu banco quando quiser.</p></details>
       <details class="rv"><summary>Tem mensalidade ou aluguel?</summary><p>Não. Você paga só a adesão do aparelho, uma vez, e as taxas por venda. Zero mensalidade e zero aluguel.</p></details>
-      <details class="rv"><summary>Como funciona o Pix na maquininha?</summary><p>É 0%, ilimitado e cai na hora. Pra liberar, basta cadastrar uma chave Pix na sua conta Ton.</p></details>
-      <details class="rv"><summary>Onde cai o dinheiro das vendas?</summary><p>Na sua conta Ton, que vem junto. De lá você pode transferir para o seu banco quando quiser. O prazo de recebimento de cada tipo de venda aparece no app.</p></details>
+      <details class="rv"><summary>A taxa de 0,57% vale pra sempre?</summary><p>Não. É a taxa promocional do Ton Mega+: vale por 30 dias depois que a maquininha chega ou até você vender R$ 5 mil. Depois passa para a faixa do seu faturamento, e quanto mais você vende, menor fica. A tabela completa está acima, sem letra miúda.</p></details>
+      <details class="rv"><summary>Como eu ativo a maquininha?</summary><p>Pelo app da Ton, no celular. Você cria a conta, liga a maquininha e segue o passo a passo. Se travar em alguma etapa, chama a gente no WhatsApp que ajudamos.</p></details>
       <details class="rv"><summary>Por que pedem meu nome e WhatsApp antes?</summary><p>É assim que o cupom de parceiro é liberado e que a nossa equipe consegue te ajudar se algo der errado no pedido. Não mandamos spam e você pode pedir a exclusão dos dados quando quiser.</p></details>
-      <details class="rv"><summary>A garantia é de verdade?</summary><p>Sim. A garantia vitalícia do aparelho e o suporte 24 horas são da própria Ton, valem igual para quem compra com parceiro.</p></details>
       <details class="rv"><summary>O carrinho da Ton mostrou outro modelo. E agora?</summary><p>O carrinho da Ton guarda o que você colocou em visitas anteriores. Antes de pagar, confira os itens e remova o que não quiser.</p></details>
     </div>
   </div>
@@ -549,27 +788,35 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
     <div class="final-box rv">
       <div>
         <h2>Comece a vender no cartão <em class="v">pagando menos</em> pela sua maquininha.</h2>
-        <p>Cupom de 25%, frete grátis e nenhuma mensalidade. Escolha o modelo e libere o desconto agora.</p>
+        <p>Cupom de 25%, 12x sem juros, frete grátis e nenhuma mensalidade. Pedindo hoje, chega <b class="js-entrega" style="color:#fff">em 3 a 7 dias úteis</b>.</p>
         <div class="ctas">
           <button class="btn btn-v" data-comprar="t3">Liberar meu cupom de 25%</button>
           <a class="btn btn-borda" data-wa href="#">Tirar dúvida no WhatsApp</a>
         </div>
       </div>
-      <img src="/ai-t3-smart.webp" alt="" loading="lazy" width="1024" height="1024" style="mix-blend-mode:normal;border-radius:28px">
+      <img src="/ai-t3-smart.webp" alt="" loading="lazy" width="1024" height="1024">
     </div>
   </div>
 </section>
 
 </main>
 
+<div class="wa-faixa">
+  <div class="wrap">
+    <div><b>Prefere conversar antes?</b>Nossa equipe responde no WhatsApp e te ajuda a escolher.</div>
+    <a class="btn" data-wa href="#">Falar com um consultor</a>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="top">
       <img src="/logo-parceiro-ton.png" alt="Parceiro Ton" width="90" height="32" loading="lazy">
-      <div>Loja Parceira Ton · Av. Eduardo Ribeiro, 520, Sala 02 · Ed. Manaus Shopping Center · Centro, Manaus/AM · WhatsApp <a data-wa href="#">(92) 98460-3260</a></div>
+      <div class="col"><b>Unidade Centro</b>Av. Eduardo Ribeiro, 520, Sala 02 · Ed. Manaus Shopping Center · Centro, Manaus/AM<b style="margin-top:12px">Unidade Cidade Nova</b>Rua Felix Valois, 41 · Cidade Nova, Manaus/AM</div>
+      <div class="col"><b>Atendimento</b>WhatsApp <a data-wa href="#">(92) 98460-3260</a> · seg a sex, 9h às 17h<b style="margin-top:12px">Políticas</b><a href="/privacidade">Política de privacidade</a> · <a href="/termos">Termos de uso</a></div>
     </div>
-    <div>Condições da oferta: desconto de 25% aplicado pelo cupom de parceiro no carrinho da Ton, sobre o valor de adesão do aparelho. Preços, frete e prazos conferidos em 16/10/2026 e sujeitos a alteração pela Ton. Taxas conforme tabela vigente do plano escolhido, mostrada no app na ativação.</div>
-    <div class="legal">Este canal é de titularidade de um Parceiro Renda Ton. Ton é marca registrada da STONE INSTITUIÇÃO DE PAGAMENTO S.A. · <a href="/privacidade">Política de privacidade</a> · <a href="/termos">Termos de uso</a></div>
+    <div>Condições da oferta: desconto de 25% aplicado pelo cupom de parceiro no carrinho da Ton, sobre a taxa de adesão do T2, T3 e T3 Smart. Preço riscado = preço do site da Ton em 16/10/2026. Preços, frete, prazos e taxas sujeitos a alteração pela Ton; as taxas que valem são as mostradas no app na ativação. Equipamento cedido em comodato pela Ton, conforme o regulamento do plano.</div>
+    <div class="legal">Este canal é de titularidade de um Parceiro Renda Ton, não se confundindo com os canais oficiais do Ton (ton.com.br). Ton é marca registrada da STONE INSTITUIÇÃO DE PAGAMENTO S.A.</div>
   </div>
 </footer>
 
@@ -578,7 +825,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
 </a>
 
 <div class="barra" id="barra">
-  <div class="info"><b>25% off na Ton</b>T2 por 12x R$ 3,12</div>
+  <div class="info"><b>25% off + 12x sem juros</b>a partir de 12x R$ 1,40</div>
   <button class="btn btn-v" data-comprar="t3">Liberar cupom</button>
 </div>
 
@@ -589,7 +836,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
     <button class="fechar" data-fechar aria-label="Fechar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     <div class="cab">
       <img id="mImg" src="/ai-t3.webp" alt="" width="64" height="64">
-      <div><h3 id="mTitulo">Liberar cupom de 25%</h3><p id="mSub">TON T3 · de R$ 108,00 por R$ 81,00</p></div>
+      <div><h3 id="mTitulo">Liberar cupom de parceiro</h3><p id="mSub">TON T3 · R$ 81,00 ou 12x R$ 6,75</p></div>
     </div>
     <form id="form" novalidate>
       <div class="campo" id="cModelo">
@@ -620,7 +867,7 @@ footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-h
     </form>
     <div class="sucesso">
       <div class="check"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
-      <h3>Cupom liberado!</h3>
+      <h3 id="sTit">Cupom liberado!</h3>
       <p id="sTxt">Estamos abrindo o carrinho da Ton com o desconto aplicado.</p>
       <div class="codigo" id="sCodigo">CUPOM</div><br>
       <a class="btn btn-v" id="sIr" href="#">Ir para o pagamento</a>
@@ -638,32 +885,41 @@ const CFG = {
   pixel: "882829890919527",           // pixel "Parceiros Ton Manaus"
   gtag: "AW-18359105439",
   convGoogle: "AW-18359105439/BMyzCNSPstscEJ_vprJE", // trocar pela conversão "Pré-checkout" quando for criada
+  /* Cashback de adesão da Ton (devolve a adesão a quem vende R$ 10 mil em 30 dias).
+     A última campanha confirmada foi de 24/06 a 30/08/2026. Só ligar (true) com campanha
+     ativa confirmada no site da Ton. */
+  cashback: false,
   checkout: "https://ton.com.br/checkout/cart/?coupon={CUPOM}&is_consigned=true&productId={PID}&userAnticipation=0&userTag=tonmega_tier&utm_medium=invite_share&utm_source=revendedor"
 };
+/* Preços conferidos no carrinho da Ton em 16/10/2026. "naTon" = preço do site da Ton sem cupom. */
 const MODELOS = {
-  t2:{nome:"TON T2", pid:"TONMEGA_TIER_D195", img:"/ai-t2.webp", de:"R$ 49,88", por:"R$ 37,41", parc:"R$ 3,12", eco:"R$ 12,47",
-      sub:"Autônoma: chip próprio e Wi-Fi, não depende do celular.",
-      bullets:["Chip com internet e Wi-Fi","Comprovante por SMS ou e-mail","Leve, cabe no bolso"],
-      pra:"Rua, delivery e serviço"},
-  t3:{nome:"TON T3", pid:"TONMEGA_TIER_S920", img:"/ai-t3.webp", de:"R$ 108,00", por:"R$ 81,00", parc:"R$ 6,75", eco:"R$ 27,00", top:true,
-      sub:"A mais vendida. Tudo da T2, com impressora e teclado.",
-      bullets:["Imprime o comprovante na hora","Teclado pra digitar rápido","Bobina com reposição grátis"],
-      pra:"Loja, balcão e restaurante"},
-  t3s:{nome:"TON T3 SMART", pid:"TONMEGA_TIER_SMART_POS", img:"/ai-t3-smart.webp", de:"R$ 191,88", por:"R$ 143,91", parc:"R$ 11,99", eco:"R$ 47,97",
-      sub:"Top de linha. Android, tela grande e impressora.",
-      bullets:["Tela ampla e sistema Android","Mais rápida na fila","Imprime e tem bobina grátis"],
-      pra:"Movimento alto e loja premium"}
+  t3s:{nome:"TON T3 SMART", curto:"T3 Smart", pid:"TONMEGA_TIER_SMART_POS", img:"/ai-t3-smart.webp", naTon:"R$ 191,88", por:"R$ 143,91", parc:"R$ 11,99", eco:"R$ 47,97",
+      sub:"Android, tela grande e impressora. A mais completa.", fita:"Top de linha", dest:"Bobina grátis",
+      vezes:"até 21x",
+      bullets:["Chip 4G e Wi-Fi","Sistema Android com tela touch","Comprovante impresso ou SMS","Pix na maquininha e aproximação","Bateria de longa duração","Seu cliente parcela em até 21x"]},
+  t3:{nome:"TON T3", curto:"T3", pid:"TONMEGA_TIER_S920", img:"/ai-t3.webp", naTon:"R$ 108,00", por:"R$ 81,00", parc:"R$ 6,75", eco:"R$ 27,00", top:true,
+      sub:"Imprime o comprovante na hora. A preferida do balcão.", fita:"★ Mais vendida", dest:"Bobina grátis",
+      vezes:"até 21x",
+      bullets:["Chip 3G e Wi-Fi","Comprovante impresso ou SMS","Teclado físico pra digitar rápido","Pix na maquininha e aproximação","Seu cliente parcela em até 21x"]},
+  t2:{nome:"TON T2", curto:"T2", pid:"TONMEGA_TIER_D195", img:"/ai-t2.webp", naTon:"R$ 49,88", por:"R$ 37,41", parc:"R$ 3,12", eco:"R$ 12,47",
+      sub:"Compacta e com chip próprio. Não depende do celular.", fita:"Melhor custo", dest:"Chip com internet",
+      vezes:"até 12x",
+      bullets:["Chip 3G e Wi-Fi","Comprovante por SMS","Pix na maquininha e aproximação","Cabe no bolso","Seu cliente parcela em até 12x"]},
+  t1:{nome:"TON T1", curto:"T1", pid:"TONMEGA_TIER_D150", img:"/ai-t1.webp", naTon:"", por:"R$ 16,80", parc:"R$ 1,40", eco:"", semCupom:true,
+      sub:"Conecta no seu celular por Bluetooth. A mais barata.", fita:"Pra começar", dest:"Menor preço",
+      vezes:"até 12x",
+      bullets:["Usa a internet do seu celular","Aproximação (NFC)","Comprovante por SMS","Seu cliente parcela em até 12x"]}
 };
 const RECO = {
+  comecando:"Pra começar gastando o mínimo, a T1 usa o seu celular e sai por 12x de R$ 1,40.",
   rua:"Você vende em movimento. A T2 tem chip próprio, então não depende do seu celular nem de Wi-Fi.",
-  servico:"Atende na casa do cliente? A T2 é leve, autônoma e manda o comprovante por SMS.",
+  servico:"Atende com hora marcada ou na casa do cliente? A T2 é leve, autônoma e manda o comprovante por SMS.",
   balcao:"No balcão o cliente quer o comprovante na mão. A T3 imprime na hora e o teclado agiliza a fila.",
   restaurante:"Mesa, comanda e fila pedem comprovante impresso. A T3 é a mais vendida pra isso.",
-  consultorio:"Atendimento com hora marcada não precisa de impressora. A T2 resolve e custa menos.",
   alto:"Muita venda por hora pede velocidade. A T3 Smart tem tela grande, Android e imprime."
 };
 const MEGA = {
-  faixas:["Promocional","Até R$ 3 mil","R$ 3 a 6 mil","R$ 6 a 10 mil","R$ 10 a 30 mil","Acima de R$ 30 mil"],
+  faixas:["Promocional (30 dias)","Até R$ 3 mil","R$ 3 a 6 mil","R$ 6 a 10 mil","R$ 10 a 30 mil","Acima de R$ 30 mil"],
   linhas:[["Pix","0%","0%","0%","0%","0%","0%"],
     ["Débito","0,57%","1,69%","1,39%","1,32%","1,22%","1,19%"],
     ["Crédito à vista","0,57%","3,86%","3,34%","3,25%","3,02%","2,85%"],
@@ -680,7 +936,20 @@ const MEGA = {
 /* ============================================================ */
 
 const $ = id => document.getElementById(id);
-const CHECK = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>';
+const CHECK = '<svg class="ok" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>';
+const brl = n => n.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const num = s => parseFloat(String(s).replace(/[^\d,]/g,"").replace(",",".")) || 0;
+if (CFG.cashback) document.body.classList.add("cb-on");
+
+/* previsão de entrega: 3 a 7 dias úteis a partir de hoje (hora de Brasília) */
+const ENTREGA = (function(){
+  const agora = new Date(Date.now() + (new Date().getTimezoneOffset() - 180) * 60000);
+  const util = n => { const d = new Date(agora); let k = 0; while (k < n){ d.setDate(d.getDate()+1); if (d.getDay() % 6) k++; } return d; };
+  const fmt = d => d.toLocaleDateString("pt-BR",{weekday:"short", day:"2-digit", month:"2-digit"}).replace(".", "");
+  const txt = "entre " + fmt(util(3)) + " e " + fmt(util(7));
+  document.querySelectorAll(".js-entrega").forEach(el => el.textContent = txt);
+  return txt;
+})();
 
 /* origem do visitante: guarda na sessão pra não perder se ele navegar */
 const ORIGEM = (()=>{
@@ -730,25 +999,82 @@ document.querySelectorAll("[data-wa]").forEach(a=>{
 /* ---- cards dos modelos ---- */
 $("cards").innerHTML = Object.entries(MODELOS).map(([id,m])=>`
   <article class="card rv${m.top?" top":""}">
-    <span class="fita">${m.top ? "★ Mais vendida" : m.pra}</span>
-    <div class="foto"><img src="${m.img}" alt="Maquininha ${m.nome}" width="1024" height="1024" loading="lazy"></div>
+    <span class="fita">${m.fita}</span>
+    ${m.semCupom ? "" : '<span class="cupom">−25% cupom ativo</span>'}
+    <div class="foto"><img src="${m.img}" alt="Maquininha ${m.nome}" loading="lazy"></div>
     <div class="corpo">
       <h3>${m.nome}</h3>
       <p class="sub">${m.sub}</p>
-      <ul>${m.bullets.map(b=>`<li>${CHECK}${b}</li>`).join("")}</ul>
       <div class="precos">
-        <div class="linha1"><s>${m.de}</s><span class="off">−25%</span></div>
+        <div class="naton">${m.semCupom ? "Preço oficial da Ton, já no mínimo" : `Na Ton: <s>${m.naTon}</s><span class="off">−25%</span>`}</div>
         <div class="p12"><small>12x </small>${m.parc}</div>
-        <div class="av">ou <b>${m.por}</b> à vista</div>
-        <div class="eco">Você economiza ${m.eco}</div>
-        <button class="btn ${m.top?"btn-v":"btn-esc"}" data-comprar="${id}">Quero a ${m.nome.replace("TON ","")}</button>
+        <div class="av">sem juros, ou <b>${m.por}</b> à vista</div>
+        ${m.eco ? `<div class="eco">Você economiza ${m.eco}</div>` : ""}
+        <div class="cashback"><b>Receba ${m.por} de volta</b>Vendendo R$ 10 mil em 30 dias, a Ton devolve a adesão na sua conta.</div>
       </div>
+      <div class="chips"><span class="dest">${m.dest}</span><span>Sem aluguel</span><span>CPF ou CNPJ</span><span>Frete grátis</span></div>
+      <button class="btn ${m.top?"btn-v":"btn-esc"}" data-comprar="${id}">Pedir a ${m.curto}</button>
+      <div class="entrega">Chega <b>${ENTREGA}</b></div>
+      <ul>${m.bullets.map(b=>`<li>${CHECK}<span>${b}</span></li>`).join("")}<li>${CHECK}<span>Garantia vitalícia</span></li></ul>
     </div>
   </article>`).join("");
+
+/* ---- comparativo ---- */
+(function(){
+  const ids = ["t1","t2","t3","t3s"], S = '<td class="sim">✓</td>', N = '<td class="nao">—</td>';
+  const cls = id => id === "t3" ? ' class="col-top"' : "";
+  const lin = (rot, f) => `<tr><td>${rot}</td>${ids.map(id => { const v = f(MODELOS[id], id); return v === true ? S : v === false ? N : `<td${cls(id)}>${v}</td>`; }).join("")}</tr>`;
+  $("comparativo").innerHTML = `<thead><tr><th></th>${ids.map(id=>`<th${cls(id)}>${MODELOS[id].curto}</th>`).join("")}</tr></thead><tbody>`
+   + lin("Com o parceiro", m => `<b>${m.por}</b>`)
+   + lin("Em 12x sem juros", m => m.parc)
+   + lin("Na Ton, sem cupom", m => m.naTon ? `<s>${m.naTon}</s>` : "R$ 16,80")
+   + lin("Funciona sem celular", (m,id) => id !== "t1")
+   + lin("Chip com internet + Wi-Fi", (m,id) => id === "t3s" ? "4G" : id === "t1" ? false : "3G")
+   + lin("Comprovante impresso", (m,id) => id === "t3" || id === "t3s")
+   + lin("Tela touch e Android", (m,id) => id === "t3s")
+   + lin("Pix na maquininha", (m,id) => id !== "t1")
+   + lin("Vale-refeição e alimentação", (m,id) => id !== "t1")
+   + lin("Aproximação (NFC)", () => true)
+   + lin("Seu cliente parcela", m => m.vezes)
+   + lin("Garantia vitalícia", () => true)
+   + "</tbody>";
+})();
 
 /* ---- tabela de taxas ---- */
 $("tabela").innerHTML = "<thead><tr><th>Forma</th>" + MEGA.faixas.map((f,i)=>`<th${i===0?' class="dest"':""}>${f}</th>`).join("") + "</tr></thead><tbody>"
   + MEGA.linhas.map(l=>"<tr>" + l.map((c,i)=> i===0 ? `<td>${c}</td>` : `<td${i===1?' class="dest"':""}>${c}</td>`).join("") + "</tr>").join("") + "</tbody>";
+
+/* ---- simulador ---- */
+(function(){
+  $("sFaixa").innerHTML = MEGA.faixas.map((f,i)=>`<option value="${i+1}">${i===0 ? "Primeiro mês (taxa promocional)" : "Depois, vendendo " + (f.startsWith("R$") ? "de " + f : f.charAt(0).toLowerCase() + f.slice(1)) + " por mês"}</option>`).join("");
+  $("sParc").innerHTML = MEGA.linhas.filter(l=>/x$/.test(l[0])).map(l=>`<option>${l[0]}</option>`).join("");
+  $("sParc").value = "12x";
+  let forma = "Crédito à vista";
+  function calc(){
+    const v = num($("sValor").value), col = +$("sFaixa").value;
+    const chave = forma === "parc" ? $("sParc").value : forma;
+    const linha = MEGA.linhas.find(l => l[0] === chave);
+    const taxa = num(linha[col]) / 100;
+    $("sTaxa").textContent = linha[col];
+    $("sCusto").textContent = brl(v * taxa);
+    $("sRecebe").textContent = brl(v - v * taxa);
+  }
+  $("sFormas").addEventListener("click", e=>{
+    const b = e.target.closest("button"); if (!b) return;
+    forma = b.dataset.f;
+    $("sFormas").querySelectorAll("button").forEach(x=> x.setAttribute("aria-pressed", x === b));
+    $("sParcBox").hidden = forma !== "parc";
+    calc();
+  });
+  $("sValor").addEventListener("input", e=>{
+    const d = e.target.value.replace(/\D/g,"").slice(0,9).padStart(3,"0");
+    e.target.value = (+d.slice(0,-2)).toLocaleString("pt-BR") + "," + d.slice(-2);
+    calc();
+  });
+  $("sFaixa").addEventListener("change", calc);
+  $("sParc").addEventListener("change", calc);
+  calc();
+})();
 
 /* ---- recomendação por negócio ---- */
 let negocio = "";
@@ -759,32 +1085,33 @@ document.querySelectorAll(".neg").forEach(b=> b.addEventListener("click", ()=>{
   $("reco").classList.add("on");
   $("recoImg").src = m.img; $("recoImg").alt = "Maquininha " + m.nome;
   $("recoNome").textContent = m.nome;
-  $("recoPra").textContent = "Recomendada pra " + negocio.toLowerCase();
+  $("recoPra").textContent = "Recomendada pra: " + negocio.toLowerCase();
   $("recoPq").textContent = RECO[b.dataset.neg];
   $("recoParc").textContent = "12x " + m.parc;
-  $("recoAv").textContent = "ou " + m.por + " à vista";
+  $("recoAv").textContent = "sem juros, ou " + m.por + " à vista";
   $("recoBtn").dataset.comprar = id;
-  $("recoBtn").textContent = "Quero a " + m.nome.replace("TON ","") + " com 25% off";
+  $("recoBtn").textContent = "Quero a " + m.curto + (m.semCupom ? "" : " com 25% off");
   px("ViewContent",{content_name:m.nome, negocio});
   if (innerWidth < 1020) $("reco").scrollIntoView({behavior:"smooth", block:"center"});
 }));
 
 /* ---- pré-checkout ---- */
 let modeloSel = "t3", indo = false;
-$("opModelo").innerHTML = Object.entries(MODELOS).map(([id,m])=>
-  `<label><input type="radio" name="modelo" value="${id}"><span>${m.nome.replace("TON ","")} · ${m.por}</span></label>`).join("");
+$("opModelo").innerHTML = ["t1","t2","t3","t3s"].map(id=>
+  `<label><input type="radio" name="modelo" value="${id}"><span>${MODELOS[id].curto} · ${MODELOS[id].por}</span></label>`).join("");
 function pintaModelo(id){
   modeloSel = id; const m = MODELOS[id];
   $("mImg").src = m.img;
-  $("mSub").textContent = m.nome + " · de " + m.de + " por " + m.por + " ou 12x " + m.parc;
+  $("mSub").textContent = m.nome + " · " + (m.semCupom ? "" : "de " + m.naTon + " por ") + m.por + " ou 12x " + m.parc;
+  $("enviar").textContent = m.semCupom ? "Ir pro pagamento da Ton" : "Liberar cupom e ir pro pagamento";
   document.querySelector(`input[name=modelo][value=${id}]`).checked = true;
 }
 document.querySelectorAll("input[name=modelo]").forEach(r=> r.addEventListener("change", ()=> pintaModelo(r.value)));
 
 function abrir(id){
-  pintaModelo(id || "t3");
   $("caixa").classList.remove("ok"); indo = false;
-  $("enviar").disabled = false; $("enviar").textContent = "Liberar cupom e ir pro pagamento";
+  $("enviar").disabled = false;
+  pintaModelo(id || "t3");
   $("modal").classList.add("on"); document.body.style.overflow = "hidden";
   ghInicio();
   setTimeout(()=> $("inNome").focus({preventScroll:true}), 250);
@@ -817,13 +1144,13 @@ $("form").addEventListener("submit", async e=>{
   if (prim){ prim[0].scrollIntoView({behavior:"smooth", block:"center"}); const i = prim[0].querySelector("input"); if (i) i.focus({preventScroll:true}); return; }
 
   indo = true;
-  $("enviar").disabled = true; $("enviar").textContent = "Liberando cupom…";
-  const m = MODELOS[modeloSel], url = linkCheckout(modeloSel);
+  $("enviar").disabled = true; $("enviar").textContent = "Liberando…";
+  const m = MODELOS[modeloSel], url = linkCheckout(modeloSel), valor = num(m.por);
   const origem = [ORIGEM.utm_source, ORIGEM.utm_campaign, ORIGEM.utm_term].filter(Boolean).join(" / ") || "direto";
-  const resumo = `${m.nome} (${m.por} com cupom ${CFG.cupom}) · ${doc} · vende ${fat}` + (negocio ? ` · ${negocio}` : "")
+  const resumo = `${m.nome} (${m.por}${m.semCupom ? "" : " com cupom " + CFG.cupom}) · ${doc} · vende ${fat}` + (negocio ? ` · ${negocio}` : "")
     + ` · origem: ${origem}` + (ORIGEM.gclid ? " · gclid: " + ORIGEM.gclid : "") + " · foi para o checkout da Ton";
 
-  px("Lead",{content_name:m.nome, value:parseFloat(m.por.replace(/[^\d,]/g,"").replace(",",".")), currency:"BRL"});
+  px("Lead",{content_name:m.nome, value:valor, currency:"BRL"});
   gConv();
   // espera o GyreHub no máximo 2,5 s: o cliente não pode ficar preso se a API demorar
   await Promise.race([ghEnviar([
@@ -836,11 +1163,13 @@ $("form").addEventListener("submit", async e=>{
     ["Resumo do pedido", resumo]
   ]), new Promise(r=> setTimeout(r, 2500))]);
 
+  $("sTit").textContent = m.semCupom ? "Tudo certo!" : "Cupom liberado!";
   $("sCodigo").textContent = CFG.cupom;
-  $("sTxt").textContent = nome.split(" ")[0] + ", estamos abrindo o carrinho da Ton com a " + m.nome + " e o desconto aplicado.";
+  $("sCodigo").hidden = !!m.semCupom;
+  $("sTxt").textContent = nome.split(" ")[0] + ", estamos abrindo o carrinho da Ton com a " + m.nome + (m.semCupom ? "." : " e o desconto aplicado.");
   $("sIr").href = url;
   $("caixa").classList.add("ok");
-  px("InitiateCheckout",{content_name:m.nome, value:parseFloat(m.por.replace(/[^\d,]/g,"").replace(",",".")), currency:"BRL"});
+  px("InitiateCheckout",{content_name:m.nome, value:valor, currency:"BRL"});
   setTimeout(()=>{ location.href = url; }, 2200);
 });
 
