@@ -17,7 +17,7 @@
 <link rel="preload" as="image" href="img/hero-maquininhas.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700;800&family=Space+Grotesk:wght@600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0A0F0D; --ink2:#121915; --ink3:#1B241F;
@@ -79,30 +79,30 @@ em.v{font-style:normal;color:var(--verde)}
 .nav .btn{height:44px;padding:0 20px;font-size:14px}
 
 /* hero */
-.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:54px 0 0}
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding:40px 0 0}
 .hero:before{content:"";position:absolute;width:960px;height:960px;right:-280px;top:-240px;background:radial-gradient(closest-side,rgba(0,204,44,.3),rgba(0,204,44,0));pointer-events:none}
 .hero:after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000,transparent 70%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 70%);pointer-events:none}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;align-items:center}
 .selo{display:inline-flex;align-items:center;gap:8px;padding:7px 14px 7px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);font-size:13px;color:#dfe6e1}
 .selo i{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--verde);color:var(--ink);font-style:normal;font-weight:700}
-.hero h1{font-size:clamp(44px,5.6vw,74px);margin:22px 0 18px;max-width:780px}
+.hero h1{font-size:clamp(38px,4.3vw,58px);margin:18px 0 14px;max-width:640px}
 .hero h1 em{font-style:normal;color:var(--verde)}
-.hero .lead{font-size:clamp(17px,1.5vw,19px);color:#c4cdc7;max-width:600px}
+.hero .lead{font-size:16px;color:#c4cdc7;max-width:540px}
 .hero .lead b{color:#fff;font-weight:600}
-.hero-tx{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:28px 0 26px;max-width:640px}
-.hero-tx div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 14px 12px}
-.hero-tx b{display:block;font:700 30px/1 var(--tit);letter-spacing:0}
+.hero-tx{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:22px 0 22px;max-width:600px}
+.hero-tx div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:11px 12px 10px}
+.hero-tx b{display:block;font:700 26px/1 var(--tit);letter-spacing:0}
 .hero-tx div:first-child b{color:var(--verde)}
 .hero-tx small{display:block;margin-top:6px;font-size:12px;color:#a8b2ab;line-height:1.25}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .hero-ctas .preco{font-size:14px;color:#c4cdc7;line-height:1.3;margin-left:6px}
 .hero-ctas .preco b{color:#fff;font:700 20px/1.1 var(--tit)}
-.prova-faixa{display:flex;align-items:center;gap:14px 18px;flex-wrap:wrap;margin-top:28px}
-.estrelas{color:#F5C33B;font-size:30px;letter-spacing:3px;line-height:1}
+.prova-faixa{display:flex;align-items:center;gap:12px 16px;flex-wrap:wrap;margin-top:22px}
+.estrelas{color:#F5C33B;font-size:24px;letter-spacing:3px;line-height:1}
 .avatares{display:flex}
 .avatares img{width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid var(--ink);margin-left:-10px;filter:grayscale(.15)}
 .avatares img:first-child{margin-left:0}
-.prova-faixa .txt{font:600 21px/1.15 var(--tit);color:#fff}
+.prova-faixa .txt{font:600 19px/1.15 var(--tit);color:#fff}
 .prova-faixa .txt b{color:var(--verde);font-weight:700}
 .notas-mini{font-size:12.5px;color:#8f9993;margin-top:12px}
 .notas-mini b{color:#fff}
@@ -111,8 +111,8 @@ em.v{font-style:normal;color:var(--verde)}
 .nota-i b{font:700 18px/1 var(--tit);color:#fff}
 .nota-i .est{color:var(--amarelo);letter-spacing:1px;font-size:12px}
 .notas .fonte{font-size:11px;color:#6f7a73;align-self:center}
-.hero-vis{position:relative;align-self:stretch;min-height:640px}
-.hero-img{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);width:min(560px,112%);max-width:none;height:auto;
+.hero-vis{position:relative;align-self:stretch;min-height:540px}
+.hero-img{position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);width:min(470px,100%);max-width:none;height:auto;
   filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))}
 .combo{position:absolute;inset:0}
 .combo img{position:absolute;filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
@@ -124,9 +124,9 @@ em.v{font-style:normal;color:var(--verde)}
 .flut b{font:700 18px/1 var(--tit);display:block}
 .flut .ic{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--verde-claro);color:var(--verde-esc);flex:none;font-weight:700}
 .flut.f1{top:24px;left:4%}
-.flut.f2{top:300px;right:-10px}
+.flut.f2{top:250px;right:-10px}
 .flut.f3{bottom:40px;right:-10px;left:auto}
-.selo-25{position:absolute;top:110px;left:44%;width:104px;height:104px;border-radius:50%;background:var(--amarelo);color:var(--ink);display:grid;place-items:center;text-align:center;font:700 13px/1.05 var(--tit);transform:rotate(10deg);box-shadow:0 14px 30px -10px rgba(0,0,0,.5);z-index:2}
+.selo-25{position:absolute;top:84px;left:44%;width:104px;height:104px;border-radius:50%;background:var(--amarelo);color:var(--ink);display:grid;place-items:center;text-align:center;font:700 13px/1.05 var(--tit);transform:rotate(10deg);box-shadow:0 14px 30px -10px rgba(0,0,0,.5);z-index:2}
 .selo-25 b{display:block;font-size:34px;letter-spacing:0}
 @media (prefers-reduced-motion:no-preference){
   .flut{animation:boia 6s ease-in-out infinite}
@@ -353,15 +353,26 @@ details.tabela[open] summary .mais{transform:rotate(45deg)}
 .wa-faixa b{font:700 20px/1.2 var(--tit);display:block;color:#03210f}
 .wa-faixa .btn{background:#fff;color:#0b5d2a;height:48px}
 
-/* rodapé */
-footer{background:#060908;color:#9aa49d;font-size:13.5px;padding:44px 0 120px}
-footer .wrap{display:grid;gap:22px}
-footer .top{display:grid;grid-template-columns:auto 1fr 1fr;gap:24px 40px;align-items:start}
-footer img{height:32px;width:auto}
-footer a{color:#cfd6d1}
-footer .col b{display:block;color:#fff;font-size:13px;margin-bottom:4px}
-footer .col b+br{display:none}
-footer .legal{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;line-height:1.6}
+/* rodapé — mesmo desenho da home (Footer.astro) */
+.rod{background:var(--paper);border-top:1px solid #E4E7E4;padding:64px 0 40px;color:#3A4441;font-size:14px}
+.rod-grid{display:grid;grid-template-columns:5fr 3fr 4fr;gap:40px}
+.rod-logo{display:flex;align-items:center;gap:12px}
+.rod-logo img{height:40px;width:auto}
+.rod-logo div{border-left:1px solid #E4E7E4;padding-left:12px;line-height:1.25}
+.rod-logo b{display:block;font:600 14px/1.25 "Space Grotesk",var(--sans);color:var(--ink)}
+.mono{display:block;font:400 10px/1.4 "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.12em;color:#00A324}
+.rod-marca p{margin-top:20px;color:#6B7773;max-width:28rem;line-height:1.65}
+.rod-tit{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:#6B7773;margin-bottom:16px}
+.rod address{font-style:normal;line-height:1.65;display:grid;gap:16px}
+.rod-hora{font-size:12px;color:#6B7773}
+.rod ul{list-style:none;display:grid;gap:8px}
+.rod a{color:#3A4441;text-decoration:none}
+.rod a:hover{color:#00A324;text-decoration:underline}
+.rod-legal{margin-top:56px;padding-top:32px;border-top:1px solid #E4E7E4;font-size:12px;color:#6B7773;line-height:1.65;display:grid;gap:12px}
+.rod-legal strong{color:#3A4441}
+.rod-links{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px}
+.rod-links a{color:#6B7773}
+.rod-links .pt{color:#B7BEB9}
 
 /* whatsapp flutuante + barra mobile */
 .wa-flut{position:fixed;right:20px;bottom:22px;z-index:45;width:60px;height:60px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(0,0,0,.45);transition:transform .2s}
@@ -421,6 +432,8 @@ body.cb-on .cashback{display:block}
 @media (max-width:1020px){
   .hero .wrap{grid-template-columns:1fr;text-align:center}
   .hero h1,.hero .lead{margin-left:auto;margin-right:auto}
+  .hero h1{font-size:clamp(34px,8.6vw,46px)}
+  .hero .lead{font-size:15.5px}
   .hero-tx{margin-left:auto;margin-right:auto}
   .hero-ctas,.notas,.prova-faixa{justify-content:center;margin-left:auto;margin-right:auto}
   .hero-vis{min-height:0;max-width:520px;width:100%;margin:10px auto 0}
@@ -437,7 +450,7 @@ body.cb-on .cashback{display:block}
   .final-box{grid-template-columns:1fr;padding:40px 28px;text-align:center}
   .final-box .ctas{justify-content:center}
   .final-box img.final-maq{margin:-40px auto -90px;max-width:340px}
-  footer .top{grid-template-columns:1fr}
+  .rod-grid{grid-template-columns:1fr;gap:32px}
 }
 @media (max-width:640px){
   .sec{padding:64px 0}
@@ -491,6 +504,7 @@ body.cb-on .cashback{display:block}
   .final-box h2{font-size:30px}
   .final-box .ctas .btn{width:100%}
   .wa-faixa .btn{width:100%}
+  .rod{padding-bottom:110px}
   .wa-flut{bottom:86px;right:16px;width:54px;height:54px}
   .barra{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:44;gap:10px;align-items:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s}
   .barra.on{transform:none}
@@ -529,14 +543,14 @@ body.cb-on .cashback{display:block}
       <div><b>7,97%</b><small>crédito 12x</small></div>
       <div><b>14,87%</b><small>crédito 18x</small></div>
     </div>
-    <button class="btn btn-v" data-comprar="t3">Garantir<span class="longo">&nbsp;meu cupom</span></button>
+    <button class="btn btn-v" data-comprar="t3"><span>Garantir<span class="longo"> meu cupom</span></span></button>
   </div>
 </nav>
 
 <header class="hero" id="topo">
   <div class="wrap">
     <div>
-      <span class="selo"><i>✓</i> Parceiro Autorizado Ton<span class="longo">&nbsp;· plano Ton Mega+</span></span>
+      <span class="selo"><i>✓</i><span>Parceiro Autorizado Ton<span class="longo"> · plano Ton Mega+</span></span></span>
       <h1>Maquininha Ton com <em>25% de desconto</em> e taxa a partir de 0,57%.</h1>
       <p class="lead">Mesma maquininha e mesma garantia da Ton, <b>mais barata com o cupom do parceiro</b>. Você paga no site da Ton em <b>12x sem juros</b> e recebe com frete grátis em qualquer lugar do Brasil.</p>
       <div class="hero-tx">
@@ -838,15 +852,38 @@ body.cb-on .cashback{display:block}
   </div>
 </div>
 
-<footer>
+<footer class="rod">
   <div class="wrap">
-    <div class="top">
-      <img src="/logo-parceiro-ton.png" alt="Parceiro Ton" width="90" height="32" loading="lazy">
-      <div class="col"><b>Unidade Centro</b>Av. Eduardo Ribeiro, 520, Sala 02 · Ed. Manaus Shopping Center · Centro, Manaus/AM<b style="margin-top:12px">Unidade Cidade Nova</b>Rua Felix Valois, 41 · Cidade Nova, Manaus/AM</div>
-      <div class="col"><b>Atendimento</b>WhatsApp <a data-wa href="#">(92) 98460-3260</a> · seg a sex, 9h às 17h<b style="margin-top:12px">Políticas</b><a href="/privacidade">Política de privacidade</a> · <a href="/termos">Termos de uso</a></div>
+    <div class="rod-grid">
+      <div class="rod-marca">
+        <div class="rod-logo">
+          <img src="/logo-parceiro-ton.png" alt="Loja Parceira Ton" width="36" height="36" loading="lazy">
+          <div><b>Loja Parceira Manaus</b><span class="mono">Parceiro Autorizado</span></div>
+        </div>
+        <p>Somos uma loja parceira do programa Renda Ton, com duas lojas em Manaus. Vendemos as maquininhas oficiais do Ton para todo o Brasil, com atendimento humano e suporte pós-venda.</p>
+      </div>
+      <div>
+        <div class="rod-tit">Lojas</div>
+        <address>
+          <div><span class="mono">Unidade Centro</span>Av. Eduardo Ribeiro, 520, Sala 02<br>Ed. Manaus Shopping Center<br>Manaus/AM, 69010-000</div>
+          <div><span class="mono">Unidade Cidade Nova</span>Rua Felix Valois, 41<br>Cidade Nova, perto da Blue Fit<br>Manaus/AM</div>
+          <div class="rod-hora">Seg a sex, 9h às 17h</div>
+        </address>
+      </div>
+      <div>
+        <div class="rod-tit">Contato</div>
+        <ul>
+          <li><a data-wa href="#">WhatsApp (92) 98460-3260</a></li>
+          <li><a href="https://maps.google.com/?q=Av.+Eduardo+Ribeiro+520+Manaus" target="_blank" rel="noopener">Como chegar</a></li>
+        </ul>
+      </div>
     </div>
-    <div>Condições da oferta: desconto de 25% aplicado pelo cupom de parceiro no carrinho da Ton, sobre a taxa de adesão do T2, T3 e T3 Smart. Preço riscado = preço do site da Ton em 16/10/2026. Preços, frete, prazos e taxas sujeitos a alteração pela Ton; as taxas que valem são as mostradas no app na ativação. Equipamento cedido em comodato pela Ton, conforme o regulamento do plano.</div>
-    <div class="legal">Este canal é de titularidade de um Parceiro Renda Ton, não se confundindo com os canais oficiais do Ton (ton.com.br). Ton é marca registrada da STONE INSTITUIÇÃO DE PAGAMENTO S.A.</div>
+    <div class="rod-legal">
+      <p><strong>Condições da oferta:</strong> desconto de 25% aplicado pelo cupom de parceiro no carrinho da Ton, sobre a taxa de adesão do T2, T3 e T3 Smart. Preço riscado = preço do site da Ton em 16/10/2026. Preços, frete, prazos e taxas sujeitos a alteração pela Ton; as taxas que valem são as mostradas no app na ativação. Equipamento cedido em comodato pela Ton, conforme o regulamento do plano.</p>
+      <p><strong>Aviso obrigatório:</strong> Este canal é de titularidade de um <strong>Parceiro Renda Ton</strong>, não é um canal oficial da Ton. "Ton" é marca registrada da <strong>STONE INSTITUIÇÃO DE PAGAMENTO S.A.</strong> Todas as informações de taxas e planos apresentadas são referenciais e podem variar conforme o plano contratado, volume transacionado e políticas vigentes do Ton.</p>
+      <p><strong>Empresa responsável:</strong> J. Freire Siqueira Figueiredo &mdash; CNPJ 57.485.513/0001-57. Endereço fiscal: R. Quartzo Rosa, 303, Anexo 301, Lago Azul, Manaus/AM, CEP 69.018-602.</p>
+      <p class="rod-links"><span>&copy; <span class="js-ano">2026</span> Loja Parceira Ton Manaus</span><span class="pt">•</span><a href="/privacidade">Política de Privacidade</a><span class="pt">•</span><a href="/termos">Termos de Uso</a></p>
+    </div>
   </div>
 </footer>
 
@@ -972,6 +1009,7 @@ const num = s => parseFloat(String(s).replace(/[^\d,]/g,"").replace(",",".")) ||
 if (CFG.cashback) document.body.classList.add("cb-on");
 
 /* previsão de entrega: 3 a 7 dias úteis a partir de hoje (hora de Brasília) */
+document.querySelectorAll('.js-ano').forEach(el=> el.textContent = new Date().getFullYear());
 const ENTREGA = (function(){
   const agora = new Date(Date.now() + (new Date().getTimezoneOffset() - 180) * 60000);
   const util = n => { const d = new Date(agora); let k = 0; while (k < n){ d.setDate(d.getDate()+1); if (d.getDay() % 6) k++; } return d; };
