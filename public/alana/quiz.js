@@ -10,7 +10,8 @@ const AT = {
      dias: 0=dom … 6=sáb. Fora da janela o aviso diz a que horas ele volta, em vez de
      prometer alguém do outro lado. sempre:true ignora o horário. */
   horario: {dias:[1,2,3,4,5,6], de:8, ate:18, sempre:false},
-  pixel: "882829890919527"    // pixel "Parceiros Ton Manaus"
+  pixel: "882829890919527",   // pixel "Parceiros Ton Manaus"
+  ghRef: "cg5b4f"   // link rastreado "Quiz · Alana" no GyreHub: vai como [REF:] na mensagem
 };
 /* ======================================================================== */
 
@@ -403,7 +404,12 @@ function irWhats(){
     + "*Nome:* " + nome + "\n"
     + "_cod " + AT.codigo + "_";
   px("Contact",{modelo:m.nome});
-  location.href = "https://wa.me/" + AT.whatsapp + "?text=" + encodeURIComponent(txt);
+  /* [REF:] liga a conversa a este quiz no GyreHub; o <a data-whatsapp> faz o pixel do
+     GyreHub registrar o clique. */
+  const a = document.createElement("a");
+  a.href = "https://wa.me/" + AT.whatsapp + "?text=" + encodeURIComponent(txt + (AT.ghRef ? "\n\n[REF:" + AT.ghRef + "]" : ""));
+  a.setAttribute("data-whatsapp", ""); a.textContent = "WhatsApp"; a.style.display = "none";
+  document.body.appendChild(a); a.click();
 }
 
 function reiniciar(){

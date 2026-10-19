@@ -265,7 +265,10 @@ const waNumber = '5592984603260';
           try { window.gtag('event', 'lead_form_submit', { method: 'whatsapp', source: 'quiz', modelo: modelo }); } catch (e) {}
         }
         if (typeof window.tonLead === 'function') window.tonLead();
-        window.open(url, '_blank');
+        // Meta: o teste rápido é fonte do Lead (a mensagem não tem palavra do funil).
+        if (typeof window.fbq === 'function') window.fbq('track', 'Lead', { content_name: 'quiz_flutuante', modelo: modelo });
+        if (typeof window.tonAbrirZap === 'function') window.tonAbrirZap(url, true);
+        else window.open(url, '_blank');
       },
       'wa'
     );

@@ -949,6 +949,7 @@ const CFG = {
   cupom: "JOSIASFIGUEIREDOVC",        // cupom de parceiro (25%). Trocar pelo cupom exclusivo da página quando existir
   whatsapp: "5592984603260",
   gyrehub: "di2qiw",                  // formulário "LP Nacional — Pré-checkout" no GyreHub (vazio desliga)
+  ghRef: "c1l2r4",                    // link rastreado "LP Nacional · /maquininha": vai como [REF:] na mensagem do WhatsApp
   pixel: "882829890919527",           // pixel "Parceiros Ton Manaus"
   gtag: "AW-18359105439",
   convGoogle: "AW-18359105439/BMyzCNSPstscEJ_vprJE", // trocar pela conversão "Pré-checkout" quando for criada
@@ -1080,10 +1081,10 @@ async function ghEnviar(respostas){
 }
 
 /* ---- WhatsApp ---- */
-function waLink(txt){ return "https://wa.me/" + CFG.whatsapp + "?text=" + encodeURIComponent(txt); }
+function waLink(txt){ return "https://wa.me/" + CFG.whatsapp + "?text=" + encodeURIComponent(txt + (CFG.ghRef ? "\n\n[REF:" + CFG.ghRef + "]" : "")); }
 document.querySelectorAll("[data-wa]").forEach(a=>{
   a.href = waLink("Olá! Vim pela página da maquininha Ton com 25% de desconto e quero tirar uma dúvida.");
-  a.target = "_blank"; a.rel = "noopener";
+  a.target = "_blank"; a.rel = "noopener"; a.setAttribute("data-whatsapp", "");
   a.addEventListener("click", ()=> px("Contact",{origem:"lp_nacional"}));
 });
 
@@ -1293,5 +1294,7 @@ addEventListener("load", ()=>{
   }
 });
 </script>
+<!-- GyreHub: pixel (visita e clique no WhatsApp) -->
+<script src="https://gyrehub.com.br/pixel.js?id=0bbab1f9-02d0-435f-aaf0-998d35946dea&link=c1l2r4" async></script>
 </body>
 </html>

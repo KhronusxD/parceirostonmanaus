@@ -22,6 +22,14 @@ const ogImage = new URL('/img/og-cover.jpg', Astro.site ?? 'https://parceiroston
 // Google Ads
 const GTAG_ID = 'AW-18359105439';
 const CONV_LEAD = 'AW-18359105439/BMyzCNSPstscEJ_vprJE'; // conversão "Lead - WhatsApp"
+
+// Meta (pixel "Parceiros Ton Manaus" / Ton #1) — o mesmo dos eventos do GyreHub
+const META_PIXEL = '882829890919527';
+// GyreHub: workspace Lojas Ton Manaus + um link rastreado por página. O slug vai no pixel
+// do GyreHub e como [REF:] no fim de toda mensagem de WhatsApp (liga a conversa à página).
+const GH_WS = '0bbab1f9-02d0-435f-aaf0-998d35946dea';
+const GH_REFS: Record<string, string> = { '/links': 'iqihyh', '/ton-black': 'y4yn4h' };
+const ghRef = GH_REFS[path] ?? 'v8aqbf'; // home (e privacidade/termos)
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -82,11 +90,53 @@ const CONV_LEAD = 'AW-18359105439/BMyzCNSPstscEJ_vprJE'; // conversão "Lead - W
           document.addEventListener('click', function (e) {
             var t = e.target;
             if (!t || !t.closest) return;
-            if (t.closest('a[href*="wa.me"], [data-cta]')) window.tonLead();
+            // [data-gh-interno] = link criado pelo formulário/quiz, que já chama tonLead() sozinho
+            if (t.closest('a[href*="wa.me"]:not([data-gh-interno]), [data-cta]')) window.tonLead();
           }, true);
         `}></script>
       </>
     )}
+
+    <script is:inline set:html={`
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '${META_PIXEL}'); fbq('track', 'PageView');
+
+      // Põe o [REF:slug] no fim da mensagem do WhatsApp (uma vez só).
+      window.TON_REF = '${ghRef}';
+      window.tonZapUrl = function (url) {
+        try {
+          if (/\\[REF:|%5BREF%3A/i.test(url)) return url;
+          var tag = '[REF:' + window.TON_REF + ']';
+          var i = url.indexOf('?text=');
+          if (i < 0) return url + (url.indexOf('?') < 0 ? '?' : '&') + 'text=' + encodeURIComponent('Olá! Vim pelo site.\\n\\n' + tag);
+          var base = url.slice(0, i), resto = url.slice(i + 6), k = resto.indexOf('&');
+          var txt = decodeURIComponent((k < 0 ? resto : resto.slice(0, k)).replace(/\\+/g, ' '));
+          return base + '?text=' + encodeURIComponent(txt + '\\n\\n' + tag) + (k < 0 ? '' : resto.slice(k));
+        } catch (e) { return url; }
+      };
+      // Formulário e quiz abrem o WhatsApp por aqui: um <a data-whatsapp> pra o pixel do
+      // GyreHub registrar o clique. Eles mesmos mandam o Lead, então não sai Contact.
+      window.tonAbrirZap = function (url, novaAba) {
+        var a = document.createElement('a');
+        a.href = window.tonZapUrl(url);
+        a.setAttribute('data-whatsapp', ''); a.setAttribute('data-gh-interno', '');
+        if (novaAba) { a.target = '_blank'; a.rel = 'noopener'; }
+        a.textContent = 'WhatsApp'; a.style.display = 'none';
+        document.body.appendChild(a); a.click();
+      };
+      // Todo link wa.me do site: ganha o [REF:] antes de abrir e manda Contact.
+      document.addEventListener('click', function (e) {
+        var a = e.target && e.target.closest && e.target.closest('a[href*="wa.me/"]');
+        if (!a) return;
+        a.href = window.tonZapUrl(a.href);
+        if (!a.hasAttribute('data-gh-interno') && window.fbq) fbq('track', 'Contact');
+      }, true);
+    `}></script>
+    <script is:inline async src={`https://gyrehub.com.br/pixel.js?id=${GH_WS}&link=${ghRef}`}></script>
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify({
       "@context": "https://schema.org",
