@@ -3,7 +3,7 @@ import TabelaTaxas from '../TabelaTaxas.astro';
 
 // Comparativos calculados a partir das tabelas oficiais do Ton (D1).
 // Mix realista: 20% Pix (0%), 30% débito, 30% crédito à vista, 20% parcelado (média 3x).
-// Mega+ é a taxa efetiva de quem não tem o Black; Black é a taxa da faixa correspondente.
+// Mega+ é a taxa efetiva de quem não tem o TOP; TOP é a taxa da faixa correspondente.
 const casos = [
   {
     faturamento: 'R$ 30 mil',
@@ -34,10 +34,10 @@ const casos = [
     <div class="max-w-3xl mx-auto text-center">
       <span class="eyebrow">04 · A conta na ponta do lápis</span>
       <h2 class="mt-3 text-3xl md:text-5xl font-bold text-ink-950 leading-[1.05]">
-        Quanto o Black devolve pro seu caixa.
+        Quanto o TOP devolve pro seu caixa.
       </h2>
       <p class="mt-5 text-ink-500 text-base md:text-lg leading-relaxed">
-        Não é promessa, é a diferença entre duas tabelas oficiais do Ton. A vantagem do Black aparece
+        Não é promessa, é a diferença entre duas tabelas oficiais do Ton. A vantagem do TOP aparece
         principalmente no débito e no parcelado. Simulação com um mix real de vendas, recebimento em 1 dia útil.
       </p>
     </div>
@@ -59,7 +59,7 @@ const casos = [
               <span class="font-mono text-sm text-ink-500 line-through">{c.semBlack}</span>
             </div>
             <div class="flex items-baseline justify-between gap-3">
-              <span class="text-sm text-ink-950 font-medium">Taxa efetiva no Black</span>
+              <span class="text-sm text-ink-950 font-medium">Taxa efetiva no TOP</span>
               <span class="font-mono text-base text-ton-deep font-bold">{c.comBlack}</span>
             </div>
           </div>
@@ -98,7 +98,7 @@ const casos = [
     </div>
 
     <div class="mt-10 flex flex-col items-center gap-4 text-center">
-      <TabelaTaxas label="Ver a tabela oficial do Ton Black" defaultTab="black" />
+      <TabelaTaxas label="Ver a tabela oficial do Ton TOP" defaultTab="black" />
       <p class="text-xs text-ink-500 max-w-2xl leading-relaxed">
         Simulações com base nas tabelas oficiais vigentes, com um mix de 20% Pix, 30% débito, 30% crédito à
         vista e 20% parcelado. Na prática o resultado varia conforme a sua divisão de vendas. Fazemos a conta

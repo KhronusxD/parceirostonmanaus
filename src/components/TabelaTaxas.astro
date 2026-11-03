@@ -1,5 +1,5 @@
 ---
-// Modal com as tabelas oficiais de taxas (Ton Black e Ton Mega+), em HTML nativo.
+// Modal com as tabelas oficiais de taxas (Ton TOP e Ton Mega+), em HTML nativo.
 export interface Props {
   variant?: 'light' | 'dark';
   label?: string;
@@ -91,7 +91,7 @@ const mega = {
     </header>
 
     <div class="taxas-tabs" role="tablist">
-      <button type="button" class:list={['taxas-tab', blackFirst && 'is-active']} data-taxas-tab="black" role="tab">Ton Black</button>
+      <button type="button" class:list={['taxas-tab', blackFirst && 'is-active']} data-taxas-tab="black" role="tab">Ton TOP</button>
       <button type="button" class:list={['taxas-tab', !blackFirst && 'is-active']} data-taxas-tab="mega" role="tab">Ton Mega+</button>
     </div>
 
