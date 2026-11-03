@@ -14,6 +14,7 @@ const models = [
     subtitle: 'Autônoma com 3G e Wi-Fi',
     price: '29,65',
     oldPrice: '42,36',
+    badge: '−30% OFF',
     img: '/ai-t2.webp',
     desc: 'Não depende do celular. Chip próprio e Wi-Fi. Comprovante por SMS ou e-mail.',
     for: 'Consultório · Serviço em campo'
@@ -23,8 +24,9 @@ const models = [
     highlight: true,
     name: 'T3',
     subtitle: '3G, Wi-Fi, impressora e teclado',
-    price: '75,60',
-    oldPrice: '108,00',
+    price: '90,30',
+    oldPrice: '391,92',
+    badge: 'Black Friday · −77%',
     img: '/ai-t3.webp',
     desc: 'Tudo da T2, com impressora térmica pra comprovante físico e teclado pra digitar valor rápido. Balcão em geral.',
     for: 'Loja · Restaurante · Balcão'
@@ -33,8 +35,9 @@ const models = [
     tag: 'Top de linha',
     name: 'T3 Smart',
     subtitle: 'Android embarcado e tela grande',
-    price: '134,32',
-    oldPrice: '191,88',
+    price: '132,30',
+    oldPrice: '671,43',
+    badge: 'Black Friday · −80%',
     img: '/ai-t3-smart.webp',
     desc: 'O melhor da linha. Android embarcado, tela ampla, impressora. Interface fluida pra operar rápido.',
     for: 'Loja premium · Fluxo alto'
@@ -98,7 +101,7 @@ const bannerWa = 'https://wa.me/5592984603260?text=' + encodeURIComponent(
                 <span>R$ </span><span>{m.price}</span>
               </div>
               { m.oldPrice && (
-                <span class="inline-block mt-1.5 text-[10px] font-bold uppercase tracking-wide text-ton-deep bg-ton-soft rounded-full px-2 py-0.5">−30% OFF</span>
+                <span class="inline-block mt-1.5 text-[10px] font-bold uppercase tracking-wide text-ton-deep bg-ton-soft rounded-full px-2 py-0.5">{m.badge}</span>
               ) }
             </div>
             <div class="text-right">
