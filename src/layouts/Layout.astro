@@ -86,12 +86,12 @@ const ghRef = GH_REFS[path] ?? 'v8aqbf'; // home (e privacidade/termos)
               gtag('event', 'conversion', Object.assign({ send_to: window.__tonConvLead }, extra || {}));
             } catch (e) {}
           };
-          // Delegação global: pega todos os links wa.me e botões [data-cta] do site de uma vez.
+          // Delegação global: pega todos os links wa.me do site de uma vez. Botão que leva a outra página (ex.: /ton-top) não é lead.
           document.addEventListener('click', function (e) {
             var t = e.target;
             if (!t || !t.closest) return;
             // [data-gh-interno] = link criado pelo formulário/quiz, que já chama tonLead() sozinho
-            if (t.closest('a[href*="wa.me"]:not([data-gh-interno]), [data-cta]')) window.tonLead();
+            if (t.closest('a[href*="wa.me"]:not([data-gh-interno])')) window.tonLead();
           }, true);
         `}></script>
       </>
