@@ -952,7 +952,7 @@ const CFG = {
   ghRef: "c1l2r4",                    // link rastreado "LP Nacional · /maquininha": vai como [REF:] na mensagem do WhatsApp
   pixel: "882829890919527",           // pixel "Parceiros Ton Manaus"
   gtag: "AW-18359105439",
-  convGoogle: "AW-18359105439/BMyzCNSPstscEJ_vprJE", // trocar pela conversão "Pré-checkout" quando for criada
+  convGoogle: "AW-18359105439/gX03CLLtiMAdEJ_vprJE", // "Pré-checkout LP Nacional" (7918991026), criada em 26/11 — antes era a "Lead - WhatsApp"
   /* Cashback de adesão da Ton (devolve a adesão a quem vende R$ 10 mil em 30 dias).
      A última campanha confirmada foi de 24/06 a 30/08/2026. Só ligar (true) com campanha
      ativa confirmada no site da Ton. */
@@ -1056,7 +1056,7 @@ const ORIGEM = (()=>{
 
 /* ---- rastreio ---- */
 function px(n, d){ if (window.fbq) fbq(["Lead","Contact","ViewContent","InitiateCheckout"].includes(n) ? "track" : "trackCustom", n, d || {}); }
-function gConv(){ if (window.gtag && CFG.convGoogle) gtag("event","conversion",{send_to:CFG.convGoogle}); }
+function gConv(valor){ if (window.gtag && CFG.convGoogle) gtag("event","conversion",{send_to:CFG.convGoogle, value:valor||0, currency:"BRL"}); }
 
 /* ---- GyreHub: passo a passo (inicio → respostas → conclusão) ---- */
 const GH = {base:"https://gyrehub.com.br/api/f", sessao:null, pronto:null};
@@ -1245,7 +1245,7 @@ $("form").addEventListener("submit", async e=>{
     + ` · origem: ${origem}` + (ORIGEM.gclid ? " · gclid: " + ORIGEM.gclid : "") + " · foi para o checkout da Ton";
 
   px("Lead",{content_name:m.nome, value:valor, currency:"BRL"});
-  gConv();
+  gConv(valor);
   // espera o GyreHub no máximo 2,5 s: o cliente não pode ficar preso se a API demorar
   await Promise.race([ghEnviar([
     ["Qual maquininha escolheu?", m.nome],
